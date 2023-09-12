@@ -6,37 +6,42 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:44:18 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/09 22:26:51 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/12 15:30:09 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+# include <iostream>
+# include <string>
 class	Contact {
 
 	private:
-
-		char	*_first_name;
-		char	*_last_name;
-		char	*_nickname;
-		char	*_phone_number;
-		char	*_darkest_secret;
+		std::string _first_name;
+		std::string _last_name;
+		std::string _nickname;
+		std::string _phone_number;
+		std::string _darkest_secret;
 
 	public:
-
-		Contact( void );
-		~Contact( void );
+		Contact();
+		~Contact();
 };
 
 class	PhoneBook {
 
-public:
+	public:
+		PhoneBook();
+		~PhoneBook();
+		bool	isExitAsk() const;
+		void	askExit();
 
-	Contact	people[8];
-
-	PhoneBook( void );
-	~PhoneBook( void );
+	private:
+		Contact	_people[8];
+		bool	_exit;
+		int		_nbContact;
+		int		_nextContactSlot;
 };
 
 #endif

@@ -30,6 +30,5 @@ re: fclean
 $(NAME): $(OBJECTS)
 	c++ $(OBJECTS) $(CFLAGS) -o $(NAME)
 
-# $(OBJECTS)%.o: $(SOURCES)%.cpp $(HEADERS)
-$(OBJECTS)%.o: $(SOURCES) $(HEADERS)
+%.o: %.cpp $(HEADERS)
 	c++ $(CFLAGS) -c $< -o $@
