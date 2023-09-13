@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:43:53 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 15:34:36 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 16:07:00 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	main(void)
 	while (!annuaire.isExitAsk()) {
 		std::cout << "\nYou have 3 commands at your disposal : ADD, SEARCH and EXIT" << std::endl;
 		std::cout << "Enter your command : ";
-		std::cin >> command;
-				if (std::cin.fail()) {
-					std::cerr << "\n\nError: std::cin failed" << std::endl;
-					exit(1) ;
-				}
+		std::getline (std::cin, command);
+		if (std::cin.fail()) {
+			std::cerr << "\n\nError: std::cin failed" << std::endl;
+			exit(1) ;
+		}
 		
 		if (command == "ADD")
 			annuaire.addContact();
@@ -35,7 +35,7 @@ int	main(void)
 		else if (command == "EXIT")
 			annuaire.askExit();
 		else
-			std::cout << "Command invalid!" << std::endl;
+			std::cout << "Command '" << command << "' invalid!" << std::endl;
 	}
 	return (0);
 }
