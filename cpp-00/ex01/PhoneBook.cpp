@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:36:44 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 16:37:38 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 18:19:25 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	PhoneBook::askExit() {
 	this->_exit = true;
 }
 
+bool	stringHasPrintable(std::string string)
+{
+	const char	*str = string.c_str();
+	int			i = 0;
+	
+	while (str[i]) {
+		if (isprint(str[i]) && !isspace(str[i]))
+			return true;
+		i++;
+	}
+	return false;
+}
+
 void	PhoneBook::addContact() {
 	std::string	first_name;
 	std::string	last_name;
@@ -40,12 +53,13 @@ void	PhoneBook::addContact() {
 	std::string	darkest_secret;
 	
 	std::cout << "To add a contact, enter all informations (empty field are not allowed)" << std::endl;
-	while (first_name.length() == 0) {
+	while (first_name.length() == 0 || stringHasPrintable(first_name) == false) {
 		std::cout << "First name : ";
 		std::getline (std::cin, first_name);
 				if (std::cin.fail()) {
 					std::cerr << "\n\nError: std::cin failed" << std::endl;
-					exit(1) ;
+					this->askExit();
+					return ;
 				}
 	}
 	while (last_name.length() == 0) {
@@ -53,7 +67,8 @@ void	PhoneBook::addContact() {
 		std::getline (std::cin, last_name);
 				if (std::cin.fail()) {
 					std::cerr << "\n\nError: std::cin failed" << std::endl;
-					exit(1) ;
+					this->askExit();
+					return ;
 				}
 	}
 	while (nickname.length() == 0) {
@@ -61,7 +76,8 @@ void	PhoneBook::addContact() {
 		std::getline (std::cin, nickname);
 				if (std::cin.fail()) {
 					std::cerr << "\n\nError: std::cin failed" << std::endl;
-					exit(1) ;
+					this->askExit();
+					return ;
 				}
 	}
 	while (phone_number.length() == 0) {
@@ -69,7 +85,8 @@ void	PhoneBook::addContact() {
 		std::getline (std::cin, phone_number);
 				if (std::cin.fail()) {
 					std::cerr << "\n\nError: std::cin failed" << std::endl;
-					exit(1) ;
+					this->askExit();
+					return ;
 				}
 	}
 	while (darkest_secret.length() == 0) {
@@ -77,7 +94,8 @@ void	PhoneBook::addContact() {
 		std::getline (std::cin, darkest_secret);
 				if (std::cin.fail()) {
 					std::cerr << "\n\nError: std::cin failed" << std::endl;
-					exit(1) ;
+					this->askExit();
+					return ;
 				}
 	}
 	_people[_nextContactSlot].addInfo(first_name, last_name, nickname, phone_number, darkest_secret);
@@ -89,7 +107,7 @@ void	PhoneBook::addContact() {
 		_nextContactSlot = 0;
 }
 
-void	PhoneBook::searchContact() const {
+void	PhoneBook::searchContact() {
 	std::string	index_string;
 	int			index_int;
 
@@ -112,10 +130,11 @@ void	PhoneBook::searchContact() const {
 
 	do {
 		std::cout << "Enter the contact's index, to show every contact's informations : ";
-		std::cin >> index_string;
+		std::getline (std::cin, index_string);
 		if (std::cin.fail()) {
 			std::cerr << "\n\nError: std::cin failed" << std::endl;
-			exit(1) ;
+			this->askExit();
+			return ;
 		}
 		index_int = std::atoi(index_string.c_str());
 		index_int--;

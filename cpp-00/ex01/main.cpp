@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:43:53 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 16:07:00 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 18:15:39 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ int	main(void)
 
 	std::cout << "\nWelcome to your awesome PhoneBook" << std::endl;
 
-	while (!annuaire.isExitAsk()) {
+	do {
 		std::cout << "\nYou have 3 commands at your disposal : ADD, SEARCH and EXIT" << std::endl;
 		std::cout << "Enter your command : ";
 		std::getline (std::cin, command);
 		if (std::cin.fail()) {
 			std::cerr << "\n\nError: std::cin failed" << std::endl;
-			exit(1) ;
+			annuaire.askExit();
+			continue;
 		}
 		
 		if (command == "ADD")
@@ -36,6 +37,6 @@ int	main(void)
 			annuaire.askExit();
 		else
 			std::cout << "Command '" << command << "' invalid!" << std::endl;
-	}
+	} while (!annuaire.isExitAsk());
 	return (0);
 }
