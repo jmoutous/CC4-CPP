@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:43:53 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/12 16:38:18 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 15:34:36 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int	main(void)
 		std::cout << "\nYou have 3 commands at your disposal : ADD, SEARCH and EXIT" << std::endl;
 		std::cout << "Enter your command : ";
 		std::cin >> command;
+				if (std::cin.fail()) {
+					std::cerr << "\n\nError: std::cin failed" << std::endl;
+					exit(1) ;
+				}
 		
 		if (command == "ADD")
 			annuaire.addContact();

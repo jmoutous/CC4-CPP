@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:36:44 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 15:03:37 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 15:36:10 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,42 @@ void	PhoneBook::addContact() {
 	while (first_name.length() == 0) {
 		std::cout << "First name : ";
 		std::getline (std::cin, first_name);
+				if (std::cin.fail()) {
+					std::cerr << "\n\nError: std::cin failed" << std::endl;
+					exit(1) ;
+				}
 	}
 	while (last_name.length() == 0) {
 		std::cout << "Last name : ";
 		std::getline (std::cin, last_name);
+				if (std::cin.fail()) {
+					std::cerr << "\n\nError: std::cin failed" << std::endl;
+					exit(1) ;
+				}
 	}
 	while (nickname.length() == 0) {
 		std::cout << "Nickname : ";
 		std::getline (std::cin, nickname);
+				if (std::cin.fail()) {
+					std::cerr << "\n\nError: std::cin failed" << std::endl;
+					exit(1) ;
+				}
 	}
 	while (phone_number.length() == 0) {
 		std::cout << "Phone number : ";
 		std::getline (std::cin, phone_number);
+				if (std::cin.fail()) {
+					std::cerr << "\n\nError: std::cin failed" << std::endl;
+					exit(1) ;
+				}
 	}
 	while (darkest_secret.length() == 0) {
 		std::cout << "Darkest secret : ";
 		std::getline (std::cin, darkest_secret);
+				if (std::cin.fail()) {
+					std::cerr << "\n\nError: std::cin failed" << std::endl;
+					exit(1) ;
+				}
 	}
 	_people[_nextContactSlot].addInfo(first_name, last_name, nickname, phone_number, darkest_secret);
 	if (_nbContact < 8) {
@@ -87,12 +107,21 @@ void	PhoneBook::searchContact() const {
 			break ;
 	}
 	std::cout << std::endl;
-	std::cout << "Enter the contact's index, to show every contact's informations : ";
-	std::cin >> index_string;
-	index_int = index_string[0] - 48;
-	if (index_string.length() > 1 || !isdigit(index_string[0]) || index_int >= this->_nbContact) {
-		std::cout << "Invalid index" << std::endl;
+	
+	if (this->_nbContact == 0)
 		return ;
-	}
+
+	do {
+		std::cout << "Enter the contact's index, to show every contact's informations : ";
+		std::cin >> index_string;
+		if (std::cin.fail()) {
+			std::cerr << "\n\nError: std::cin failed" << std::endl;
+			exit(1) ;
+		}
+		index_int = index_string[0] - 48;
+		if (index_string.length() > 1 || !isdigit(index_string[0]) || index_int >= this->_nbContact) {
+			std::cout << "Invalid index" << std::endl;
+		}
+	} while (index_string.length() > 1 || !isdigit(index_string[0]) || index_int >= this->_nbContact);
 	_people[index_int].showContact();
 }

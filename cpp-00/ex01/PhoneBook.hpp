@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:44:18 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 14:13:01 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 15:21:35 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include <iostream>
+# include <stdlib.h>
 # include "Contact.hpp"
 
 class	PhoneBook {
