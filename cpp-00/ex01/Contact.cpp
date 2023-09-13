@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:13:12 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 14:22:55 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 16:40:27 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,43 +31,6 @@ void	Contact::showContact() const {
 	std::cout << "Phone number :\t\t" << this->_phone_number << "\n";
 	std::cout << "Darkest secret :\t" << this->_darkest_secret << std::endl;
 }
-
-// void	Contact::showContactLine(int i) const {
-// 	std::cout << "|     " << i << "    |";
-	
-// 	if (this->_first_name.length() > 10) {
-// 		std::cout << _first_name.substr(0, 9) << ".";
-// 	}
-// 	else {
-// 		for (int space = 0; space + this->_first_name.length() < 10; space++) {
-// 			std::cout << " ";
-// 		}
-// 		std::cout << this->_first_name;
-// 	}
-// 	std::cout << "|";
-
-// 	if (this->_last_name.length() > 10) {
-// 		std::cout << _last_name.substr(0, 9) << ".";
-// 	}
-// 	else {
-// 		for (int space = 0; space + this->_last_name.length() < 10; space++) {
-// 			std::cout << " ";
-// 		}
-// 		std::cout << this->_last_name;
-// 	}
-// 	std::cout << "|";
-
-// 	if (this->_nickname.length() > 10) {
-// 		std::cout << _nickname.substr(0, 9) << ".";
-// 	}
-// 	else {
-// 		for (int space = 0; space + this->_nickname.length() < 10; space++) {
-// 			std::cout << " ";
-// 		}
-// 	std::cout << this->_nickname;
-// 	}
-// 	std::cout << "|\n";
-// }
 
 void	Contact::showContactLine(int i) const {
 	std::cout << "|" << std::setw(10) << i << "|";
