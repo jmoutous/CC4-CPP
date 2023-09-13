@@ -3,11 +3,13 @@ NAME = phonebook
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SOURCES	=	main.cpp		\
+			Contact.cpp		\
 			PhoneBook.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS = PhoneBook.hpp
+HEADERS =	Contact.hpp		\
+			PhoneBook.hpp		
 
 #  ==============================  RULES  ===============================  #
 
