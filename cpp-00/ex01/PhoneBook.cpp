@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:36:44 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 14:50:02 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 15:03:37 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,13 @@ void	PhoneBook::searchContact() const {
 
 	std::cout << "|**********|**********|**********|**********|\n";
 	std::cout << "|   Index  |First Name|Last  Name| Nickname |\n";
+	std::cout << "|**********|**********|**********|**********|\n";
 
 	for (int i = 0; i < 8; i++) {
-		std::cout << "|**********|**********|**********|**********|\n";
-		if (_people[i].isContact())
+		if (_people[i].isContact()) {
 			_people[i].showContactLine(i);
+			std::cout << "|**********|**********|**********|**********|\n";
+		}
 		else
 			break ;
 	}
