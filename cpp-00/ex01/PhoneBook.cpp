@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:36:44 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 15:36:10 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/13 16:37:38 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	PhoneBook::addContact() {
 	std::string	darkest_secret;
 	
 	std::cout << "To add a contact, enter all informations (empty field are not allowed)" << std::endl;
-	std::getline (std::cin, first_name);
 	while (first_name.length() == 0) {
 		std::cout << "First name : ";
 		std::getline (std::cin, first_name);
@@ -100,7 +99,7 @@ void	PhoneBook::searchContact() const {
 
 	for (int i = 0; i < 8; i++) {
 		if (_people[i].isContact()) {
-			_people[i].showContactLine(i);
+			_people[i].showContactLine(i + 1);
 			std::cout << "|**********|**********|**********|**********|\n";
 		}
 		else
@@ -118,10 +117,11 @@ void	PhoneBook::searchContact() const {
 			std::cerr << "\n\nError: std::cin failed" << std::endl;
 			exit(1) ;
 		}
-		index_int = index_string[0] - 48;
-		if (index_string.length() > 1 || !isdigit(index_string[0]) || index_int >= this->_nbContact) {
+		index_int = std::atoi(index_string.c_str());
+		index_int--;
+		if (index_int < 0 || index_int >= this->_nbContact) {
 			std::cout << "Invalid index" << std::endl;
 		}
-	} while (index_string.length() > 1 || !isdigit(index_string[0]) || index_int >= this->_nbContact);
+	} while (index_int < 0 || index_int >= this->_nbContact);
 	_people[index_int].showContact();
 }
