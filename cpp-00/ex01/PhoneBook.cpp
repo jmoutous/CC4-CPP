@@ -6,11 +6,12 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:36:44 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 18:19:25 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/14 16:39:21 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "utils.hpp"
 
 PhoneBook::PhoneBook() : _exit(false), _nbContact(0),  _nextContactSlot(0) {
 
@@ -30,19 +31,6 @@ bool	PhoneBook::isExitAsk() const {
 
 void	PhoneBook::askExit() {
 	this->_exit = true;
-}
-
-bool	stringHasPrintable(std::string string)
-{
-	const char	*str = string.c_str();
-	int			i = 0;
-	
-	while (str[i]) {
-		if (isprint(str[i]) && !isspace(str[i]))
-			return true;
-		i++;
-	}
-	return false;
 }
 
 void	PhoneBook::addContact() {
