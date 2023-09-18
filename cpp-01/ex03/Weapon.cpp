@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:01:42 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/18 14:06:45 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 14:11:20 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Weapon::~Weapon() {
 }
 
 std::string	Weapon::getType() const {
-	return this->type;
+	return this->_type;
 }
 
 void	Weapon::setType( std::string newType ){
-	this->type = newType;
+	this->_type = newType;
 }

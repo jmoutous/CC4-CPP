@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:41:36 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/18 14:06:29 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 14:11:12 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Weapon
 {
 private:
-	std::string	type;
+	std::string	_type;
 
 public:
 	Weapon();
