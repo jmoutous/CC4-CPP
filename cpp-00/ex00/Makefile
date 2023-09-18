@@ -27,5 +27,5 @@ re: fclean
 $(NAME): $(OBJECTS)
 	c++ $(OBJECTS) $(CFLAGS) -o $(NAME)
 
-$(OBJECTS)%.o: $(SOURCES)%.cpp
+%.o: %.cpp
 	c++ $(CFLAGS) -c $< -o $@
