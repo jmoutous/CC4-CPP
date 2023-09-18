@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:41:36 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/18 13:44:47 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 14:06:29 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define WEAPON_HPP
 
 # include <string>
+# include <iostream>
 
 class Weapon
 {
@@ -26,14 +27,5 @@ public:
 	std::string	getType() const;
 	void		setType( std::string newType );
 };
-
-Weapon::Weapon()
-{
-}
-
-Weapon::~Weapon()
-{
-}
-
 
 #endif
