@@ -1,12 +1,10 @@
-NAME = zombie
+NAME = brain
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SOURCES	=	main.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
-
-# HEADERS =	Zombie.hpp  $(HEADERS)
 
 #  ==============================  RULES  ===============================  #
 
