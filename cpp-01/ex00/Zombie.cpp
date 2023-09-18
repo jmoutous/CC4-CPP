@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:10:19 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/15 15:43:33 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 13:08:12 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Zombie::Zombie(std::string	name) {
 }
 
 Zombie::~Zombie() {
-	if (name != "Zombie")
+	if (this->name != "Zombie")
 		std::cout << "Zombie destructor called for " << name << std::endl;
 	else
 		std::cout << "Zombie destructor called" << std::endl;
