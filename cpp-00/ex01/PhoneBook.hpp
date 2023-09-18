@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 13:44:18 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/13 18:19:30 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 11:24:55 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 
 class	PhoneBook {
 
+	private:
+		Contact	_people[8];
+		bool	_exit;
+		int		_nbContact;
+		int		_nextContactSlot;
+
 	public:
 		PhoneBook();
 		~PhoneBook();
@@ -26,12 +32,6 @@ class	PhoneBook {
 		void	askExit();
 		void	addContact();
 		void	searchContact();
-
-	private:
-		Contact	_people[8];
-		bool	_exit;
-		int		_nbContact;
-		int		_nextContactSlot;
 };
 
 #endif
