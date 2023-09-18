@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:09:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/15 16:02:03 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/18 13:00:00 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main ( void ) {
 	for(int i = 0 ; i < 10 ; i++) {
 		horde[i].announce();
 	}
+
+	delete[] horde;
 	
 	return 0;
 }
