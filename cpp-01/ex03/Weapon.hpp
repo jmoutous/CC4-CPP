@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:41:36 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/18 14:11:12 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 14:34:41 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ private:
 
 public:
 	Weapon();
+	Weapon(std::string type);
 	~Weapon();
 	std::string	getType() const;
 	void		setType( std::string newType );

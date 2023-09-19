@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:04:42 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/18 14:40:49 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 16:52:10 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 class HumanA {
 	private:
 		std::string	_name;
-		Weapon		_weapon;
+		Weapon		&_weapon;
 	
 	public:
-		HumanA();
+		HumanA(std::string name, Weapon &weapon);
 		~HumanA();
 		void	attack() const;
 };

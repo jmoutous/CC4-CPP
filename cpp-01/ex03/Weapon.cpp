@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:01:42 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/18 14:11:20 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/19 14:27:44 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Weapon::Weapon() {
 	std::cout << "Weapon constructor called" << std::endl;
+}
+
+Weapon::Weapon(std::string type) : _type(type) {
+	std::cout << "Weapon constructor called for " << _type << std::endl;
 }
 
 Weapon::~Weapon() {
