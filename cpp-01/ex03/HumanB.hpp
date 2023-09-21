@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:53:54 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/19 16:52:15 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/21 14:13:44 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class HumanB {
 	
 	public:
 		HumanB(std::string name);
+		HumanB(std::string name, Weapon *weapon);
 		~HumanB();
 		void	attack() const;
 		void	setWeapon(Weapon &weapon);

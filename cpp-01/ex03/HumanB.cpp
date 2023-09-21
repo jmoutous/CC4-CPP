@@ -6,13 +6,17 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:53:10 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/19 16:54:39 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/21 14:13:36 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
 HumanB::HumanB(std::string name) : _name(name), _weapon(NULL) {
+	std::cout << "HumanB constructor called" << std::endl;
+}
+
+HumanB::HumanB(std::string name, Weapon *weapon) : _name(name), _weapon(weapon) {
 	std::cout << "HumanB constructor called" << std::endl;
 }
 
