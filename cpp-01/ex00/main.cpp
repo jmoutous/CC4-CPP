@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:09:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/15 15:41:56 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/22 17:44:08 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void randomChump( std::string name );
 
 int	main ( void ) {
 	Zombie	z1, z2("Rob");
-	Zombie	*dead(0);
+	Zombie	*dead(NULL);
 
 	dead = newZombie("Julien");
 	randomChump("Loulou");
