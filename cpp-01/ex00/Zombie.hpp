@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:10:22 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/15 15:11:02 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/22 18:11:20 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Zombie
 {
 	private:
-		std::string	name;
+		std::string	_name;
 
 	public:
 		Zombie();
