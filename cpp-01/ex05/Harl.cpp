@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:07:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/22 17:02:03 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/22 20:34:53 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Harl::~Harl(){
 }
 
 void	Harl::complain( std::string level ) const {
-	std::string	message[] = {"debug", "info", "warning", "error"};
+	std::string	message[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void		(Harl::*function[4])(void) const = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	for (int i = 0; i < 4; i++) {
