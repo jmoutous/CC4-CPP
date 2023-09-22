@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:07:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/22 20:33:07 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/22 21:51:09 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ Harl::~Harl(){
 }
 
 void	Harl::complain( std::string level ) const {
-	std::string	message[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void		(Harl::*function[4])(void) const = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	typedef void	(Harl::*function[4])(void) const;
+	function 		f = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string		message[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++) {
 		if(level == message[i]) {
 			while (i < 4) {
-				(this->*(function[i]))();
+				(this->*(f[i]))();
 				i++;
 			}
 			return;
