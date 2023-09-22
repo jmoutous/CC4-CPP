@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:07:17 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/22 16:50:27 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/22 17:07:58 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ int	main(int ac, char** av) {
 	Harl		test;
 
 	test.complain(level);
+	return 0;
 }
