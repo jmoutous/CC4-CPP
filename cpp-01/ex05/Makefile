@@ -1,0 +1,34 @@
+NAME = harl
+
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+
+SOURCES	=	main.cpp	\
+			Harl.cpp
+
+OBJECTS = $(SOURCES:.cpp=.o)
+
+HEADERS =	harl.hpp
+
+#  ==============================  RULES  ===============================  #
+
+all:  
+	$(MAKE) $(NAME)
+
+clean:
+	rm -rf $(OBJECTS)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean
+	$(MAKE) all
+
+.PHONY: all clean fclean re
+
+#  ==============================  COMPILATION  =============================  #
+
+$(NAME): $(OBJECTS)
+	c++ $(OBJECTS) $(CFLAGS) -o $(NAME)
+
+%.o: %.cpp $(HEADERS)
+	c++ $(CFLAGS) -c $< -o $@
