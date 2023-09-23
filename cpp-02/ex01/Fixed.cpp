@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/23 18:00:10 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/23 18:05:54 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ Fixed::Fixed() : _fixed_point(0) {
 Fixed::Fixed( int const i ) {
 	std::cout << "Constructor called for the integer " << i << std::endl;
 	_fixed_point = i << 8;
+}
+
+Fixed::Fixed( float const f ) {
+	
 }
 
 Fixed::Fixed( Fixed const & source) {

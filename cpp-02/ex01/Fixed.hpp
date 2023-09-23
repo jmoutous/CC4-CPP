@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:49 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/23 17:55:13 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/23 18:05:24 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Fixed {
 	public:
 		Fixed();
 		Fixed( int const i );
+		Fixed( float const f );
 		Fixed( Fixed const & source);
 		~Fixed();
 
