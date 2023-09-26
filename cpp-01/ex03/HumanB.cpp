@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:53:10 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/21 14:13:36 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 14:40:10 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	HumanB::attack() const {
 	if (!this->_weapon)
 		std::cout << this->_name << " attacks with their fists" << std::endl;
 	else
-		std::cout << this->_name << " attacks with their "
+		std::cout << this->_name << " attacks with "
 			<< this->_weapon->getType() << std::endl;
 }
 

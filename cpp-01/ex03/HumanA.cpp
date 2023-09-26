@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:07:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/19 16:50:56 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 14:40:20 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ HumanA::~HumanA() {
 }
 
 void	HumanA::attack() const {
-	std::cout << this->_name << " attacks with their "
+	std::cout << this->_name << " attacks with "
 		<< this->_weapon.getType() << std::endl;
 }
