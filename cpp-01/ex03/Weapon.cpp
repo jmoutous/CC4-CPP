@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:01:42 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/19 14:27:44 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 14:37:37 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Weapon::~Weapon() {
 	std::cout << "Weapon destructor called" << std::endl;
 }
 
-std::string	Weapon::getType() const {
+std::string const &	Weapon::getType() const {
 	return this->_type;
 }
 
