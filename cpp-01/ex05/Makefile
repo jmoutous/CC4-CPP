@@ -28,7 +28,7 @@ re: fclean
 #  ==============================  COMPILATION  =============================  #
 
 $(NAME): $(OBJECTS)
-	c++ $(OBJECTS) $(CFLAGS) -o $(NAME)
+	c++ $(CFLAGS) $(OBJECTS)  -o $(NAME)
 
 %.o: %.cpp $(HEADERS)
 	c++ $(CFLAGS) -c $< -o $@

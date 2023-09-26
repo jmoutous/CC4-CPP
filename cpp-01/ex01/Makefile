@@ -5,7 +5,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SOURCES	=	main.cpp		\
 			Zombie.cpp		\
 			newZombie.cpp	\
-			randomChump.cpp
+			randomChump.cpp	\
+			zombieHorde.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
@@ -30,7 +31,7 @@ re: fclean
 #  ==============================  COMPILATION  =============================  #
 
 $(NAME): $(OBJECTS)
-	c++ $(OBJECTS) $(CFLAGS) -o $(NAME)
+	c++ $(CFLAGS) $(OBJECTS)  -o $(NAME)
 
 %.o: %.cpp $(HEADERS)
 	c++ $(CFLAGS) -c $< -o $@
