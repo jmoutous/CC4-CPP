@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:23:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/26 18:17:14 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 18:25:23 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	ft_replace(std::ifstream &infile, char ** av) {
 			tmp += str2;
 			tmp += line.substr(found + str1.length());
 			line = tmp;
-			found = line.find(str1);
+			found = line.find(str1, found + str2.length());
 		}
 
 		outfile << line << '\n';
@@ -64,5 +64,3 @@ int	main(int ac, char **av) {
 	infile.close();
 	return 0;
 }
-
-// ./sed makefiel a aa while infinite
