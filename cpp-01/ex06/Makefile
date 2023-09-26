@@ -1,19 +1,20 @@
 NAME = harlFilter
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++ -std=c++98
+
+CFLAGS = -Wall -Wextra -Werror 
 
 SOURCES	=	main.cpp	\
 			Harl.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	harl.hpp
+HEADERS =	Harl.hpp
 
 #  ==============================  RULES  ===============================  #
 
-all:  
-	$(MAKE) $(NAME)
-
+all:  $(NAME)
+	
 clean:
 	rm -rf $(OBJECTS)
 
@@ -28,7 +29,7 @@ re: fclean
 #  ==============================  COMPILATION  =============================  #
 
 $(NAME): $(OBJECTS)
-	c++ $(OBJECTS) $(CFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 %.o: %.cpp $(HEADERS)
-	c++ $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
