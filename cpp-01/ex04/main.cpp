@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:23:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/26 14:45:21 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 14:52:12 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ static void	ft_replace(std::ifstream &infile, char ** av) {
 	std::ofstream	outfile(outfile_name += ".replace");
 	std::string		line;
 	std::size_t		found;
+
+	if(outfile.fail()) {
+		std::cerr << "Error:\nEnable to open or creat the outfile " << std::endl;
+		return;
+	}
 
 	while (getline(infile, line)) {
 		found = line.find(str1);
@@ -57,6 +62,4 @@ int	main(int ac, char **av){
 	return 0;
 }
 
-// authorise "" en dexieuem sting 
 // ./sed makefiel a aa while infinite
-// protecion explicite if outfile open faile
