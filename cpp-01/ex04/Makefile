@@ -1,6 +1,8 @@
 NAME = mySed
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++ -std=c++98
+
+CFLAGS = -Wall -Wextra -Werror
 
 SOURCES	=	main.cpp
 
@@ -28,7 +30,7 @@ re: fclean
 #  ==============================  COMPILATION  =============================  #
 
 $(NAME): $(OBJECTS)
-	c++ $(CFLAGS) $(OBJECTS)  -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS)  -o $(NAME)
 
 %.o: %.cpp $(HEADERS)
-	c++ $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
