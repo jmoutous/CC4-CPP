@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:09:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/22 18:00:37 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 12:41:04 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void randomChump( std::string name );
 
 int	main ( void ) {
 	Zombie	*horde;
+	int		N;
 
-	horde = zombieHorde(10, "Julien");
+	N = 5;
+	horde = zombieHorde(N, "Julien");
+	if (horde == NULL)
+		return 1;
 
-	std::cout << "Let's try to talk to the fourth zombie" << std::endl;
-	horde[3].announce();
-	std::cout << std::endl;
-	
-	for(int i = 0 ; i < 10 ; i++) {
+	for(int i = 0 ; i < N ; i++) {
 		horde[i].announce();
 	}
 
