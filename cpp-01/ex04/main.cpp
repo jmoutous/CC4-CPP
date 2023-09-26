@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:23:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/22 20:22:11 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 14:45:21 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_replace(std::ifstream &infile, char ** av) {
 }
 
 int	main(int ac, char **av){
-	if (ac != 4 || !av[2][0] || !av[3][0]){
+	if (ac != 4 || !av[2][0]){
 		std::cerr << "Error:\nUsage: <filename> <string1> <string2>\n";
 		std::cerr << "(strings can't be empty)" << std::endl;
 		return 1;
@@ -56,3 +56,7 @@ int	main(int ac, char **av){
 	infile.close();
 	return 0;
 }
+
+// authorise "" en dexieuem sting 
+// ./sed makefiel a aa while infinite
+// protecion explicite if outfile open faile
