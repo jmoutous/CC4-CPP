@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:23:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/26 14:52:12 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 14:56:33 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ static void	ft_replace(std::ifstream &infile, char ** av) {
 	std::string		str1 = av[2];
 	std::string		str2 = av[3];
 	std::string		outfile_name = av[1];
-	std::ofstream	outfile(outfile_name += ".replace");
+
+	outfile_name += ".replace";
+
+	std::ofstream	outfile(outfile_name.c_str());
 	std::string		line;
 	std::size_t		found;
 

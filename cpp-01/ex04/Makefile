@@ -8,8 +8,6 @@ SOURCES	=	main.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	sed.hpp
-
 #  ==============================  RULES  ===============================  #
 
 all:  
@@ -32,5 +30,5 @@ re: fclean
 $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS)  -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
