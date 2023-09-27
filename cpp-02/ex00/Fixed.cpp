@@ -6,13 +6,15 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/23 17:08:48 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/27 12:14:40 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _fixed_point(0) {
+const int	Fixed::_fractionalBits = 8;
+
+Fixed::Fixed() : _rawBits(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -27,7 +29,7 @@ Fixed::~Fixed() {
 
 Fixed &	Fixed::operator=( Fixed const & rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixed_point = rhs.getRawBits();
+	this->_rawBits = rhs.getRawBits();
 
 	return *this;
 }
@@ -35,10 +37,10 @@ Fixed &	Fixed::operator=( Fixed const & rhs) {
 int	Fixed::getRawBits( void ) const {
 	std::cout << "getRawBits called" << std::endl;
 
-	return this->_fixed_point;
+	return this->_rawBits;
 }
 
 void	Fixed::setRawBits( int const raw) {
 	std::cout << "setRawBits called" << std::endl;
-	_fixed_point = raw;
+	_rawBits = raw;
 }

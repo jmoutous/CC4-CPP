@@ -13,8 +13,7 @@ HEADERS =	Fixed.hpp
 
 #  ==============================  RULES  ===============================  #
 
-all:  
-	$(MAKE) $(NAME)
+all: $(NAME)
 
 clean:
 	rm -rf $(OBJECTS)
