@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:49 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/23 18:05:24 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/27 12:14:40 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Fixed {
 		void	setRawBits( int const raw);
 
 	private:
-		static const int	_fractionalBits = 8;
-		int					_fixed_point;
+		static const int	_fractionalBits;
+		int					_rawBits;
 };
 
 std::ostream &	operator<<( std::ostream & o, Fixed const & fixed);
