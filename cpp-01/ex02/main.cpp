@@ -6,13 +6,13 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 13:11:33 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/22 18:05:27 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 18:17:00 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int	main( void ){
+int	main( void ) {
 	std::string	brain = "HI THIS IS BRAIN";
 	std::string	*stringPTR = &brain;
 	std::string	&stringREF = brain;

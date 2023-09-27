@@ -10,8 +10,7 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 #  ==============================  RULES  ===============================  #
 
-all:  
-	$(MAKE) $(NAME)
+all: $(NAME)
 
 clean:
 	rm -rf $(OBJECTS)

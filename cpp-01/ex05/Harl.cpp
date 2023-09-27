@@ -6,17 +6,17 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:07:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/26 13:23:51 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/26 18:16:29 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-Harl::Harl(){
+Harl::Harl() {
 	std::cout << "Harl's default constructor called\n" << std::endl;
 }
 
-Harl::~Harl(){
+Harl::~Harl() {
 	std::cout << "\nHarl's default destructor called" << std::endl;
 }
 
