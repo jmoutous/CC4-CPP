@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:49 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/28 15:12:17 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/28 15:27:01 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Fixed {
 
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw);
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
 
 	private:
 		static const int	_fractionalBits;

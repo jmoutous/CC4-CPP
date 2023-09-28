@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/28 15:14:53 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/28 15:32:23 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ int	Fixed::getRawBits( void ) const {
 void	Fixed::setRawBits( int const raw) {
 	std::cout << "setRawBits called" << std::endl;
 	this->_rawBits = raw;
+}
+
+float	Fixed::toFloat( void ) const {
+	return 	(static_cast<float>(this->_rawBits) / (1 << _fractionalBits));
+}
+
+int		Fixed::toInt( void ) const {
+	return (this->_rawBits >> _fractionalBits);
 }
 
 std::ostream &	operator<<( std::ostream & o, Fixed const & fixed) {
