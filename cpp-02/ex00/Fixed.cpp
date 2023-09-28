@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/27 12:14:40 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/28 13:05:55 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int	Fixed::getRawBits( void ) const {
 
 void	Fixed::setRawBits( int const raw) {
 	std::cout << "setRawBits called" << std::endl;
-	_rawBits = raw;
+	this->_rawBits = raw;
 }
