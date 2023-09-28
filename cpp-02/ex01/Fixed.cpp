@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/27 12:39:41 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/28 15:14:53 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Fixed::Fixed( int const i ) {
 }
 
 Fixed::Fixed( float const f ) {
-	
+	std::cout << "Constructor called for the float " << f << std::endl;
+	this->_rawBits = roundf(f * (1 << _fractionalBits));
 }
 
 Fixed::Fixed( Fixed const & source) {
@@ -53,7 +54,7 @@ void	Fixed::setRawBits( int const raw) {
 }
 
 std::ostream &	operator<<( std::ostream & o, Fixed const & fixed) {
-	o << (fixed.getRawBits() >> _fractionalBits);
+	o << fixed.getRawBits();
 
 	return o;
 }
