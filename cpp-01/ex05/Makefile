@@ -9,7 +9,7 @@ SOURCES	=	main.cpp	\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	harl.hpp
+HEADERS =	Harl.hpp
 
 #  ==============================  RULES  ===============================  #
 

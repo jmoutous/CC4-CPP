@@ -6,11 +6,11 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:07:35 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/26 13:23:49 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/27 14:17:27 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL__HPP
+#ifndef HARL_HPP
 # define HARL_HPP
 
 # include <iostream>
