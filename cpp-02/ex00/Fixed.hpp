@@ -6,12 +6,12 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:49 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/27 12:14:40 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/09/28 13:02:26 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
-# define FIEXD_HPP
+# define FIXED_HPP
 
 # include <iostream>
 
