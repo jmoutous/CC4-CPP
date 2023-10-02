@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/09/28 15:42:42 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 16:18:36 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed( float const f ) {
 	this->_rawBits = roundf(f * (1 << _fractionalBits));
 }
 
-Fixed::Fixed( Fixed const & source) {
+Fixed::Fixed( const Fixed & source) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = source;
 }
@@ -37,7 +37,7 @@ Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed &	Fixed::operator=( Fixed const & rhs) {
+Fixed &	Fixed::operator=( const Fixed & rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_rawBits = rhs.getRawBits();
 
@@ -61,7 +61,7 @@ int		Fixed::toInt( void ) const {
 	return (this->_rawBits >> _fractionalBits);
 }
 
-std::ostream &	operator<<( std::ostream & o, Fixed const & fixed) {
+std::ostream &	operator<<( std::ostream & o, const Fixed & fixed) {
 	o << fixed.toFloat();
 
 	return o;
