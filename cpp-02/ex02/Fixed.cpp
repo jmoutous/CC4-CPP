@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 16:03:09 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 16:09:43 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,3 +168,20 @@ Fixed &	Fixed::max( Fixed & a, Fixed & b ) {
 	else
 		return (b);
 }
+
+const Fixed &	Fixed::min( Fixed const & a, Fixed const & b ) {
+	if(a.getRawBits() < b.getRawBits()) {
+		return (a);
+	}
+	else
+		return (b);
+}
+
+const Fixed &	Fixed::max( Fixed const & a, Fixed const & b ) {
+	if(a.getRawBits() > b.getRawBits()) {
+		return (a);
+	}
+	else
+		return (b);
+}
+
