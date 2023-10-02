@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:54 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 16:15:17 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 16:21:02 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	main(void) {
 	// 	std::cout << std::endl;
 	// }
 	// {
-	// 	const Fixed	a(4.2f);
-	// 	const Fixed	b(2.1f);
+	// 	Fixed const	a(4.2f);
+	// 	Fixed const	b(2.1f);
 
 	// 	std::cout << "const a = " << a << std::endl;
 	// 	std::cout << "const b = " << b << std::endl;
@@ -59,7 +59,7 @@ int	main(void) {
 	// }
 	{
 		Fixed		a;
-		const Fixed	b( Fixed( 5.05f ) * Fixed( 2 ));
+		Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ));
 
 		std::cout << a << std::endl;
 		std::cout << ++a << std::endl;
