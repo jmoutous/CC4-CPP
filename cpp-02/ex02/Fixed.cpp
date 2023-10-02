@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 15:01:51 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 16:03:09 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,40 @@ Fixed &	Fixed::operator=( Fixed const & rhs) {
 	return (*this);
 }
 
-bool	Fixed::operator>( Fixed const & rhs) {
-	return (this->_rawBits > rhs.getRawBits());
+bool	Fixed::operator>( Fixed const & rhs) const {
+	if(this->_rawBits > rhs.getRawBits())
+		return true;
+	return false;
 }
 
-bool	Fixed::operator<( Fixed const & rhs) {
-	return (this->_rawBits < rhs.getRawBits());
+bool	Fixed::operator<( Fixed const & rhs) const {
+	if (this->_rawBits < rhs.getRawBits())
+		return true;
+	return false;
 }
 
-bool	Fixed::operator>=( Fixed const & rhs) {
-	return (this->_rawBits >= rhs.getRawBits());
+bool	Fixed::operator>=( Fixed const & rhs) const {
+	if(this->_rawBits >= rhs.getRawBits())
+		return true;
+	return false;
 }
 
-bool	Fixed::operator<=( Fixed const & rhs) {
-	return (this->_rawBits <= rhs.getRawBits());
+bool	Fixed::operator<=( Fixed const & rhs) const {
+	if(this->_rawBits <= rhs.getRawBits())
+		return true;
+	return false;
 }
 
-bool	Fixed::operator==( Fixed const & rhs) {
-	return (this->_rawBits == rhs.getRawBits());
+bool	Fixed::operator==( Fixed const & rhs) const {
+	if(this->_rawBits == rhs.getRawBits())
+		return true;
+	return false;
 }
 
-bool	Fixed::operator!=( Fixed const & rhs) {
-	return (this->_rawBits != rhs.getRawBits());
+bool	Fixed::operator!=( Fixed const & rhs) const {
+	if(this->_rawBits != rhs.getRawBits())
+		return true;
+	return false;
 }
 
 Fixed	Fixed::operator+( Fixed const & rhs) {
