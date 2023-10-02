@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:26:59 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 18:05:22 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 18:54:21 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ Point & Point::operator=( Point const & ) {
 	return (*this);
 };
 
-Fixed	Point::getX( void ) const {
-	return (this->_x);
+float	Point::getX( void ) const {
+	return (this->_x.toFloat());
 }
 
-Fixed	Point::getY( void ) const {
-	return (this->_y);
+float	Point::getY( void ) const {
+	return (this->_y.toFloat());
 }
