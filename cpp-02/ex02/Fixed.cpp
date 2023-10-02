@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 13:33:47 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 14:25:46 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,19 @@ Fixed	Fixed::operator/( Fixed const & rhs) {
 	Fixed	res(this->toFloat() / rhs.toFloat());
 	
 	return (res);
+}
+
+Fixed &	Fixed::operator++( void ) {
+	this->setRawBits(this->_rawBits + 1);
+	
+	return (*this);
+}
+
+Fixed	Fixed::operator++( int ) {
+	Fixed result(*this);
+
+	++(*this);
+	return (result);
 }
 
 int	Fixed::getRawBits( void ) const {
