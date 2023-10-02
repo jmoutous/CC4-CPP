@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:27:07 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 17:04:33 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 18:05:14 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Point {
 	public:
 		Point();
 		Point( float const x, float const y);
-		// Point( Point const & source );
+		Point( Point const & source );
 		~Point();
 
-		// Point & operator=( Point const & rhs );
+		Point & operator=( Point const & );
 
 		Fixed	getX( void ) const;
 		Fixed	getY( void ) const;
