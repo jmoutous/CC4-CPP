@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 12:24:49 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 13:33:47 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Fixed &	Fixed::operator=( Fixed const & rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_rawBits = rhs.getRawBits();
 
-	return *this;
+	return (*this);
 }
 
 bool	Fixed::operator>( Fixed const & rhs) {
@@ -68,6 +68,30 @@ bool	Fixed::operator!=( Fixed const & rhs) {
 	return (this->_rawBits != rhs.getRawBits());
 }
 
+Fixed	Fixed::operator+( Fixed const & rhs) {
+	Fixed	res(this->toFloat() + rhs.toFloat());
+	
+	return (res);
+}
+
+Fixed	Fixed::operator-( Fixed const & rhs) {
+	Fixed	res(this->toFloat() - rhs.toFloat());
+	
+	return (res);
+}
+
+Fixed	Fixed::operator*( Fixed const & rhs) {
+	Fixed	res(this->toFloat() * rhs.toFloat());
+	
+	return (res);
+}
+
+Fixed	Fixed::operator/( Fixed const & rhs) {
+	Fixed	res(this->toFloat() / rhs.toFloat());
+	
+	return (res);
+}
+
 int	Fixed::getRawBits( void ) const {
 	return this->_rawBits;
 }
@@ -88,5 +112,5 @@ int		Fixed::toInt( void ) const {
 std::ostream &	operator<<( std::ostream & o, Fixed const & fixed) {
 	o << fixed.toFloat();
 
-	return o;
+	return (o);
 }
