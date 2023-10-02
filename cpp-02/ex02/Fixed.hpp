@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:49 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 16:09:05 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 16:14:09 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@ class Fixed {
 		Fixed();
 		Fixed( int const i );
 		Fixed( float const f );
-		Fixed( Fixed const & source);
+		Fixed( const Fixed & source);
 		~Fixed();
 
-		Fixed &	operator=( Fixed const & rhs);
-		bool	operator>( Fixed const & rhs) const;
-		bool	operator<( Fixed const & rhs) const;
-		bool	operator>=( Fixed const & rhs) const;
-		bool	operator<=( Fixed const & rhs) const;
-		bool	operator==( Fixed const & rhs) const;
-		bool	operator!=( Fixed const & rhs) const;
+		Fixed &	operator=( const Fixed & rhs);
+		bool	operator>( const Fixed & rhs) const;
+		bool	operator<( const Fixed & rhs) const;
+		bool	operator>=( const Fixed & rhs) const;
+		bool	operator<=( const Fixed & rhs) const;
+		bool	operator==( const Fixed & rhs) const;
+		bool	operator!=( const Fixed & rhs) const;
 
-		Fixed	operator+( Fixed const & rhs); 
-		Fixed	operator-( Fixed const & rhs);
-		Fixed	operator*( Fixed const & rhs);
-		Fixed	operator/( Fixed const & rhs);
+		Fixed	operator+( const Fixed & rhs); 
+		Fixed	operator-( const Fixed & rhs);
+		Fixed	operator*( const Fixed & rhs);
+		Fixed	operator/( const Fixed & rhs);
 		Fixed &	operator++( void );
 		Fixed	operator++(int);
 		Fixed &	operator--( void );
@@ -48,14 +48,14 @@ class Fixed {
 		
 		static Fixed &			min( Fixed & a, Fixed & b );
 		static Fixed &			max( Fixed & a, Fixed & b );
-		static const Fixed &	min( Fixed const & a, Fixed const & b );
-		static const Fixed &	max( Fixed const & a, Fixed const & b );
+		static const Fixed &	min( const Fixed & a, const Fixed & b );
+		static const Fixed &	max( const Fixed & a, const Fixed & b );
 
 	private:
 		static const int	_fractionalBits;
 		int					_rawBits;
 };
 
-std::ostream &	operator<<( std::ostream & o, Fixed const & fixed);
+std::ostream &	operator<<( std::ostream & o, const Fixed & fixed);
 
 #endif

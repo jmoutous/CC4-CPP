@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:54 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 16:11:55 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 16:15:17 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(void) {
 	// 	std::cout << "a = " << a << std::endl;
 	// 	std::cout << "a = " << a++ << std::endl;
 	// 	std::cout << "a = " << a << std::endl;
+
+	// 	std::cout << std::endl;
 	// }
 	// {
 	// 	Fixed a(4.2f);
@@ -30,6 +32,8 @@ int	main(void) {
 	// 	std::cout << "a = " << a << std::endl;
 	// 	std::cout << "a = " << a-- << std::endl;
 	// 	std::cout << "a = " << a << std::endl;
+		
+	// 	std::cout << std::endl;
 	// }
 	// {
 	// 	Fixed	a(4.2f);
@@ -39,19 +43,23 @@ int	main(void) {
 	// 	std::cout << "b = " << b << std::endl;
 	// 	std::cout << "min(a, b) = " << Fixed::min(a, b) << std::endl;
 	// 	std::cout << "max(a, b) = " << Fixed::max(a, b) << std::endl;
+		
+	// 	std::cout << std::endl;
 	// }
 	// {
-	// 	Fixed const	a(4.2f);
-	// 	Fixed const	b(2.1f);
+	// 	const Fixed	a(4.2f);
+	// 	const Fixed	b(2.1f);
 
 	// 	std::cout << "const a = " << a << std::endl;
 	// 	std::cout << "const b = " << b << std::endl;
 	// 	std::cout << "min(a, b) = " << Fixed::min(a, b) << std::endl;
 	// 	std::cout << "max(a, b) = " << Fixed::max(a, b) << std::endl;
+		
+	// 	std::cout << std::endl;
 	// }
 	{
 		Fixed		a;
-		Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ));
+		const Fixed	b( Fixed( 5.05f ) * Fixed( 2 ));
 
 		std::cout << a << std::endl;
 		std::cout << ++a << std::endl;
