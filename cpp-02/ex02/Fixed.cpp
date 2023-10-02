@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 14:59:31 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/02 15:01:51 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,4 +139,20 @@ std::ostream &	operator<<( std::ostream & o, Fixed const & fixed) {
 	o << fixed.toFloat();
 
 	return (o);
+}
+
+Fixed &	Fixed::min( Fixed & a, Fixed & b ) {
+	if(a.getRawBits() < b.getRawBits()) {
+		return (a);
+	}
+	else
+		return (b);
+}
+
+Fixed &	Fixed::max( Fixed & a, Fixed & b ) {
+	if(a.getRawBits() > b.getRawBits()) {
+		return (a);
+	}
+	else
+		return (b);
 }
