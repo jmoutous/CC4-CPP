@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 16:25:32 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 19:23:03 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/03 13:51:52 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	orientation(Point const point, Point const a, Point const b) {
 	cross_product = ((point.getX() - a.getX()) * (point.getY() - b.getY()))
 					- ((point.getY() - a.getY()) * (point.getX() - b.getX()));
 
-	if( cross_product > 0)
+	if( cross_product >= 0)
 		return (1);
 	else
 		return (0);
