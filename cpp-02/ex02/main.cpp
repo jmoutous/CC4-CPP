@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:54 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 16:21:02 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/03 14:05:09 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void) {
 	// {
-	// 	Fixed a(4.2f);
+	// 	Fixed a(4.5f);
 		
 	// 	std::cout << "a = " << a << std::endl;
 	// 	std::cout << "a = " << ++a << std::endl;
@@ -25,7 +25,7 @@ int	main(void) {
 	// 	std::cout << std::endl;
 	// }
 	// {
-	// 	Fixed a(4.2f);
+	// 	Fixed a(4.5f);
 		
 	// 	std::cout << "a = " << a << std::endl;
 	// 	std::cout << "a = " << --a << std::endl;
@@ -37,10 +37,46 @@ int	main(void) {
 	// }
 	// {
 	// 	Fixed	a(4.2f);
-	// 	Fixed	b(2.1f);
+	// 	Fixed	b(4.2f);
 
 	// 	std::cout << "a = " << a << std::endl;
 	// 	std::cout << "b = " << b << std::endl;
+
+	// 	std::cout << "a + b = " << a + b << std::endl;
+	// 	std::cout << "a - b = " << a - b << std::endl;
+	// 	std::cout << "a * b = " << a * b << std::endl;
+	// 	std::cout << "a / b = " << a / b << std::endl;
+	// 	std::cout << "a < b = " << (a < b) << std::endl;
+	// 	std::cout << "a > b = " << (a > b) << std::endl;
+	// 	std::cout << "a >= b = " << (a >= b) << std::endl;
+	// 	std::cout << "a <= b = " << (a <= b) << std::endl;
+	// 	std::cout << "a == b = " << (a == b) << std::endl;
+	// 	std::cout << "a != b = " << (a != b) << std::endl;
+	
+	// }
+	// {
+	// 	Fixed	a(4.2f);
+	// 	Fixed	b(4.1f);
+
+	// 	std::cout << "a = " << a << std::endl;
+	// 	std::cout << "b = " << b << std::endl;
+
+	// 	std::cout << "a + b = " << a + b << std::endl;
+	// 	std::cout << "a - b = " << a - b << std::endl;
+	// 	std::cout << "a * b = " << a * b << std::endl;
+	// 	std::cout << "a / b = " << a / b << std::endl;
+	// 	std::cout << "a < b = " << (a < b) << std::endl;
+	// 	std::cout << "a > b = " << (a > b) << std::endl;
+	// 	std::cout << "a >= b = " << (a >= b) << std::endl;
+	// 	std::cout << "a <= b = " << (a <= b) << std::endl;
+	// 	std::cout << "a == b = " << (a == b) << std::endl;
+	// 	std::cout << "a != b = " << (a != b) << std::endl;
+	
+	// }
+	// {
+	// 	Fixed	a(4.2f);
+	// 	Fixed	b(4.2f);
+
 	// 	std::cout << "min(a, b) = " << Fixed::min(a, b) << std::endl;
 	// 	std::cout << "max(a, b) = " << Fixed::max(a, b) << std::endl;
 		
