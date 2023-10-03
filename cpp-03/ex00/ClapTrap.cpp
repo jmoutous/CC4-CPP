@@ -6,27 +6,27 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:33 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/03 13:15:28 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/03 14:43:59 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : _name("NoName"), _health(10), _energy(10), _attack(0) {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 };
 
 ClapTrap::ClapTrap( std::string name ) : _name(name), _health(10), _energy(10), _attack(0) {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor called for the ClapTrap " << name << std::endl;
 };
 
 ClapTrap::ClapTrap( ClapTrap const & source ) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called on " << source._name << std::endl;
 	*this = source;
 };
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called for " << this->_name << std::endl;
 };
 
 ClapTrap & ClapTrap::operator=( ClapTrap const & rhs ) {
