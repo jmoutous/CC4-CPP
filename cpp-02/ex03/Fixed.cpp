@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 22:10:45 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/02 16:14:07 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/03 13:58:47 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ Fixed::~Fixed() {
 
 Fixed &	Fixed::operator=( const Fixed & rhs) {
 	// std::cout << "Copy assignment operator called" << std::endl;
-	this->_rawBits = rhs.getRawBits();
+	if (this != &rhs)
+		this->_rawBits = rhs.getRawBits();
 
 	return (*this);
 }
