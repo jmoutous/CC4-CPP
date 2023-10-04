@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:37 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/03 13:07:48 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 14:54:28 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class ClapTrap {
 		void 		attack( const std::string& target );
 		void 		takeDamage( unsigned int amount );
 		void 		beRepaired( unsigned int amount );
+		std::string	getName( void ) const;
 
 	private:
 		std::string	_name;

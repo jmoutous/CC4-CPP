@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 14:24:52 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 14:56:24 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 #include "ScavTrap.hpp"
 
 int	main( void ) {
-	// {
-	// 	ScavTrap	a("Julien");
-	// 	ScavTrap	b(a);
-	// 	ScavTrap	c;
+	{
+		ScavTrap	a("Julien");
+		ScavTrap	b(a);
+		ScavTrap	c;
 
-	// 	c = a;
-	// }
-	// {
-	// 	ScavTrap	a("Julien");
-
-	// 	a.showStatus();
-	// }
+		c = a;
+	}
 	{
 		ScavTrap	a("Julien");
 
-		a.guardGate();
+		a.showStatus();
 	}
+	// {
+	// 	ScavTrap	a("Julien");
+
+	// 	a.guardGate();
+	// }
 	return (0);
 }

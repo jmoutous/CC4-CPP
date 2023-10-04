@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:11:04 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 14:24:34 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 14:56:56 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
 };
 
 ScavTrap::ScavTrap( ScavTrap const & source ) : ClapTrap( source ) {
-	std::cout << "ScavTrap's copy constructor called" << std::endl;
+	std::cout << "ScavTrap's copy constructor called on " << source.getName() << std::endl;
 };
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ScavTrap's destructor called" << std::endl;
+	std::cout << "ScavTrap's destructor called for " << this->getName() << std::endl;
 };
 
 ScavTrap & ScavTrap::operator=( ScavTrap const & rhs ) {
 	if(&rhs == this)
 		return (*this);
 	
-	std::cout << "ScavTrap's operator= called" << std::endl;
+	std::cout << "ScavTrap's operator= called on " << rhs.getName() << std::endl;
 	this->ClapTrap::operator=(rhs);
 
 	return (*this);
 };
 
 void	ScavTrap::guardGate( void ) {
-	std::cout << "ScavTrap is now in Gate kepper mode!" << std::endl;
+	std::cout << "ScavTrap" << this->getName() << "is now in Gate kepper mode!" << std::endl;
 }
