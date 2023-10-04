@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:09:54 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 16:04:34 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 17:14:13 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ FragTrap & FragTrap::operator=( FragTrap const & rhs ) {
 		return (*this);
 	
 	std::cout << "FragTrap's operator= called on " << rhs.getName() << std::endl;
-	this->ClapTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 
 	return (*this);
 };
