@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:33 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/03 14:43:59 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 14:02:20 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ ClapTrap::~ClapTrap() {
 };
 
 ClapTrap & ClapTrap::operator=( ClapTrap const & rhs ) {
-	std::cout << "Operator= called" << std::endl;
+	if(&rhs == this)
+		return (*this);
+	std::cout << "ClapTrap's operator= called" << std::endl;
 	this->_name = rhs._name;
 	this->_health = rhs._health;
 	this->_energy = rhs._energy;
