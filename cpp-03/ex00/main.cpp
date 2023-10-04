@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/03 13:15:51 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 13:08:24 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ int	main( void ) {
 		b.showStatus();
 
 		a.attack("Sauron");
+		a.showStatus();
+
 		b.takeDamage(9);
-		
+
+		b.showStatus();
+
 		b.beRepaired(1);
 		b.beRepaired(1);
 		b.beRepaired(1);
@@ -42,7 +46,6 @@ int	main( void ) {
 
 		b.takeDamage(7); 
 		
-		a.showStatus();
 		b.showStatus();
 		
 		b.beRepaired(1);
