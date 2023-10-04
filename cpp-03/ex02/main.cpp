@@ -6,33 +6,40 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 15:07:24 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 16:04:11 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main( void ) {
 	// {
-	// 	ScavTrap	a("Julien");
+	// 	ClapTrap	a("Moutous");
+	// 	ScavTrap	b("Julien");
+	// 	FragTrap	c("Jmoutous");
+
+	// 	a.showStatus();
+	// 	b.showStatus();
+	// 	c.showStatus();
+
 	// }
 	// {
-	// 	ScavTrap	a("Julien");
-	// 	ScavTrap	b(a);
-	// 	ScavTrap	c;
+	// 	FragTrap	a("Julien");
+	// 	FragTrap	b(a);
+	// 	FragTrap	c;
 
 	// 	c = a;
+
+	// 	a.showStatus();
+	// 	b.showStatus();
+	// 	c.showStatus();
 	// }
 	{
-		ScavTrap	a("Julien");
+		FragTrap	a("Julien");
 
-		a.showStatus();
+		a.highFivesGuys();
 	}
-	// {
-	// 	ScavTrap	a("Julien");
-
-	// 	a.guardGate();
-	// }
 	return (0);
 }

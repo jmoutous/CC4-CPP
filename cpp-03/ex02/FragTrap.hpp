@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 15:09:53 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 15:17:32 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 16:01:58 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class FragTrap : public ClapTrap {
 
 		FragTrap & operator=( FragTrap const & rhs );
 
+		void	highFivesGuys( void );
 };
 
 #endif
