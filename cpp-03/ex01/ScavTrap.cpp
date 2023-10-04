@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:11:04 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 15:07:10 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 16:04:54 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	ScavTrap::showStatus( void ) {
 }
 
 void	ScavTrap::guardGate( void ) {
-	std::cout << "ScavTrap" << this->getName() << "is now in Gate kepper mode!" << std::endl;
+	std::cout << "ScavTrap " << this->getName() << " is now in Gate kepper mode!" << std::endl;
 }
