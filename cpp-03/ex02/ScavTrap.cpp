@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:11:04 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 16:04:59 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 17:15:53 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ScavTrap & ScavTrap::operator=( ScavTrap const & rhs ) {
 		return (*this);
 	
 	std::cout << "ScavTrap's operator= called on " << rhs.getName() << std::endl;
-	this->ClapTrap::operator=(rhs);
+	ClapTrap::operator=(rhs);
 
 	return (*this);
 };
