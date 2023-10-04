@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:33 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 15:04:41 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/04 15:34:08 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,21 @@ int	ClapTrap::getEnergy( void ) const {
 
 int	ClapTrap::getAttack( void ) const {
 	return (this->_attack);
+}
+
+void	ClapTrap::setName( std::string name ) {
+	this->_name = name;
+}
+
+void	ClapTrap::setHealth( int health ) {
+	this->_health = health;
+}
+
+void	ClapTrap::setEnergy( int energy ) {
+	this->_energy = energy;
+}
+
+void	ClapTrap::setAttack( int attack ) {
+	this->_attack = attack;
 }
 
