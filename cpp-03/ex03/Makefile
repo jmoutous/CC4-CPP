@@ -7,13 +7,15 @@ CFLAGS = -Wall -Wextra -Werror
 SOURCES	=	main.cpp		\
 			ClapTrap.cpp	\
 			ScavTrap.cpp	\
-			FragTrap.cpp
+			FragTrap.cpp	\
+			DiamondTrap.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
 HEADERS =	ClapTrap.hpp	\
 			ScavTrap.hpp	\
-			FragTrap.hpp
+			FragTrap.hpp	\
+			DiamondTrap.hpp
 
 #  ==============================  RULES  ===============================  #
 
