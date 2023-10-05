@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 15:07:24 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 13:11:06 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,27 @@ int	main( void ) {
 	// 	ScavTrap	c;
 
 	// 	c = a;
+
+	// 	a.showStatus();
+	// 	b.showStatus();
+	// 	c.showStatus();
+	// }
+	// {
+	// 	ClapTrap	a("Jmoutous");
+	// 	ScavTrap	b("Julien");
+
+	// 	a.showStatus();
+	// 	b.showStatus();
 	// }
 	{
 		ScavTrap	a("Julien");
 
-		a.showStatus();
-	}
-	// {
-	// 	ScavTrap	a("Julien");
+		std::cout << std::endl;
 
-	// 	a.guardGate();
-	// }
+		a.attack("the enemy");
+		a.guardGate();
+	
+		std::cout << std::endl;
+	}
 	return (0);
 }
