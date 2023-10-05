@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:33 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/05 13:01:21 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 14:54:40 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ClapTrap::showStatus( void ) {
 
 void	ClapTrap::attack( const std::string& target ) {
 	if(this->_health <= 0){
-		std::cout << "ClapTrap " << this->_name << " is permanently disable and can't attack!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " is permanently disabled and can't attack!" << std::endl;
 		return ;
 	}
 
@@ -71,14 +71,14 @@ void	ClapTrap::takeDamage( unsigned int amount ) {
 	
 	if (this->_health <= 0) {
 		this->_health = 0;
-		std::cout << " and are permanently disable";
+		std::cout << " and are permanently disabled";
 	}
 	std::cout << "!" << std::endl;
 }	
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
 	if(this->_health <= 0){
-		std::cout << "ClapTrap " << this->_name << " is permanently disable and can't repair itself!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " is permanently disabled and can't repair itself!" << std::endl;
 		return ;
 	}
 

@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:11:04 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/05 13:13:52 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 14:54:40 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ ScavTrap & ScavTrap::operator=( ScavTrap const & rhs ) {
 
 void	ScavTrap::attack( const std::string& target ) {
 	if(this->_health <= 0){
-		std::cout << "ScavTrap " << this->_name << " is permanently disable and can't attack!" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is permanently disabled and can't attack!" << std::endl;
 		return ;
 	}
 
