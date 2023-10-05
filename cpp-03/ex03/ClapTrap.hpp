@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:37 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 15:20:52 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 12:44:08 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class ClapTrap {
 		void		setEnergy( int energy );
 		void		setAttack( int attack );
 
-	private:
+	protected:
 		std::string	_name;
 		int			_health;
 		int			_energy;
