@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:11:00 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 16:53:12 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 14:21:06 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
 		DiamondTrap & operator=( DiamondTrap const & rhs );
 
-		void 	attack( const std::string& target );
 		void	whoAmI( void );
 
 	private:
