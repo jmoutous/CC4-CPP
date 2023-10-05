@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 17:09:33 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 14:11:36 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@
 #include "DiamondTrap.hpp"
 
 int	main( void ) {
-	// {
-	// 	DiamondTrap	a("Julien");
-
-	// 	std::cout << std::endl;
-
-	// 	a.whoAmI();
-
-	// 	std::cout << std::endl;
-	// }
 	// {
 	// 	ClapTrap	a("Moutous");
 	// 	ScavTrap	b("Julien");
@@ -36,16 +27,27 @@ int	main( void ) {
 	// 	c.showStatus();
 	// 	d.showStatus();
 	// }
+	// {
+	// 	DiamondTrap a("Julien");
+	// 	DiamondTrap	b(a);
+	// 	DiamondTrap	c;
+
+	// 	c = a;
+
+	// 	a.showStatus();
+	// 	b.showStatus();
+	// 	c.showStatus();
+	// }
 	{
-		DiamondTrap a("Julien");
-		DiamondTrap	b(a);
-		DiamondTrap	c;
+		DiamondTrap	a("Julien");
 
-		c = a;
+		std::cout << std::endl;
 
+		a.whoAmI();
 		a.showStatus();
-		b.showStatus();
-		c.showStatus();
+		a.attack("the enemy");
+
+		std::cout << std::endl;
 	}
 	return (0);
 }
