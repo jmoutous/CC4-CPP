@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/05 13:11:06 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 14:47:12 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main( void ) {
 		std::cout << std::endl;
 
 		a.attack("the enemy");
+		a.guardGate();
+		a.guardGate();
 		a.guardGate();
 	
 		std::cout << std::endl;

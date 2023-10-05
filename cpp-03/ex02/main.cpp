@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/05 13:55:43 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 14:48:58 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main( void ) {
 		FragTrap	a("Julien");
 
 		a.highFivesGuys();
+		a.attack("loulou");
 	}
 	return (0);
 }
