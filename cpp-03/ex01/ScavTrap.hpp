@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:11:00 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 15:05:32 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 13:08:28 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap {
 
 		ScavTrap & operator=( ScavTrap const & rhs );
 
+		void	attack( const std::string& target );
 		void	showStatus( void );
 		void	guardGate( void );
 
