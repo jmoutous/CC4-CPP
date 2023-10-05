@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:10:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/04 16:04:11 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/05 13:55:43 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ int	main( void ) {
 	// 	b.showStatus();
 	// 	c.showStatus();
 
+	// }
+	// {
+	// 	FragTrap	a("Julien");
+
+	// 	std::cout << std::endl;
+		
+	// 	FragTrap	b(a);
+
+	// 	std::cout << std::endl;
+		
+	// 	FragTrap	c;
+
+	// 	c = a;
+		
+	// 	std::cout << std::endl;
 	// }
 	// {
 	// 	FragTrap	a("Julien");
