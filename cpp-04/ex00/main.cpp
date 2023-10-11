@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:14 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/10 14:32:32 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/11 13:40:09 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,35 @@ int	main( void ) {
 	// 	b.makeSound();
 	// 	std::cout << std::endl;
 	// }
-	// {
-	// 	const Animal* meta = new Animal();
-	// 	const Animal* j = new Dog();
-	// 	const Animal* i = new Cat();
 
-	// 	std::cout << std::endl;
+	std::cout << "\n===== Animal's test =====\n"<< std::endl;
+
+	{
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+
+		std::cout << std::endl;
 	
-	// 	std::cout << i->getType() << " " << std::endl;
-	// 	i->makeSound(); //will output the cat sound!
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound(); //will output the cat sound!
 
-	// 	std::cout << std::endl;
+		std::cout << std::endl;
 
-	// 	std::cout << j->getType() << " " << std::endl;
-	// 	j->makeSound();
+		std::cout << j->getType() << " " << std::endl;
+		j->makeSound();
 
-	// 	std::cout << std::endl;
-	// 	meta->makeSound();
+		std::cout << std::endl;
+		meta->makeSound();
 		
-	// 	std::cout << std::endl;
-	// 	delete meta;
-	// 	delete j;
-	// 	delete i;
-	// }
+		std::cout << std::endl;
+		delete meta;
+		delete j;
+		delete i;
+	}
+
+	std::cout << "\n===== Wrong animal's test =====\n"<< std::endl;
+
 	{
 		const WrongAnimal* meta = new WrongAnimal();
 		const WrongAnimal* i = new WrongCat();
