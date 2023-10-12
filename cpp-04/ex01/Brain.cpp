@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 13:40:56 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/12 13:41:00 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/12 16:23:22 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,15 @@ Brain::~Brain() {
 
 Brain & Brain::operator=( Brain const & rhs ) {
     if (this != &rhs)
-        //copy every private attributes
+        *this->_ideas = *rhs._ideas;
 
     return (*this);
 };
+
+void		Brain::setIdeas( int ideaNb, std::string oneIdea ) {
+    this->_ideas[ideaNb] = oneIdea;
+}
+
+std::string	Brain::getIdeas( int ideaNb ) {
+    return (this->_ideas[ideaNb]);
+}

@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:14 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/11 13:40:09 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/12 16:29:59 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,66 +15,34 @@
 #include "Dog.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int	main( void ) {
 	// {
-	// 	Animal	a;
+	// 	Brain	a;
 
-	// 	a.makeSound();
+	// 	std::cout << std::endl;
+
+	// 	a.setIdeas(0, "I like train");
+	// 	std::cout << "Brain a: idea[0] = " << a.getIdeas(0) << std::endl;
+	// 	std::cout << "Brain a: idea[1] = " << a.getIdeas(1) << "\n" << std::endl;
 	// }
 	// {
-	// 	Cat a;
-	// 	Dog	b;
+	// 	Brain	a,b;
 
 	// 	std::cout << std::endl;
-	// 	a.makeSound();
-	// 	b.makeSound();
+
+	// 	a.setIdeas(0, "I like train");
+	// 	std::cout << "Brain a: idea[0] = " << a.getIdeas(0) << std::endl;
+	// 	std::cout << "Brain b: idea[0] = " << b.getIdeas(0) << std::endl;
+
+	// 	std::cout << std::endl;
+
+	// 	b = a;
+	// 	std::cout << "Brain a: idea[0] = " << a.getIdeas(0) << std::endl;
+	// 	std::cout << "Brain b: idea[0] = " << b.getIdeas(0) << std::endl;
+
 	// 	std::cout << std::endl;
 	// }
-
-	std::cout << "\n===== Animal's test =====\n"<< std::endl;
-
-	{
-		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
-
-		std::cout << std::endl;
-	
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the cat sound!
-
-		std::cout << std::endl;
-
-		std::cout << j->getType() << " " << std::endl;
-		j->makeSound();
-
-		std::cout << std::endl;
-		meta->makeSound();
-		
-		std::cout << std::endl;
-		delete meta;
-		delete j;
-		delete i;
-	}
-
-	std::cout << "\n===== Wrong animal's test =====\n"<< std::endl;
-
-	{
-		const WrongAnimal* meta = new WrongAnimal();
-		const WrongAnimal* i = new WrongCat();
-
-		std::cout << std::endl;
-	
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the cat sound!
-
-		std::cout << std::endl;
-		meta->makeSound();
-		
-		std::cout << std::endl;
-		delete meta;
-		delete i;
-	}
 	return (0);
 }
