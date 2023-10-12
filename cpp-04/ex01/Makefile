@@ -7,6 +7,7 @@ CFLAGS = -Wall -Wextra -Werror
 SOURCES	=	main.cpp		\
 			Cat.cpp			\
 			Dog.cpp			\
+			Brain.cpp		\
 			Animal.cpp		\
 			WrongCat.cpp	\
 			WrongAnimal.cpp
@@ -15,6 +16,7 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 HEADERS =	Cat.hpp			\
 			Dog.hpp			\
+			Brain.hpp		\
 			Animal.hpp		\
 			WrongCat.hpp	\
 			WrongAnimal.hpp
