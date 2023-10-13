@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 17:02:21 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 17:33:42 by jmoutous         ###   ########lyon.fr   */
+/*   Created: 2023/10/13 17:40:04 by jmoutous          #+#    #+#             */
+/*   Updated: 2023/10/13 17:41:49 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-#include <iostream>
+# include <iostream>
+# include "AMateria.hpp"
 
-class ICharacter {
+class Cure : virtual public AMateria {
 	public:
-		ICharacter();
-		ICharacter( ICharacter const & source );
-		~ICharacter();
+		Cure();
+		Cure( Cure const & source );
+		~Cure();
 
-		ICharacter & operator=( ICharacter const & rhs );
+		Cure & operator=( Cure const & rhs );
 
-		std::string	getName( void ) const;
-
-	private:
-		std::string	_name;
+		virtual AMateria*	clone() const;
+		virtual void		use(ICharacter& target);
 
 };
 

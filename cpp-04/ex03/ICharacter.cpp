@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:02:19 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 17:09:29 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 17:34:11 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ ICharacter::~ICharacter() {
 
 ICharacter & ICharacter::operator=( ICharacter const & rhs ) {
 	if (this != &rhs)
-		//copy every private attributes
+		this->_name = rhs._name;
 
 	return (*this);
+};
+
+std::string	ICharacter::getName( void ) const {
+	return (this->_name);
 };

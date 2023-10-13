@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 17:02:21 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 17:33:42 by jmoutous         ###   ########lyon.fr   */
+/*   Created: 2023/10/13 17:20:29 by jmoutous          #+#    #+#             */
+/*   Updated: 2023/10/13 17:32:49 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-#include <iostream>
+# include <iostream>
+# include "AMateria.hpp"
 
-class ICharacter {
+class Ice : virtual public AMateria {
 	public:
-		ICharacter();
-		ICharacter( ICharacter const & source );
-		~ICharacter();
+		Ice();
+		Ice( Ice const & source );
+		~Ice();
 
-		ICharacter & operator=( ICharacter const & rhs );
+		Ice & operator=( Ice const & rhs );
 
-		std::string	getName( void ) const;
-
-	private:
-		std::string	_name;
+		virtual AMateria*	clone() const;
+		virtual void		use(ICharacter& target);
 
 };
 
