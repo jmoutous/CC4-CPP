@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:19 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/10 14:13:11 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 13:31:22 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
 	public:
@@ -25,6 +26,11 @@ class Cat : public Animal {
 		Cat & operator=( Cat const & rhs );
 
 		virtual void	makeSound( void ) const;
+		void			setIdeas( int ideaNb, std::string oneIdea );
+		std::string		getIdeas( int ideaNb );
+
+	private:
+		Brain	*_brain;
 };
 
 #endif

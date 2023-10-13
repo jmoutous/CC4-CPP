@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:17 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/10 11:38:48 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 13:51:10 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Cat::Cat() : Animal() {
 	std::cout << "Cat's default constructor called" << std::endl;
 
 	this->_type = "Cat";
+	_brain = new Brain();
 };
 
 Cat::Cat( Cat const & source ) {
@@ -25,11 +26,13 @@ Cat::Cat( Cat const & source ) {
 };
 
 Cat::~Cat() {
+	delete (this->_brain);
 	std::cout << "Cat's destructor called" << std::endl;
 };
 
 Cat & Cat::operator=( Cat const & rhs ) {
 	Animal::operator=(rhs);
+	*this->_brain = *rhs._brain;
 	
 	return (*this);
 };
@@ -37,3 +40,11 @@ Cat & Cat::operator=( Cat const & rhs ) {
 void	Cat::makeSound( void ) const {
 	std::cout << "Miaouw!" << std::endl;
 };
+
+void	Cat::setIdeas( int ideaNb, std::string oneIdea ) {
+	this->_brain->setIdeas(ideaNb, oneIdea);
+};
+
+std::string	Cat::getIdeas( int ideaNb ) {
+	return (this->_brain->getIdeas(ideaNb));
+}
