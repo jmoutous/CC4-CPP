@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:19 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 13:31:22 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 15:13:57 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define CAT_HPP
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 	public:
 		Cat();
 		Cat( Cat const & source );

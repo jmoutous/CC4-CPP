@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:19 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 14:49:00 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 15:14:03 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define DOG_HPP
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 	public:
 		Dog();
 		Dog( Dog const & source );

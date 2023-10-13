@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal() : _type("Animal") {
-	std::cout << "Animal's default constructor called" << std::endl;
+AAnimal::AAnimal() : _type("AAnimal") {
+	std::cout << "AAnimal's default constructor called" << std::endl;
 };
 
-Animal::Animal( Animal const & source ) {
-	std::cout << "Animal's copy constructor called" << std::endl;
+AAnimal::AAnimal( AAnimal const & source ) {
+	std::cout << "AAnimal's copy constructor called" << std::endl;
 
 	*this = source;
 };
 
-Animal::~Animal() {
-	std::cout << "Animal's destructor called" << std::endl;
+AAnimal::~AAnimal() {
+	std::cout << "AAnimal's destructor called" << std::endl;
 };
 
-Animal & Animal::operator=( Animal const & rhs ) {
+AAnimal & AAnimal::operator=( AAnimal const & rhs ) {
 	if (this != &rhs)
 		this->_type = rhs._type;
 
 	return (*this);
 };
 
-void		Animal::setType( std::string type) {
+void		AAnimal::setType( std::string type) {
 	this->_type = type;
 };
 
-std::string	Animal::getType( void ) const{
+std::string	AAnimal::getType( void ) const{
 	return (this->_type);
 };
 
-void	Animal::makeSound( void ) const {
+void	AAnimal::makeSound( void ) const {
 	std::cout << "An animal make a sound" << std::endl;
 };

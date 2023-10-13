@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:19 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/10 14:13:08 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 15:07:34 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <iostream>
 
-class Animal {
+class AAnimal {
 	public:
-		Animal();
-		Animal( Animal const & source );
-		virtual ~Animal();
+		AAnimal();
+		AAnimal( AAnimal const & source );
+		virtual ~AAnimal() = 0;
 
-		Animal & operator=( Animal const & rhs );
+		AAnimal & operator=( AAnimal const & rhs );
 
 		void		setType( std::string type);
 		std::string	getType( void ) const;

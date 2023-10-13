@@ -6,13 +6,13 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:17 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 13:51:10 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/13 15:13:52 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal() {
+Cat::Cat() : AAnimal() {
 	std::cout << "Cat's default constructor called" << std::endl;
 
 	this->_type = "Cat";
@@ -31,7 +31,7 @@ Cat::~Cat() {
 };
 
 Cat & Cat::operator=( Cat const & rhs ) {
-	Animal::operator=(rhs);
+	AAnimal::operator=(rhs);
 	*this->_brain = *rhs._brain;
 	
 	return (*this);
