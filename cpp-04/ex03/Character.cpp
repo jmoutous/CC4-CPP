@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:01 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 17:36:53 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 17:49:53 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,12 @@ void 				Character::equip(AMateria* m) {
 };
 
 void 				Character::unequip(int idx) {
-	this->_materia[idx]->throwMateria(_materia[idx]);
-	this->_materia[idx] = NULL;
+	if(this->_materia[idx]) {
+		this->_materia[idx]->throwMateria(_materia[idx]);
+		this->_materia[idx] = NULL;
+	}
+	else
+		std::cout << "The slot " << idx << " is empty!" << std::endl;
 };
 
 void 				Character::use(int idx, ICharacter& target) {
