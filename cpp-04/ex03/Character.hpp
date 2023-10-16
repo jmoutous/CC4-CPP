@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:04 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 11:11:34 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 17:55:39 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,20 @@
 # define CHARACTER_HPP
 
 # include <iostream>
-# include "ICharacter.hpp"
 # include "AMateria.hpp"
+
+class AMateria;
+
+class ICharacter {
+	public:
+		virtual ~ICharacter() {};
+
+		virtual std::string const &	getName( void ) const = 0;
+		virtual void 				equip(AMateria* m) = 0;
+		virtual void 				unequip(int idx) = 0;
+		virtual void 				use(int idx, ICharacter& target) = 0;
+
+};
 
 class Character : public ICharacter{
 	public:

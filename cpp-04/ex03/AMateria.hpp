@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:48:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 17:16:49 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 17:56:18 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define AMATERIA_HPP
 
 # include <iostream>
-# include "ICharacter.hpp"
+# include "Character.hpp"
 
 class ICharacter;
 class AMateria;

@@ -15,9 +15,8 @@ OBJECTS = $(SOURCES:.cpp=.o)
 HEADERS =	Ice.hpp			\
 			Cure.hpp		\
 			AMateria.hpp	\
-			Character.hpp	\
-			ICharacter.hpp
-
+			Character.hpp
+			
 #  ==============================  RULES  ===============================  #
 
 all: $(NAME)
