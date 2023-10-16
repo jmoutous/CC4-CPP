@@ -1,15 +1,22 @@
-NAME = Poly
+NAME = Materia
 
 CC = c++ -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES	=	main.cpp	\
-			AMateria.cpp
+SOURCES	=	main.cpp		\
+			Ice.cpp			\
+			Cure.cpp		\
+			AMateria.cpp	\
+			Character.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	AMateria.hpp
+HEADERS =	Ice.hpp			\
+			Cure.hpp		\
+			AMateria.hpp	\
+			Character.hpp	\
+			ICharacter.hpp
 
 #  ==============================  RULES  ===============================  #
 

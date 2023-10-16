@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:48:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 17:01:56 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 17:16:49 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+
+class ICharacter;
+class AMateria;
+
+typedef struct	s_floor {
+	AMateria		*floor_materia;
+	struct s_floor	*next;
+}		t_floor;
 
 class AMateria {
 	public:
@@ -29,8 +37,11 @@ class AMateria {
 		virtual AMateria*	clone() const = 0;
 		virtual void		use(ICharacter& target);
 
+		void	throwMateria( AMateria* m );
+
 	protected:
-		std::string _type;
+		std::string 	_type;
+		static t_floor	*_garbage; 
 
 };
 
