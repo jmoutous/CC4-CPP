@@ -4,19 +4,21 @@ CC = c++ -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES	=	main.cpp		\
-			Ice.cpp			\
-			Cure.cpp		\
-			AMateria.cpp	\
-			Character.cpp
+SOURCES	=	main.cpp			\
+			Ice.cpp				\
+			Cure.cpp			\
+			AMateria.cpp		\
+			Character.cpp		\
+			MateriaSource.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	Ice.hpp			\
-			Cure.hpp		\
-			AMateria.hpp	\
-			Character.hpp
-			
+HEADERS =	Ice.hpp				\
+			Cure.hpp			\
+			AMateria.hpp		\
+			Character.hpp		\
+			MateriaSource.hpp
+
 #  ==============================  RULES  ===============================  #
 
 all: $(NAME)
