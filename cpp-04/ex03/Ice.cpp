@@ -6,24 +6,24 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:20:27 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 14:48:37 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 17:46:48 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice") {
-	std::cout << "Ice's default constructor called" << std::endl;
+	// std::cout << "Ice's default constructor called" << std::endl;
 };
 
 Ice::Ice( Ice const & source ) {
-	std::cout << "Ice's copy constructor called" << std::endl;
+	// std::cout << "Ice's copy constructor called" << std::endl;
 
 		*this = source;
 };
 
 Ice::~Ice() {
-	std::cout << "Ice's destructor called" << std::endl;
+	// std::cout << "Ice's destructor called" << std::endl;
 };
 
 Ice & Ice::operator=( Ice const & rhs ) {

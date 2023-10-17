@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:43:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 14:49:57 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 18:03:10 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ t_floor*	AMateria::_garbage = NULL;
 int			AMateria::_nbMateria = 0;
 
 AMateria::AMateria() : _type("NULL") {
-	std::cout << "AMateria's default constructor called" << std::endl;
+	// std::cout << "AMateria's default constructor called" << std::endl;
 
 	this->_nbMateria++;
 };
 
 AMateria::AMateria( std::string const & type ) : _type(type) {
-	std::cout << "AMateria's constructor called" << std::endl;
+	// std::cout << "AMateria's constructor called" << std::endl;
 
 	this->_nbMateria++;
 }
 
 AMateria::AMateria( AMateria const & source ) {
-	std::cout << "AMateria's copy constructor called" << std::endl;
+	// std::cout << "AMateria's copy constructor called" << std::endl;
 
 		*this = source;
 };
 
 AMateria::~AMateria() {
-	std::cout << "AMateria's destructor called" << std::endl;
+	// std::cout << "AMateria's destructor called" << std::endl;
 	this->_nbMateria--;
 
 	if(_nbMateria != 0)

@@ -6,14 +6,14 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:58:38 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 17:57:42 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 18:00:43 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource() {
-	std::cout << "MateriaSource's default constructor called" << std::endl;
+	// std::cout << "MateriaSource's default constructor called" << std::endl;
 
 	this->_materias[0] = NULL;
 	this->_materias[1] = NULL;
@@ -22,13 +22,13 @@ MateriaSource::MateriaSource() {
 };
 
 MateriaSource::MateriaSource( MateriaSource const & source ) {
-	std::cout << "MateriaSource's copy constructor called" << std::endl;
+	// std::cout << "MateriaSource's copy constructor called" << std::endl;
 
 		*this = source;
 };
 
 MateriaSource::~MateriaSource() {
-	std::cout << "MateriaSource's destructor called" << std::endl;
+	// std::cout << "MateriaSource's destructor called" << std::endl;
 
 	for(int i = 0; i < 3; i++) {
 		if(this->_materias[i] != NULL) {
