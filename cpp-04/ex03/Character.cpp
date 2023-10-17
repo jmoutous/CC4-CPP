@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:01 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 17:49:53 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 15:27:22 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ std::string const &	Character::getName( void ) const {
 };
 
 void 				Character::equip(AMateria* m) {
-	std::cout << "Character's equip() called" << std::endl;
-
 	for(int i = 0; i < 3; i++) {
 		if(this->_materia[i] == NULL) {
 			this->_materia[i] = m;
@@ -67,7 +65,7 @@ void 				Character::equip(AMateria* m) {
 		}
 	}
 
-	std::cout << "Character's equip() finished" << std::endl;
+	std::cout << "Character's slots are full" << std::endl;
 };
 
 void 				Character::unequip(int idx) {
