@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:43:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 18:03:10 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 18:04:04 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ AMateria::~AMateria() {
 
 	tmp = this->_garbage;
 
-	do {
+	while (tmp) {
 		if(tmp->floor_materia)
 			delete tmp->floor_materia;
 		last = tmp;
 		tmp = tmp->next;
 		delete last;
-	} while (tmp);
+	}
 };
 
 AMateria & AMateria::operator=( AMateria const & rhs ) {
