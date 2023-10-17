@@ -6,13 +6,13 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:40:06 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 14:48:34 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 17:43:43 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() {
+Cure::Cure() : AMateria("cure") {
 	std::cout << "Cure's default constructor called" << std::endl;
 };
 
