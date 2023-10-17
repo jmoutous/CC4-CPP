@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:04 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 17:55:39 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 17:57:55 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class Character : public ICharacter{
 
 	private:
 		std::string	_name;
-		AMateria*	_materia[4];
+		AMateria*	_materias[4];
 
 };
 
