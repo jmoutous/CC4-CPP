@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:58:38 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 17:00:10 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 17:57:42 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 MateriaSource::MateriaSource() {
 	std::cout << "MateriaSource's default constructor called" << std::endl;
 
-	this->_materia[0] = NULL;
-	this->_materia[1] = NULL;
-	this->_materia[2] = NULL;
-	this->_materia[3] = NULL;
+	this->_materias[0] = NULL;
+	this->_materias[1] = NULL;
+	this->_materias[2] = NULL;
+	this->_materias[3] = NULL;
 };
 
 MateriaSource::MateriaSource( MateriaSource const & source ) {
@@ -29,20 +29,30 @@ MateriaSource::MateriaSource( MateriaSource const & source ) {
 
 MateriaSource::~MateriaSource() {
 	std::cout << "MateriaSource's destructor called" << std::endl;
+
+	for(int i = 0; i < 3; i++) {
+		if(this->_materias[i] != NULL) {
+			delete this->_materias[i];
+		}
+	}
 };
 
 MateriaSource & MateriaSource::operator=( MateriaSource const & rhs ) {
 	if (this != &rhs) {
-		//copy every private attributes
+		for(int i = 0; i < 4; i++) {
+			if(_materias[i])
+				delete _materias[i];
+			_materias[i] = rhs._materias[i]->clone();
+		}
 	}
-
+	
 	return (*this);
 };
 
 void 		MateriaSource::learnMateria(AMateria* m) {
 	for(int i = 0; i < 3; i++) {
-		if(this->_materia[i] == NULL) {
-			this->_materia[i] = m;
+		if(this->_materias[i] == NULL) {
+			this->_materias[i] = m;
 			return ;
 		}
 	}
@@ -54,8 +64,8 @@ AMateria* 	MateriaSource::createMateria(std::string const & type) {
 	AMateria*	newMateria = NULL;
 
 	for(int i = 0; i < 3; i++) {
-		if(this->_materia[i]->getType() == type) {
-			newMateria = _materia[i]->clone();
+		if(this->_materias[i]->getType() == type) {
+			newMateria = _materias[i]->clone();
 			return (newMateria);
 		}
 	}

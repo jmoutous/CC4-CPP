@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:58:35 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 17:38:27 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 17:57:47 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class MateriaSource : public IMateriaSource {
 		AMateria* 	createMateria(std::string const & type);
 
 	private:
-		AMateria*	_materia[4];
+		AMateria*	_materias[4];
 
 
 };
