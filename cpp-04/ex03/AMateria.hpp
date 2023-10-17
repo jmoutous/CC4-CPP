@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:48:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 17:56:18 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 18:22:59 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ class AMateria {
 
 	protected:
 		std::string 	_type;
-		static t_floor	*_garbage; 
+		static t_floor	*_garbage;
+		static int		_nbMateria;
 
 };
 

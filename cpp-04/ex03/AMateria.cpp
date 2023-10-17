@@ -6,13 +6,14 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:43:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 17:33:18 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/16 18:25:03 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 t_floor*	AMateria::_garbage = NULL;
+int			AMateria::_nbMateria = 0;
 
 AMateria::AMateria() : _type("NULL") {
 	std::cout << "AMateria's default constructor called" << std::endl;
@@ -20,6 +21,7 @@ AMateria::AMateria() : _type("NULL") {
 	this->_garbage = new t_floor;
 	this->_garbage->floor_materia = NULL;
 	this->_garbage->next = NULL;
+	this->_nbMateria++;
 };
 
 AMateria::AMateria( std::string const & type ) : _type(type) {
@@ -28,6 +30,7 @@ AMateria::AMateria( std::string const & type ) : _type(type) {
 	this->_garbage = new t_floor;
 	this->_garbage->floor_materia = NULL;
 	this->_garbage->next = NULL;
+	this->_nbMateria++;
 }
 
 AMateria::AMateria( AMateria const & source ) {
@@ -38,6 +41,10 @@ AMateria::AMateria( AMateria const & source ) {
 
 AMateria::~AMateria() {
 	std::cout << "AMateria's destructor called" << std::endl;
+	this->_nbMateria--;
+
+	if(_nbMateria != 0)
+		return;
 
 	// delete _garbage
 	t_floor*	tmp;
