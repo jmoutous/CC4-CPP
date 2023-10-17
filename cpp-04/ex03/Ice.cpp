@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:20:27 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/13 17:42:06 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 14:48:37 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Ice::~Ice() {
 
 Ice & Ice::operator=( Ice const & rhs ) {
 	if (this != &rhs)
-		AMateria::operator=(rhs);
-
+		this->_type = rhs._type;
+		
 	return (*this);
 };
 
