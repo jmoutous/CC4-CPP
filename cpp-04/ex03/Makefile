@@ -2,7 +2,7 @@ NAME = Materia
 
 CC = c++ -std=c++98
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SOURCES	=	main.cpp			\
 			Ice.cpp				\

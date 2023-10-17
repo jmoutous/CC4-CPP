@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:48:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 18:22:59 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 12:26:36 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class AMateria {
 		virtual void		use(ICharacter& target);
 
 		void	throwMateria( AMateria* m );
+		void	showGarbage( void );
 
 	protected:
 		std::string 	_type;

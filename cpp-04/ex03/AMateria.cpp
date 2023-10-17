@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:43:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/16 18:25:03 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 13:36:59 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,12 @@ int			AMateria::_nbMateria = 0;
 AMateria::AMateria() : _type("NULL") {
 	std::cout << "AMateria's default constructor called" << std::endl;
 
-	this->_garbage = new t_floor;
-	this->_garbage->floor_materia = NULL;
-	this->_garbage->next = NULL;
 	this->_nbMateria++;
 };
 
 AMateria::AMateria( std::string const & type ) : _type(type) {
 	std::cout << "AMateria's constructor called" << std::endl;
 
-	this->_garbage = new t_floor;
-	this->_garbage->floor_materia = NULL;
-	this->_garbage->next = NULL;
 	this->_nbMateria++;
 }
 
@@ -79,6 +73,12 @@ void	AMateria::use(ICharacter& target) {
 void	AMateria::throwMateria( AMateria* m ) {
 	t_floor*	tmp;
 
+	if(!this->_garbage) {
+		this->_garbage = new t_floor;
+		this->_garbage->floor_materia = NULL;
+		this->_garbage->next = NULL;
+	}
+
 	tmp = this->_garbage;
 
 	if(!tmp->floor_materia)
@@ -90,3 +90,23 @@ void	AMateria::throwMateria( AMateria* m ) {
 		tmp->next = NULL;
 	}
 };
+
+void	AMateria::showGarbage( void ) {
+	t_floor*	tmp;
+	int			i = 0;
+
+	tmp = this->_garbage;
+
+	std::cout << std::endl;
+	
+	while(tmp){
+		if(tmp->floor_materia)
+			std::cout << i << " : " << tmp->floor_materia->getType() << std::endl;
+		else
+			std::cout << "Garbage empty" << std::endl;
+		tmp = tmp->next;
+		i++;
+	}
+
+	std::cout << std::endl;
+}
