@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:58:35 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 13:46:44 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 17:38:27 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class IMateriaSource {
 		virtual AMateria* 	createMateria(std::string const & type) = 0;
 };
 
-class MateriaSource {
+class MateriaSource : public IMateriaSource {
 	public:
 		MateriaSource();
 		MateriaSource( MateriaSource const & source );
