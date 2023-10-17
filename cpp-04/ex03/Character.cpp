@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:01 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 15:27:22 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 17:53:48 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,20 @@ Character::Character( std::string name ) : _name(name) {
 
 Character::~Character() {
 	std::cout << "Character's destructor called" << std::endl;
+
+	for(int i = 0; i < 3; i++) {
+		if(this->_materia[i] != NULL) {
+			delete this->_materia[i];
+		}
+	}
 };
 
 Character & Character::operator=( Character const & rhs ) {
-	if (this != &rhs){
+	if (this != &rhs) {
 		this->_name = rhs._name;
 		for(int i = 0; i < 4; i++) {
-			delete _materia[i];
+			if(_materia[i])
+				delete _materia[i];
 			_materia[i] = rhs._materia[i]->clone();
 		}
 	}
