@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:43:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 13:36:59 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 14:49:57 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ AMateria::~AMateria() {
 };
 
 AMateria & AMateria::operator=( AMateria const & rhs ) {
-	if (this != &rhs)
-		this->_type = rhs._type;
-
+	(void) rhs;
+	
 	return (*this);
 };
 

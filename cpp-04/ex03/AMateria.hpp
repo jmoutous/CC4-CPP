@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:48:58 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 12:26:36 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/17 13:59:03 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class AMateria {
 		AMateria( std::string const & type );
 		virtual ~AMateria() = 0;
 
-		AMateria & operator=( AMateria const & rhs );
 
 		std::string const &	getType() const;
 		virtual AMateria*	clone() const = 0;
@@ -44,6 +43,9 @@ class AMateria {
 		std::string 	_type;
 		static t_floor	*_garbage;
 		static int		_nbMateria;
+
+	private:
+		AMateria & operator=( AMateria const & rhs );
 
 };
 
