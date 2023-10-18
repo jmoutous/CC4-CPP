@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:43:50 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 18:04:04 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 11:11:35 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,16 @@ void	AMateria::showGarbage( void ) {
 
 	tmp = this->_garbage;
 
-	std::cout << std::endl;
+	if(!tmp) {
+		std::cout << "Garbage empty\n" << std::endl;
+		return ;
+	}
+
+	std::cout << "Garbage : \n";
 	
 	while(tmp){
 		if(tmp->floor_materia)
 			std::cout << i << " : " << tmp->floor_materia->getType() << std::endl;
-		else
-			std::cout << "Garbage empty" << std::endl;
 		tmp = tmp->next;
 		i++;
 	}
