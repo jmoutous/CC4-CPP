@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:14 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/18 11:19:44 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 11:31:32 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main( void ) {
 	// }
 
 	{
-		Character	c1("Julien");
+		Character	c1("Julien"), c2("the enemy");
 		Ice			i;
 		AMateria	*ptr_i = NULL;
 
