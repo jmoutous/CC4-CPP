@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 17:40:06 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 17:46:40 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 11:32:41 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ AMateria*	Cure::clone() const {
 };
 
 void		Cure::use(ICharacter& target) {
-	std::cout << "* heals" << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 };
 
