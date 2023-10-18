@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:01 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/18 13:54:52 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 14:05:49 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,11 @@ std::string const &	Character::getName( void ) const {
 };
 
 void 				Character::equip(AMateria* m) {
+	if(!m) {
+		std::cout << "Empty Materia can't be equip" << std::endl;
+		return;
+	}
+
 	//Check is m is in the _garbage
 	t_floor*	tmp = this->_garbage;
 
