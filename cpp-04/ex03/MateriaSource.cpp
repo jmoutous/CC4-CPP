@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:58:38 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 18:00:43 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 13:59:18 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ MateriaSource::MateriaSource( MateriaSource const & source ) {
 MateriaSource::~MateriaSource() {
 	// std::cout << "MateriaSource's destructor called" << std::endl;
 
-	for(int i = 0; i < 3; i++) {
+	for(int i = 0; i < 4; i++) {
 		if(this->_materias[i] != NULL) {
 			delete this->_materias[i];
 		}
@@ -50,7 +50,7 @@ MateriaSource & MateriaSource::operator=( MateriaSource const & rhs ) {
 };
 
 void 		MateriaSource::learnMateria(AMateria* m) {
-	for(int i = 0; i < 3; i++) {
+	for(int i = 0; i < 4; i++) {
 		if(this->_materias[i] == NULL) {
 			this->_materias[i] = m;
 			return ;
@@ -63,14 +63,14 @@ void 		MateriaSource::learnMateria(AMateria* m) {
 AMateria* 	MateriaSource::createMateria(std::string const & type) {
 	AMateria*	newMateria = NULL;
 
-	for(int i = 0; i < 3; i++) {
-		if(this->_materias[i]->getType() == type) {
+	for(int i = 0; i < 4; i++) {
+		if(this->_materias[i] && this->_materias[i]->getType() == type) {
 			newMateria = _materias[i]->clone();
 			return (newMateria);
 		}
 	}
 
-	std::cout << type << " is unknow to thie MateriaSource" << std::endl;
+	std::cout << type << " is unknow to this MateriaSource" << std::endl;
 	return (NULL);
 };
 
