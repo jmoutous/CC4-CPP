@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:14 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/18 13:49:51 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 14:10:57 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,48 @@ int	main( void ) {
 	// 	std::cout << std::endl;
 	// }
 
+	// {
+	// 	IMateriaSource* src = new MateriaSource();
+	// 	src->learnMateria(new Ice());
+	// 	src->learnMateria(new Cure());
+
+	// 	ICharacter* me = new Character("me");
+	// 	AMateria* tmp = NULL;
+
+	// 	me->equip(tmp);
+	// 	me->unequip(2);
+
+	// 	std::cout << std::endl;
+
+	// 	tmp = src->createMateria("ice");
+	// 	me->equip(tmp);
+	// 	tmp = src->createMateria("cure");
+	// 	me->equip(tmp);
+	// 	tmp = src->createMateria("ice");
+	// 	me->equip(tmp);
+	// 	tmp = src->createMateria("cure");
+	// 	me->equip(tmp);
+	// 	tmp = src->createMateria("ice");
+	// 	me->equip(tmp);
+	// 	tmp = src->createMateria("cure");
+	// 	me->equip(tmp);
+	// 	tmp = src->createMateria("fire");
+	// 	me->equip(tmp);
+		
+	// 	std::cout << std::endl;
+
+	// 	me->unequip(0);
+	// 	me->unequip(0);
+	// 	me->unequip(1);
+	// 	me->unequip(7);
+		
+	// 	delete me;
+	// 	delete src;
+	// }
+
 	{
+		std::cout << "========== Subject's test ==========" << std::endl;
+
 		IMateriaSource* src = new MateriaSource();
 		src->learnMateria(new Ice());
 		src->learnMateria(new Cure());
@@ -66,54 +107,20 @@ int	main( void ) {
 		ICharacter* me = new Character("me");
 		AMateria* tmp;
 
-		me->unequip(2);
-		
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
-		tmp = src->createMateria("ice");
-		me->equip(tmp);
-		tmp = src->createMateria("cure");
-		me->equip(tmp);
-		// tmp = src->createMateria("ice");
-		// me->equip(tmp);
-		// tmp = src->createMateria("cure");
-		// me->equip(tmp);
 		
-		me->unequip(0);
-		me->unequip(0);
-		me->unequip(1);
-		me->unequip(7);
+		ICharacter* bob = new Character("bob");
 		
+		me->use(0, *bob);
+		me->use(1, *bob);
+		
+		delete bob;
 		delete me;
 		delete src;
 	}
-
-	// {
-	// 	std::cout << "========== Subject's test ==========" << std::endl;
-
-	// 	IMateriaSource* src = new MateriaSource();
-	// 	src->learnMateria(new Ice());
-	// 	src->learnMateria(new Cure());
-
-	// 	ICharacter* me = new Character("me");
-	// 	AMateria* tmp;
-
-	// 	tmp = src->createMateria("ice");
-	// 	me->equip(tmp);
-	// 	tmp = src->createMateria("cure");
-	// 	me->equip(tmp);
-		
-	// 	ICharacter* bob = new Character("bob");
-		
-	// 	me->use(0, *bob);
-	// 	me->use(1, *bob);
-		
-	// 	delete bob;
-	// 	delete me;
-	// 	delete src;
-	// }
 
 	return (0);
 }
