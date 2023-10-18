@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:01 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/18 13:52:05 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 13:54:52 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Character::Character( std::string name ) : _name(name) {
 Character::~Character() {
 	// std::cout << "Character's destructor called" << std::endl;
 
-	for(int i = 0; i < 3; i++) {
+	for(int i = 0; i < 4; i++) {
 		if(this->_materias[i] != NULL) {
 			delete this->_materias[i];
 		}
@@ -102,14 +102,15 @@ void 				Character::equip(AMateria* m) {
 	}
 
 	//Equip the Materia in an available slot
-	for(int i = 0; i < 3; i++) {
+	for(int i = 0; i < 4; i++) {
 		if(this->_materias[i] == NULL) {
 			this->_materias[i] = m;
 			return ;
 		}
 	}
 
-	std::cout << "Character's slots are full" << std::endl;
+	delete m;
+	std::cout << "Character's slots are full! The Materia has been destroyed!" << std::endl;
 };
 
 void 				Character::unequip(int idx) {
