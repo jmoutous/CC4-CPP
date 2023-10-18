@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 10:30:04 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/17 17:57:55 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/18 13:17:18 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include "AMateria.hpp"
 
 class AMateria;
+
+typedef struct	s_floor {
+	AMateria		*floor_materia;
+	struct s_floor	*next;
+}		t_floor;
 
 class ICharacter {
 	public:
@@ -42,11 +47,13 @@ class Character : public ICharacter{
 		void 				equip(AMateria* m);
 		void 				unequip(int idx);
 		void 				use(int idx, ICharacter& target);
-
+		void				showGarbage( void );
 
 	private:
 		std::string	_name;
 		AMateria*	_materias[4];
+		static int	_nbCharacter;
+		static t_floor	*_garbage;
 
 };
 
