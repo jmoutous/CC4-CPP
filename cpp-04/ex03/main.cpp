@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:38:14 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/10/18 14:10:57 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/10/23 14:55:14 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ int	main( void ) {
 	// {
 	// 	Character	c1("Julien"), c2("the enemy");
 	// 	AMateria	*ptr_i = new Ice();
-
-	// 	std::cout << std::endl;
-
 
 	// 	std::cout << std::endl;
 
@@ -98,29 +95,39 @@ int	main( void ) {
 	// }
 
 	{
-		std::cout << "========== Subject's test ==========" << std::endl;
+	// 	std::cout << "====== Test for virtual functions ====="<< std::endl;
 
-		IMateriaSource* src = new MateriaSource();
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
+		Character	c1("Julien"), c2("the enemy");
+		AMateria	*ptr_i = new Ice();
 
-		ICharacter* me = new Character("me");
-		AMateria* tmp;
-
-		tmp = src->createMateria("ice");
-		me->equip(tmp);
-		tmp = src->createMateria("cure");
-		me->equip(tmp);
-		
-		ICharacter* bob = new Character("bob");
-		
-		me->use(0, *bob);
-		me->use(1, *bob);
-		
-		delete bob;
-		delete me;
-		delete src;
+		c1.equip(ptr_i);
+		c1.use(0,c2);
 	}
+
+	// {
+	// 	std::cout << "========== Subject's test ==========" << std::endl;
+
+	// 	IMateriaSource* src = new MateriaSource();
+	// 	src->learnMateria(new Ice());
+	// 	src->learnMateria(new Cure());
+
+	// 	ICharacter* me = new Character("me");
+	// 	AMateria* tmp;
+
+	// 	tmp = src->createMateria("ice");
+	// 	me->equip(tmp);
+	// 	tmp = src->createMateria("cure");
+	// 	me->equip(tmp);
+		
+	// 	ICharacter* bob = new Character("bob");
+		
+	// 	me->use(0, *bob);
+	// 	me->use(1, *bob);
+		
+	// 	delete bob;
+	// 	delete me;
+	// 	delete src;
+	// }
 
 	return (0);
 }
