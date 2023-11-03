@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/03 15:47:23 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/03 16:02:15 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
 	std::cout << "Bureaucrat's default constructor called" << std::endl;
 
+	if( grade < 1 )
+	{
+		throw GradeTooHighException();
+	}
+	if( grade > 150 )
+	{
+		throw GradeTooLowException();
+	}
 	this->_grade = grade;
 	
-	if( grade < 1 || grade > 150 )
-	{
-
-	}
 };
 
 Bureaucrat::Bureaucrat( Bureaucrat const & source ) : _name(source.getName()), _grade(source.getGrade()) {
