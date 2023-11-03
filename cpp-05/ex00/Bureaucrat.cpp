@@ -6,11 +6,13 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/03 16:02:15 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/03 16:13:42 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() {};
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
 	std::cout << "Bureaucrat's default constructor called" << std::endl;

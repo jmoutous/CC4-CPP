@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:38 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/03 15:07:25 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/03 16:14:21 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class Bureaucrat {
 	public:
 		Bureaucrat( std::string name, int grade );
 		Bureaucrat( Bureaucrat const & source );
-		Bureaucrat & operator=( Bureaucrat const & rhs );
 		~Bureaucrat();
+	
+		Bureaucrat & operator=( Bureaucrat const & rhs );
 
 		std::string	getName( void ) const;
 		int			getGrade( void ) const;
@@ -41,6 +42,7 @@ class Bureaucrat {
 		};
 
 	private:
+		Bureaucrat();
 		std::string const	_name;
 		int					_grade;
 
