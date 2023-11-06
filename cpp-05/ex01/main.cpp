@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:27:30 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/06 10:01:09 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/06 10:19:52 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main()
 		
 		std::cout << b << std::endl;
 		std::cout << c << std::endl;
-}
+	}
 
 	return (0);
 }
