@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/06 10:01:41 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/06 10:28:45 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,17 +104,17 @@ void	Bureaucrat::decrementGrade( int decrement )
 	}
 };
 
-void	Bureaucrat::signForm( Form & form) const
+void	Bureaucrat::signForm( AForm & AForm) const
 {
 	try
 	{
-		form.beSigned(*this);
-		std::cout << this->_name << " signed " << form.getName() << std::endl;
+		AForm.beSigned(*this);
+		std::cout << this->_name << " signed " << AForm.getName() << std::endl;
 	}
 
 	catch (std::exception & e)
 	{
-		std::cout << this-> getName() << " couldn't sign " << form.getName()
+		std::cout << this-> getName() << " couldn't sign " << AForm.getName()
 			<< " because : " << e.what() << std::endl;
 	}
 };
