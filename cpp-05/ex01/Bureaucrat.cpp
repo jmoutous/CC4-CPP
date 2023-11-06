@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/03 16:13:48 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/06 10:01:41 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ std::string	Bureaucrat::getName( void ) const
 	return (this->_name);
 };
 
-int			Bureaucrat::getGrade( void ) const
+int		Bureaucrat::getGrade( void ) const
 {
 	return (this->_grade);
 };
 
-void		Bureaucrat::incrementGrade( void )
+void	Bureaucrat::incrementGrade( void )
 {
 	if( this->_grade - 1 < 1 )
 	{
@@ -68,7 +68,7 @@ void		Bureaucrat::incrementGrade( void )
 	}
 };
 
-void		Bureaucrat::incrementGrade( int increment )
+void	Bureaucrat::incrementGrade( int increment )
 {
 	if( this->_grade - increment < 1 )
 	{
@@ -80,7 +80,7 @@ void		Bureaucrat::incrementGrade( int increment )
 	}
 };
 
-void		Bureaucrat::decrementGrade( void )
+void	Bureaucrat::decrementGrade( void )
 {
 	if( this->_grade + 1 > 150 )
 	{
@@ -92,7 +92,7 @@ void		Bureaucrat::decrementGrade( void )
 	}
 };
 
-void		Bureaucrat::decrementGrade( int decrement )
+void	Bureaucrat::decrementGrade( int decrement )
 {
 	if( this->_grade + decrement > 150 )
 	{
@@ -101,6 +101,21 @@ void		Bureaucrat::decrementGrade( int decrement )
 	else 
 	{
 		this->_grade += decrement;
+	}
+};
+
+void	Bureaucrat::signForm( Form & form) const
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+
+	catch (std::exception & e)
+	{
+		std::cout << this-> getName() << " couldn't sign " << form.getName()
+			<< " because : " << e.what() << std::endl;
 	}
 };
 
