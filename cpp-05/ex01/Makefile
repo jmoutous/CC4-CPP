@@ -5,11 +5,13 @@ CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror -g3
 
 SOURCES	=	main.cpp			\
+			Form.cpp			\
 			Bureaucrat.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	Bureaucrat.hpp
+HEADERS =	Form.hpp		\
+			Bureaucrat.hpp
 
 #  ==============================  RULES  ===============================  #
 
