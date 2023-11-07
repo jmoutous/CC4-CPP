@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:25:25 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 10:49:38 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 13:35:08 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ AForm::AForm() : _name("Nameless"), _isSigned(false),
 AForm::AForm( std::string name, int gradeToSigne, int gradeToExecute ) : _name(name), _isSigned(false),
 			_gradeToSigne(gradeToSigne), _gradeToExecute(gradeToExecute)
 {
-	std::cout << "AForm's constructor called" << std::endl;
+	// std::cout << "AForm's constructor called" << std::endl;
 };
 
 AForm::AForm( AForm const & source ) : _name(source._name), _isSigned(source._isSigned),
 	_gradeToSigne(source._gradeToSigne), _gradeToExecute(source._gradeToExecute)
 {
-	std::cout << "AForm's copy constructor called" << std::endl;
+	// std::cout << "AForm's copy constructor called" << std::endl;
 };
 
 AForm::~AForm()
 {
-	std::cout << "AForm's destructor called" << std::endl;
+	// std::cout << "AForm's destructor called" << std::endl;
 };
 
 AForm & AForm::operator=( AForm const & rhs ) {

@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 13:32:51 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 13:34:45 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Bureaucrat::Bureaucrat() {};
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
-	std::cout << "Bureaucrat's constructor called" << std::endl;
+	// std::cout << "Bureaucrat's constructor called" << std::endl;
 
 	if( grade < 1 )
 	{
@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
 };
 
 Bureaucrat::Bureaucrat( Bureaucrat const & source ) : _name(source.getName()), _grade(source.getGrade()) {
-	std::cout << "Bureaucrat's copy constructor called" << std::endl;
+	// std::cout << "Bureaucrat's copy constructor called" << std::endl;
 };
 
 Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs ) {
@@ -43,7 +43,7 @@ Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs ) {
 };
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat's destructor called" << std::endl;
+	// std::cout << "Bureaucrat's destructor called" << std::endl;
 };
 
 std::string	Bureaucrat::getName( void ) const
