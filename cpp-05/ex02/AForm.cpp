@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:25:25 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/06 10:26:27 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 10:49:38 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,9 @@ const char*	AForm::GradeTooHighException::what( void ) const throw()
 const char*	AForm::GradeTooLowException::what( void ) const throw()
 {
 	return ("The grade is too low!");
+};
+
+const char*	AForm::FormNotSigned::what( void ) const throw()
+{
+	return ("The form is not signed!");
 };

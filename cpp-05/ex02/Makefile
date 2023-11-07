@@ -4,14 +4,20 @@ CC = c++ -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror -g3
 
-SOURCES	=	main.cpp			\
-			AForm.cpp			\
-			Bureaucrat.cpp
+SOURCES	=	main.cpp					\
+			AForm.cpp					\
+			Bureaucrat.cpp				\
+			ShrubberyCreationForm.cpp	\
+			RobotomyRequestForm.cpp		\
+			PresidentialPardonForm.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	AForm.hpp		\
-			Bureaucrat.hpp
+HEADERS =	AForm.hpp					\
+			Bureaucrat.hpp				\
+			ShrubberyCreationForm.hpp	\
+			RobotomyRequestForm.hpp		\
+			PresidentialPardonForm.hpp
 
 #  ==============================  RULES  ===============================  #
 
@@ -22,6 +28,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf *_shrubbery
 
 re: fclean
 	$(MAKE) all

@@ -6,34 +6,39 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:27:30 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/06 10:19:52 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 11:02:36 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 int	main()
 {
+	// {
+	// 	Bureaucrat	a("Julien", 34);
+
+	// 	std::cout << std::endl;
+		
+	// 	std::cout << a << std::endl;
+	// }
+
 	{
-		Bureaucrat	a("Julien", 34);
-		Form		b("Lul", 50, 10), c("Mdr", 10, 10);
+		Bureaucrat	ju("Julien", 1);
+		AForm*	a = new PresidentialPardonForm("lol");
+		AForm*	b = new ShrubberyCreationForm("lol");
+		AForm*	c = new RobotomyRequestForm("lol");
 
-		std::cout << std::endl;
-		
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
+		ju.signForm(*b);
+		b->execute(ju);
 
-		std::cout << std::endl;
-
-		a.signForm(b);
-		a.signForm(c);
-
-		std::cout << std::endl;
-		
-		std::cout << b << std::endl;
-		std::cout << c << std::endl;
+		delete a;
+		delete b;
+		delete c;
 	}
 
 	return (0);
