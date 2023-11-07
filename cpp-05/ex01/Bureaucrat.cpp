@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/06 10:01:41 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 13:33:05 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Bureaucrat::Bureaucrat() {};
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
-	std::cout << "Bureaucrat's default constructor called" << std::endl;
+	std::cout << "Bureaucrat's constructor called" << std::endl;
 
 	if( grade < 1 )
 	{
