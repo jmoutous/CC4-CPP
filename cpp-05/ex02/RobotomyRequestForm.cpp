@@ -6,11 +6,13 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:02:31 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 13:35:57 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 14:07:09 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45) {
 	// std::cout << "RobotomyRequestForm's default constructor called" << std::endl;
@@ -46,5 +48,13 @@ void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw GradeTooLowException();
 	
+	srand (time(NULL));
+	int	random = rand() % 2;
+
+	if (random == 0)
+		std::cout << "BBBBBBBBBBBBBBBZZZZZZZZZZZZZZZZ.... " << this->_target
+			<< " has been robotomized." << std::endl;
+	else
+		std::cout << "The robotomization of " << this->_target	<< " has failed." << std::endl;
 	
 };
