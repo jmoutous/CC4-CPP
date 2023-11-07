@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:39 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/06 10:28:45 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 13:25:56 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,19 +104,34 @@ void	Bureaucrat::decrementGrade( int decrement )
 	}
 };
 
-void	Bureaucrat::signForm( AForm & AForm) const
+void	Bureaucrat::signForm( AForm & form) const
 {
 	try
 	{
-		AForm.beSigned(*this);
-		std::cout << this->_name << " signed " << AForm.getName() << std::endl;
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
 	}
 
 	catch (std::exception & e)
 	{
-		std::cout << this-> getName() << " couldn't sign " << AForm.getName()
+		std::cerr << this-> getName() << " couldn't sign " << form.getName()
 			<< " because : " << e.what() << std::endl;
 	}
+};
+
+void	Bureaucrat::executeForm( AForm const & form )
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << this-> getName() << " couldn't execute " << form.getName()
+			<< " because : " << e.what() << std::endl;
+	}
+	
 };
 
 std::ostream &	operator<<( std::ostream & flux, Bureaucrat const & bureaucrat)

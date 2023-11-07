@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:27:30 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 11:02:36 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 13:26:23 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	main()
 	// }
 
 	{
-		Bureaucrat	ju("Julien", 1);
+		Bureaucrat	ju("Julien", 150);
 		AForm*	a = new PresidentialPardonForm("lol");
 		AForm*	b = new ShrubberyCreationForm("lol");
 		AForm*	c = new RobotomyRequestForm("lol");
 
 		ju.signForm(*b);
-		b->execute(ju);
+		ju.executeForm(*b);
 
 		delete a;
 		delete b;

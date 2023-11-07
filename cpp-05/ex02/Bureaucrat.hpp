@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:21:38 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/06 10:28:49 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 13:24:56 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ class Bureaucrat {
 		void		decrementGrade( void );
 		void		decrementGrade( int decrement );
 
-		void		signForm( AForm & AForm) const;
+		void		signForm( AForm & form) const;
+		void		executeForm(AForm const & form);
 
 		class GradeTooHighException : public std::exception {
 			public:
