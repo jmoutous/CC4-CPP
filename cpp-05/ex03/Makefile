@@ -6,6 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 SOURCES	=	main.cpp					\
 			AForm.cpp					\
+			Intern.cpp					\
 			Bureaucrat.cpp				\
 			ShrubberyCreationForm.cpp	\
 			RobotomyRequestForm.cpp		\
@@ -14,6 +15,7 @@ SOURCES	=	main.cpp					\
 OBJECTS = $(SOURCES:.cpp=.o)
 
 HEADERS =	AForm.hpp					\
+			Intern.hpp					\
 			Bureaucrat.hpp				\
 			ShrubberyCreationForm.hpp	\
 			RobotomyRequestForm.hpp		\
