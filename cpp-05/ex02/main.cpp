@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:27:30 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 14:08:24 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 14:23:51 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,71 @@ int	main()
 	// }
 
 	std::cout << "\n=============== PresidentialPardonForm ===============\n"<< std::endl;
+
+	{
+		std::cout << "\n===== Grade too low to sign the form ====="<< std::endl;
+
+		Bureaucrat	ju("Julien", 150);
+		AForm*	a = new PresidentialPardonForm("Heart");
+
+		std::cout << "Bureaucrat " << ju.getName() << ", grade " << ju.getGrade() << std::endl;
+		std::cout << *a << '\n' << std::endl;
+
+		ju.signForm(*a);
+
+		std::cout << std::endl;
+		ju.executeForm(*a);
+
+		delete a;
+	}
+
+	{
+		std::cout << "\n===== Grade too low to execut the form ====="<< std::endl;
+
+		Bureaucrat	ju("Julien", 25);
+		AForm*	a = new PresidentialPardonForm("Heart");
+
+		std::cout << "Bureaucrat " << ju.getName() << ", grade " << ju.getGrade() << std::endl;
+		std::cout << *a << '\n' << std::endl;
+
+		ju.signForm(*a);
+
+		std::cout << std::endl;
+		ju.executeForm(*a);
+
+		delete a;
+	}
+
+	{
+		std::cout << "\n===== Form not signed ====="<< std::endl;
+
+		Bureaucrat	ju("Julien", 5);
+		AForm*	a = new PresidentialPardonForm("Heart");
+
+		std::cout << "Bureaucrat " << ju.getName() << ", grade " << ju.getGrade() << std::endl;
+		std::cout << *a << '\n' << std::endl;
+
+		ju.executeForm(*a);
+
+		delete a;
+	}
+
+	{
+		std::cout << "\n===== Everything works ====="<< std::endl;
+
+		Bureaucrat	ju("Julien", 5);
+		AForm*	a = new PresidentialPardonForm("Heart");
+
+		std::cout << "Bureaucrat " << ju.getName() << ", grade " << ju.getGrade() << std::endl;
+		std::cout << *a << '\n' << std::endl;
+
+		ju.signForm(*a);
+
+		std::cout << std::endl;
+		ju.executeForm(*a);
+
+		delete a;
+	}
 
 	// {
 	// 	Bureaucrat	ju("Julien", 1);
