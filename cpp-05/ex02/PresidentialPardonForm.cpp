@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:04:28 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 13:36:13 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/07 14:22:14 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw GradeTooLowException();
 	
-	
+	std::cout << "Public service announcement : " << this->_target
+		<< " has been pardoned by Zaphod Beeblebrox." << std::endl;
 };
