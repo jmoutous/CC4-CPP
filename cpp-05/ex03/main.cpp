@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:27:30 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/13 15:02:34 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 15:24:18 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,24 @@ int	main()
 
 	// 	std::cout << std::endl;
 
-	// 	a = someRandomIntern.makeForm("Plop", "Nani?");
-	// 	if (!a)
-	// 		return (1);
-
-	// 	std::cout << std::endl;
-
-	// 	ju.signForm(*a);
-
-	// 	std::cout << std::endl;
-
-	// 	ju.executeForm(*a);
-
-	// 	delete a;
+	// 	try 
+	// 	{
+	// 		a = someRandomIntern.makeForm("Plop", "Nani?");
+	
+	// 		std::cout << std::endl;
+	
+	// 		ju.signForm(*a);
+	
+	// 		std::cout << std::endl;
+	
+	// 		ju.executeForm(*a);
+	
+	// 		delete a;
+	// 	}
+	// 	catch (std::exception	&e)
+	// 	{
+	// 		std::cerr << e.what() << std::endl;
+	// 	}
 	// }
 
 	{
