@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:04:28 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 14:22:14 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 14:24:57 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm("Pr
 	// std::cout << "PresidentialPardonForm's constructor called" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & source ) : AForm(source) {
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & source ) : AForm("PresidentialPardonForm", 25, 5), _target(source._target) {
 	// std::cout << "PresidentialPardonForm's copy constructor called" << std::endl;
 };
 
@@ -49,3 +49,8 @@ void	PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 	std::cout << "Public service announcement : " << this->_target
 		<< " has been pardoned by Zaphod Beeblebrox." << std::endl;
 };
+
+std::string	PresidentialPardonForm::getTarget( void ) const
+{
+	return ( this->_target );
+}

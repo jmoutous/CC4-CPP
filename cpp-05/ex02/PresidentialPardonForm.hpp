@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:04:26 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 10:46:06 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 14:25:17 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ class PresidentialPardonForm : public AForm {
 		PresidentialPardonForm( PresidentialPardonForm const & source );
 		~PresidentialPardonForm();
 
-		void	execute( Bureaucrat const & executor ) const;
+		void		execute( Bureaucrat const & executor ) const;
+		std::string	getTarget( void ) const;
 
 	private:
 		PresidentialPardonForm();

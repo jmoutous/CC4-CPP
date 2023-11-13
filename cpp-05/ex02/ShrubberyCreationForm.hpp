@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:36:49 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 13:10:03 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 14:25:41 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class ShrubberyCreationForm : public AForm {
 		ShrubberyCreationForm( ShrubberyCreationForm const & source );
 		~ShrubberyCreationForm();
 
-		void	execute( Bureaucrat const & executor ) const;
+		void		execute( Bureaucrat const & executor ) const;
+		std::string	getTarget( void ) const;
 
 	private:
 		ShrubberyCreationForm();

@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:02:28 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 10:45:58 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 14:25:47 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ class RobotomyRequestForm : public AForm {
 		RobotomyRequestForm( RobotomyRequestForm const & source );
 		~RobotomyRequestForm();
 
-		void	execute( Bureaucrat const & executor ) const;
+		void		execute( Bureaucrat const & executor ) const;
+		std::string	getTarget( void ) const;
 
 	private:
 		RobotomyRequestForm();
