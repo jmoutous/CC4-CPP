@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:29:21 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 15:13:30 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 14:36:55 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Intern & Intern::operator=( Intern const & rhs ) {
 
 AForm*	Intern::makeForm( std::string formName, std::string target)
 {
-	std::string	formList[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	std::string	formList[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
 	int			i;
 
 	for (i = 0; i < 4; ++i)
