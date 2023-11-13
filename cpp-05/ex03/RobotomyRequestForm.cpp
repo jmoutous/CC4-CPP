@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:02:31 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 14:07:09 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 14:26:24 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm("Robotomy
 	// std::cout << "RobotomyRequestForm's constructor called" << std::endl;
 };
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & source ) : AForm(source) {
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & source ) : AForm("RobotomyRequestForm", 72, 45), _target(source._target) {
 	// std::cout << "RobotomyRequestForm's copy constructor called" << std::endl;
 };
 
@@ -58,3 +58,8 @@ void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 		std::cout << "The robotomization of " << this->_target	<< " has failed." << std::endl;
 	
 };
+
+std::string	RobotomyRequestForm::getTarget( void ) const
+{
+	return ( this->_target );
+}
