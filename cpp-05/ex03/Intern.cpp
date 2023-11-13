@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:29:21 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/13 14:36:55 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 15:23:36 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,13 @@ AForm*	Intern::makeForm( std::string formName, std::string target)
 			return (new PresidentialPardonForm(target));
 		default:
 			std::cerr << formName << " doesn't exist and thus can't be created!" << std::endl;
+			throw UnknownForm();
 	}
 
 	return (NULL);
+};
+
+const char*	Intern::UnknownForm::what( void ) const throw()
+{
+	return ("The form you tried to created doesn't exist!");
 };

@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:29:23 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 14:57:39 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 15:21:22 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ class Intern {
 		~Intern();
 
 		AForm*	makeForm( std::string formName, std::string target);
+
+		class UnknownForm : public std::exception {
+			public:
+				virtual const char*	what( void ) const throw();
+		};
 
 	private:
 		Intern( Intern const & source );
