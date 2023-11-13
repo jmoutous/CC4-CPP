@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:25:25 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/07 13:35:08 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/13 13:47:55 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ AForm::AForm( std::string name, int gradeToSigne, int gradeToExecute ) : _name(n
 			_gradeToSigne(gradeToSigne), _gradeToExecute(gradeToExecute)
 {
 	// std::cout << "AForm's constructor called" << std::endl;
+
+	if (this->_gradeToSigne < 1 || this->_gradeToExecute < 1)
+		throw GradeTooHighException();
+	if (this->_gradeToSigne > 150 || this->_gradeToExecute > 150)
+		throw GradeTooLowException();
 };
 
 AForm::AForm( AForm const & source ) : _name(source._name), _isSigned(source._isSigned),
