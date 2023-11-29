@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:00:40 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/29 17:26:53 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/29 18:40:03 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,5 +201,5 @@ void	ScalarConverter::convert( std::string toBeConverted )
 		std::cout << "double: " << static_cast<double>(i) << std::endl;
 	}
 	else
-		std::cout << "Unknow literal!"<< std::endl;
+		std::cout << "Unknown literal!"<< std::endl;
 };
