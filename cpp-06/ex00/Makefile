@@ -2,7 +2,7 @@ NAME = convert
 
 CC = c++ -std=c++98
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SOURCES	=	main.cpp			\
 			ScalarConverter.cpp
