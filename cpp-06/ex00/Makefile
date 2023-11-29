@@ -9,8 +9,7 @@ SOURCES	=	main.cpp			\
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	AForm.hpp					\
-			ScalarConverter.hpp
+HEADERS =	ScalarConverter.hpp
 
 #  ==============================  RULES  ===============================  #
 
