@@ -6,12 +6,12 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:19:24 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/29 18:20:09 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/30 09:40:19 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
 Base::~Base() {
-	std::cout << "Base's destructor called" << std::endl;
+	// std::cout << "Base's destructor called" << std::endl;
 };
