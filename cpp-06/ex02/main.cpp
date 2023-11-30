@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:25:08 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/30 09:47:18 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/30 11:46:42 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void	identify( Base* p )
 {
 	std::cout << "void identify( Base* p ): ";
 
-	if (A *a = dynamic_cast<A*>(p))
+	if (dynamic_cast<A*>(p))
 		std::cout << "Class A!" << std::endl;
-	else if (B *b = dynamic_cast<B*>(p))
+	else if (dynamic_cast<B*>(p))
 		std::cout << "Class B!" << std::endl;
-	else if (C *c = dynamic_cast<C*>(p))
+	else if (dynamic_cast<C*>(p))
 		std::cout << "Class C!" << std::endl;
 	else
 		std::cout << "Unknown class!" << std::endl;
@@ -56,8 +56,7 @@ void	identify( Base& p )
 
 	try
 	{
-		A &a = dynamic_cast<A&>(p);
-		(void) a;
+		(void) dynamic_cast<A&>(p);
 		std::cout << "Class A!" << std::endl;
 		return ;
 	}
@@ -65,8 +64,7 @@ void	identify( Base& p )
 
 	try
 	{
-		B &b = dynamic_cast<B&>(p);
-		(void) b;
+		(void) dynamic_cast<B&>(p);
 		std::cout << "Class B!" << std::endl;
 		return ;
 	}
@@ -74,8 +72,7 @@ void	identify( Base& p )
 
 	try
 	{
-		C &c = dynamic_cast<C&>(p);
-		(void) c;
+		(void) dynamic_cast<C&>(p);
 		std::cout << "Class C!" << std::endl;
 		return ;
 	}
