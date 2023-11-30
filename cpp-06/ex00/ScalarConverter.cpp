@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:00:40 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/29 18:40:03 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/30 10:05:16 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ void	ScalarConverter::convert( std::string toBeConverted )
 		std::cout << "Float detected!\n" << std::endl;
 		
 		std::cout << "char: ";
-		if (i < -2147483648 || i > 2147483647)
+		if (i < -2147483648.0f || i > 2147483647.0f)
 			std::cout << "impossible" << std::endl;
 		else if (isprint(static_cast<char>(i)))
 			std::cout << '\'' << static_cast<char>(i) << '\'' << std::endl;
@@ -169,7 +169,7 @@ void	ScalarConverter::convert( std::string toBeConverted )
 			std::cout << "Non displayable" << std::endl;
 
 		std::cout << "int: ";
-		if (i < -2147483648 || i > 2147483647 || toBeConverted.length() > 11)
+		if (i < -2147483648.0f || i > 2147483647.0f || toBeConverted.length() > 11)
 			std::cout << "impossible" << std::endl;
 		else
 			std::cout << static_cast<int>(i) << std::endl;
@@ -184,7 +184,7 @@ void	ScalarConverter::convert( std::string toBeConverted )
 		std::cout << "Double detected!\n" << std::endl;
 		
 		std::cout << "char: ";
-		if (i < -2147483648 || i > 2147483647)
+		if (i < -2147483648.0f || i > 2147483647.0f)
 			std::cout << "impossible" << std::endl;
 		else if (isprint(static_cast<char>(i)))
 			std::cout << '\'' << static_cast<char>(i) << '\'' << std::endl;
@@ -192,7 +192,7 @@ void	ScalarConverter::convert( std::string toBeConverted )
 			std::cout << "Non displayable" << std::endl;
 		
 		std::cout << "int: ";
-		if (i < -2147483648 || i > 2147483647 || toBeConverted.length() > 11)
+		if (i < -2147483648.0f || i > 2147483647.0f || toBeConverted.length() > 11)
 			std::cout << "impossible" << std::endl;
 		else
 			std::cout << static_cast<int>(i) << std::endl;
