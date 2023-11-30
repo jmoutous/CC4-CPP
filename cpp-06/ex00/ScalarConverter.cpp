@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:00:40 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/30 10:35:04 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/11/30 11:57:43 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,24 @@ ScalarConverter & ScalarConverter::operator=( ScalarConverter const & rhs ) {
 
 	return (*this);
 };
+
+static bool isPseudo( std::string toBeConverted )
+{
+	std::string	pseudo[3] = {"-inf", "+inf", "nan"};
+
+	for (int a = 0; a < 3; ++a)
+	{
+		if (toBeConverted == pseudo[a] || toBeConverted == pseudo[a] + "f")
+		{
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << pseudo[a] << "f" << std::endl;
+			std::cout << "double: " << pseudo[a] << std::endl;
+			return (true);
+		}
+	}
+	return (false);
+}
 
 static bool	isChar( std::string toBeConverted )
 {
@@ -189,21 +207,9 @@ static void	itIsDouble( std::string toBeConverted )
 
 void	ScalarConverter::convert( std::string toBeConverted )
 {
-	std::string	pseudo[3] = {"-inf", "+inf", "nan"};
-
-	for (int a = 0; a < 3; ++a)
-	{
-		if (toBeConverted == pseudo[a])
-		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: " << pseudo[a] << "f" << std::endl;
-			std::cout << "double: " << pseudo[a] << std::endl;
-			return ;
-		}
-	}
-
-	if (isChar(toBeConverted))
+	if (isPseudo(toBeConverted))
+		return;
+	else if (isChar(toBeConverted))
 		itIsChar(toBeConverted);
 	else if (isInt(toBeConverted))
 		itIsInt(toBeConverted);
