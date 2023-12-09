@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:00:40 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/30 11:57:43 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/12/09 16:20:04 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static bool isPseudo( std::string toBeConverted )
 
 static bool	isChar( std::string toBeConverted )
 {
-	if (isalpha(toBeConverted[0]) && toBeConverted.length() == 1)
+	if (isprint(toBeConverted[0]) && !isdigit(toBeConverted[0]) && toBeConverted.length() == 1)
 		return (true);
 	return (false);
 }
