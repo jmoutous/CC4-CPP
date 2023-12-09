@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:25:08 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/30 11:46:42 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/12/09 16:09:51 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ int	main( void )
 
 	delete randBase;
 
+	return (0);
 }

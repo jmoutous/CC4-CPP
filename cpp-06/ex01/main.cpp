@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:57:37 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/11/29 18:17:23 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2023/12/09 16:09:35 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,6 @@ int	main( void )
 	
 	std::cout << "\nFinal level:\t" << dataFin_ptr->level;
 	std::cout << "\n\t(Initial: " << dataInit.level << ")" << std::endl;
+
+	return (0);
 }
