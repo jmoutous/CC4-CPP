@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:19:21 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/12/10 16:25:56 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/01/24 17:33:00 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ITER_HPP
 
 template< typename A , typename L >
-void	iter(A* array, L arrayLength, void f(A&))
+void	iter(A* array, L arrayLength, void f(const A&))
 {
 	for (L i = 0; i < arrayLength; ++i)
 	{
@@ -23,7 +23,7 @@ void	iter(A* array, L arrayLength, void f(A&))
 }
 
 template< typename P >
-void	printP(P & a)
+void	printP(P const & a)
 {
 	std::cout << a << "  ";
 }
