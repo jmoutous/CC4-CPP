@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:30:55 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/01 15:58:20 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/01 16:01:19 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,6 @@ template< typename T >
 T*	Array<T>::getArray( void ) const
 {
 	return (this->_array);
-}
-
-template< typename T >
-void	Array<T>::setArray( T* array )
-{
-	this->_array = array;
 }
 
 template< typename T >

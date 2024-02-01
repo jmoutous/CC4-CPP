@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:28:00 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/01 14:39:31 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/01 16:01:19 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class Array {
 		T & 		operator[]( size_t );
 
 		T*		getArray( void ) const;
-		void	setArray( T* );
 		size_t	size( void ) const;
 		void	displayArray( std::string arrayName ) const;
 
