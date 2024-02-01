@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 11:19:28 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/12/10 16:25:29 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/01 16:02:24 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,6 @@ int	main( void )
 		iter(str, 13, printP);
 		std::cout << std::endl;
 	}
-
+	
 	return (0);
 }
