@@ -6,33 +6,12 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:54:46 by jmoutous          #+#    #+#             */
-/*   Updated: 2023/12/09 16:39:21 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/01 16:13:31 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "whatever.hpp"
-
-template< typename T >
-void	swap(T & a, T & b)
-{
-	T	temp = a;
-
-	a = b;
-	b = temp;
-}
-
-template< typename T >
-T const &	min(T const & x, T const & y)
-{
-	return ( x >= y ? y : x);
-}
-
-template< typename T >
-T const &	max(T const & x, T const & y)
-{
-	return ( x <= y ? y : x);
-}
 
 int	main( void )
 {
