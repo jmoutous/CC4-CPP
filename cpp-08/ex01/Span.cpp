@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 17:18:10 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/03 18:51:28 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/05 14:24:54 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,19 @@ void	Span::addNumber( int number )
 
 	this->_list[this->_nbIntStored] = number;
 	this->_nbIntStored++;
+}
+
+void	Span::addNumber( int begin, int end )
+{
+	while (begin <= end)
+	{
+		if (this->_nbIntStored >= this->_nbIntSlot)
+			throw	SpanFull();
+
+		this->_list[this->_nbIntStored] = begin;
+		this->_nbIntStored++;
+		begin++;
+	}
 }
 
 void	Span::display( std::string name ) const

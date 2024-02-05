@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 17:18:12 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/03 18:46:39 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/05 14:23:30 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Span {
 		Span & operator=( Span const & rhs );
 
 		void	addNumber( int number );
+		void	addNumber( int begin, int end );
 		void	display( std::string name ) const;
 
 		unsigned int	shortestSpan( void ) const;
