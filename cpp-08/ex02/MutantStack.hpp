@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:30:14 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/08 13:08:55 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 17:57:38 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ class	MutantStack: public std::stack<T>
 		};
 
 };
+
+template< typename T >
+std::ostream &	operator<<( std::ostream & flux, MutantStack<T> const & mutantStack);
 
 # include "MutantStack.tpp"
 

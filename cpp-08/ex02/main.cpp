@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:29:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/08 13:18:35 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 18:06:48 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,21 @@
 int	main( void )
 {
 	// {
-		// std::cout << "====== Test of MutantStack is a Stack ======" << std::endl;
+	// 	std::cout << "====== Test of MutantStack is a Stack ======" << std::endl;
 	// 	MutantStack<int>	a;
 
-		// std::cout << "\t====== Add multiple int in a ======" << std::endl;
+	// 	std::cout << "\n\t====== Add multiple int in a ======" << std::endl;
 	// 	a.push(666);
 	// 	a.push(42);
 	// 	a.push(21);
 	// 	a.push(13);
 	// 	a.push(7);
 
+	// 	std::cout << "\t====== a.displayStack(\"a\") ======" << std::endl;
 	// 	a.displayStack("a");
+
+	// 	std::cout << "\n\t====== std::cout << a << std::endl ======" << std::endl;
+	// 	std::cout << a << std::endl;
 	// }
 
 	// {
@@ -176,5 +180,6 @@ int	main( void )
 		}
 		std::stack<int> s(mstack);
 	}
+	
 	return (0);
 }

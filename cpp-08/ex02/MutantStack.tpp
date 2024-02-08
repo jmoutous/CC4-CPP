@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:31:25 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/08 13:07:16 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 18:06:16 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,24 @@ MutantStack<T> & MutantStack<T>::operator=( MutantStack<T> const & rhs )
 };
 
 template< typename T >
+std::ostream &	operator<<( std::ostream & flux, MutantStack<T> const & mutantStack)
+{
+	flux << "MutantStack content: " << std::endl;
+
+	for (typename MutantStack<T>::const_reverse_iterator it = mutantStack.crbegin(); it != mutantStack.crend(); ++it)
+	{
+		flux << *it << "\n";
+	}
+	flux << std::endl;
+	
+	return (flux);
+};
+
+
+template< typename T >
 MutantStack<T>::~MutantStack()
 {
 	std::cout << "MutantStack's destructor called" << std::endl;
-
 };
 
 
