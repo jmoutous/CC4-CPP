@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 17:18:12 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/05 14:23:30 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/11 16:50:26 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <iostream>
 # include <string>
 # include <climits>
+# include <vector>
+# include <iterator>
+# include <algorithm>
 
 class Span {
 	public:
@@ -26,7 +29,8 @@ class Span {
 		Span & operator=( Span const & rhs );
 
 		void	addNumber( int number );
-		void	addNumber( int begin, int end );
+		template <typename T>
+		void	addNumber( T begin, T end );		
 		void	display( std::string name ) const;
 
 		unsigned int	shortestSpan( void ) const;
@@ -47,12 +51,26 @@ class Span {
 				virtual const char*	what( void ) const throw();
 		};
 
+		class SpanToSmall : public std::exception {
+			public:
+				virtual const char*	what( void ) const throw();
+		};
+
 	private:
 		Span();
-		int				*_list;
-		unsigned int	_nbIntSlot;
-		unsigned int	_nbIntStored;
+		std::vector<int>	_list;
+		unsigned int		_nbIntSlot;
+		unsigned int		_nbIntStored;
 
 };
+
+template <typename T>
+void	Span::addNumber( T begin, T end )
+{
+	if (std::distance(begin, end) < this->_nbIntSlot + 1)
+		this->_list.assign(begin, end);
+	else
+		throw SpanToSmall();
+}
 
 #endif

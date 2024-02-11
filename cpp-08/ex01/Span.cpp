@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 17:18:10 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/05 14:24:54 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/11 16:32:24 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,33 @@ Span::Span()
 	std::cout << "Span's default constructor called" << std::endl;
 };
 
-Span::Span( unsigned int N )
+Span::Span( unsigned int N ) : _list(N)
 {
 	std::cout << "Span's constructor called" << std::endl;
 
 	this->_nbIntSlot = N;
 	this->_nbIntStored = 0;
-	this->_list = new int[N];
 };
 
 Span::Span( Span const & source )
 {
 	std::cout << "Span's copy constructor called" << std::endl;
 
-		this->_list = new int[0];
-		*this = source;
+	*this = source;
 };
 
 Span::~Span()
 {
 	std::cout << "Span's destructor called" << std::endl;
-
-	delete[] this->_list;
 };
 
 Span & Span::operator=( Span const & rhs )
 {
 	if (this != &rhs)
 	{
-		delete[] (this->_list);
 		this->_nbIntSlot = rhs._nbIntSlot;
 		this->_nbIntStored = rhs._nbIntStored;
-		this->_list = new int[this->_nbIntSlot];
-
-		for (unsigned int i = 0; i < this->_nbIntSlot; ++i)
-		{
-			this->_list[i] = rhs._list[i];
-		}
+		this->_list = rhs._list;
 	}
 
 	return (*this);
@@ -74,6 +64,11 @@ const char*	Span::ErrorLong::what( void ) const throw()
 	return ("This span has less than one number and thus longestSpan() can't be done!");
 };
 
+const char*	Span::SpanToSmall::what( void ) const throw()
+{
+	return ("This span is too small, in order to add this range of iterator!");
+};
+
 void	Span::addNumber( int number )
 {
 	if (this->_nbIntStored >= this->_nbIntSlot)
@@ -83,25 +78,14 @@ void	Span::addNumber( int number )
 	this->_nbIntStored++;
 }
 
-void	Span::addNumber( int begin, int end )
-{
-	while (begin <= end)
-	{
-		if (this->_nbIntStored >= this->_nbIntSlot)
-			throw	SpanFull();
-
-		this->_list[this->_nbIntStored] = begin;
-		this->_nbIntStored++;
-		begin++;
-	}
-}
-
 void	Span::display( std::string name ) const
 {
+	int	i = 0;
 	std::cout << "Content of the Span " << name << std::endl;
-	for (unsigned int i = 0; i < this->_nbIntSlot; ++i)
+	for (std::vector<int>::const_iterator it = this->_list.begin(); it != this->_list.end(); ++it)
 	{
-		std::cout << name << "[" << i << "]= " << this->_list[i] << std::endl;
+		std::cout << name << "[" << i << "]= " << *it << std::endl;
+		i++;
 	}
 	
 	std::cout << std::endl;
@@ -113,17 +97,19 @@ unsigned int	Span::shortestSpan( void ) const
 		throw ErrorShort();
 
 	unsigned int	shortest = UINT_MAX;
+	std::vector<int>::const_iterator	i;
+	std::vector<int>::const_iterator	j;
 
-	for (unsigned int i = 0; i + 1 < this->_nbIntStored; ++i)
+	for (i = this->_list.begin(); i + 1 != this->_list.end(); ++i)
 	{
-		for (unsigned int j = i + 1; j < this->_nbIntStored; ++j)
+		for (j = i + 1; j != this->_list.end(); ++j)
 		{
 			unsigned int	range;
 
-			if (this->_list[i] > this->_list[j])
-				range = this->_list[i] - this->_list[j];
+			if (*i > *j)
+				range = *i - *j;
 			else
-				range = this->_list[j] - this->_list[i];
+				range = *j - *i;
 
 			if (range < shortest)
 				shortest = range;
@@ -141,26 +127,10 @@ unsigned int	Span::longestSpan( void ) const
 	if ( this->_nbIntStored <= 1)
 		throw ErrorLong();
 
-	unsigned int	longest = 0;
+	std::vector<int>::const_iterator	min = min_element(this->_list.begin(), this->_list.end());
+	std::vector<int>::const_iterator	max = max_element(this->_list.begin(), this->_list.end());
 
-	for (unsigned int i = 0; i + 1 < this->_nbIntStored; ++i)
-	{
-		for (unsigned int j = i + 1; j < this->_nbIntStored; ++j)
-		{
-			unsigned int	range;
-
-			if (this->_list[i] > this->_list[j])
-				range = this->_list[i] - this->_list[j];
-			else
-				range = this->_list[j] - this->_list[i];
-
-			if (range > longest)
-				longest = range;
-
-			if (longest == UINT_MAX)
-				break ;
-		}
-	}
+	unsigned int	longest = *max - *min;
 
 	return (longest);
 }
