@@ -16,7 +16,7 @@ date | value
 
 1900-02-28 | 5
 1900-02-29 | 5
-2016-02-28 | bissextile
-2016-02-29 | bissextile
-2020-02-28 | bissextile
-2020-02-29 | bissextile
+2016-02-28 | 5 bissextile
+2016-02-29 | 5 bissextile
+2020-02-28 | 5 bissextile
+2020-02-29 | 5 bissextile

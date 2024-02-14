@@ -6,15 +6,15 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:13:53 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/14 15:17:53 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/14 17:08:43 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-std::map<std::string, float>	getDataBase( void )
+std::map<std::string, double>	getDataBase( void )
 {
-	std::map<std::string, float>	res;
+	std::map<std::string, double>	res;
 	std::ifstream					dataBase("./data.csv");
 	std::string						line;
 
@@ -28,11 +28,9 @@ std::map<std::string, float>	getDataBase( void )
 		if (date.length() != 10)
 			continue ;
 		
-		float		exchange_rate = atof(line.substr(coma + 1, line.length() - coma + 1).c_str());
+		double	exchange_rate = atof(line.substr(coma + 1, line.length() - coma + 1).c_str());
 
 		res[date] = exchange_rate;
-		// std::cout << "date:\t\t" << date << std::endl;
-		// std::cout << "exchange_rate: \t" << exchange_rate << "\n" << std::endl;
 	}
 	
 	dataBase.close();
@@ -46,8 +44,6 @@ static std::string	getToday( void )
 	char	thisDay[11];
 
 	strftime(thisDay, 11, "%Y-%m-%d", ltm);
-	
-	logDEBUG << "getToday()= " << thisDay;
 	
 	return (thisDay);
 }
@@ -81,7 +77,7 @@ static bool	isValidDate(int year, int month, int day)
 	return (true);
 }
 
-bool	checkDate( std::string date )
+bool	checkDate( std::string & date )
 {
 	static std::string	thisDay = getToday();
 
@@ -108,7 +104,33 @@ bool	checkDate( std::string date )
 	return (true);
 }
 
-void	processInput( char *infile )
+static long double applyRate( std::map<std::string, double> & database, std::string date, double bitcoin)
+{
+	long double	result = 0;
+	long double	lastRate = -1;
+
+	for (std::map<std::string, double>::iterator it = database.begin(); it != database.end(); ++it)
+	{
+		if (it->first == date)
+		{
+			result = it->second * bitcoin;
+			break;
+		}
+		else if (it->first.compare(date) > 0)
+		{
+			if (lastRate < 0)
+				throw std::runtime_error("Error: no previous exchange rate for this date in the database.");
+			result = lastRate * bitcoin;
+			break ;
+		}
+		else
+			lastRate = it->second;
+	}
+
+	return (result);
+}
+
+void	process( char *infile, std::map<std::string, double> & dataBase )
 {
 	std::ifstream					inputFile(infile);
 	std::string						line;
@@ -144,8 +166,18 @@ void	processInput( char *infile )
 			std::cout << "Error: too large a number." << std::endl;
 			continue ;
 		}
-
-		std::cout << date << " => " << bitcoin << " = " << std::endl;
+		
+		long double result;
+		
+		try
+		{
+			result = applyRate(dataBase, date, bitcoin);
+			std::cout << date << " => " << bitcoin << " = " << result << std::endl;
+		}
+		catch ( const std::exception& e )
+		{
+			std::cout << e.what() << " => " << date << std::endl;
+		}
 	}
 	
 	inputFile.close();
