@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:09:35 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/02/12 13:52:59 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/02/13 18:39:06 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ int	main( int ac, char **av )
 {
 	if ( ac != 2 )
 	{
-		std::cout << "Error\nUsage: btc inputfile.txt" << std::endl;
+		std::cout << "Error\nUsage: btc input.txt" << std::endl;
 		return (1);
 	}
 
 	try
 	{
-		std::map<std::string, float>	dataBase = getDataBase(); 
-		(void)av;
+		std::map<std::string, float>	dataBase = getDataBase();
+		
+		processInput(av[1]); 
 	}
 	catch ( std::exception & e)
 	{
