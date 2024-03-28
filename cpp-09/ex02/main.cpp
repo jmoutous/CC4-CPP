@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:43 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/27 18:39:57 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/03/28 15:28:20 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,3 @@ int	main(int ac, char **av)
 
 	return (0);
 }
-
-// Gerer le + et -: 1 doit etre egale a +1
