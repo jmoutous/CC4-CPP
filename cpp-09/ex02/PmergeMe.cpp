@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:47 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/28 15:25:58 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/03/28 15:41:11 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,10 @@ static bool	isSameNb( char *nb1, char *nb2 )
 	if (nb2[j] == '+')
 		j++;
 
-	while (nb1[i] && nb2[j])
-	{
-		std::cout << "Comparaison de " << nb1[i] << " et " << nb2[j] << std::endl;
-
-		if (nb1[i] == nb2[j])
-			return (true);
-
-		i++;
-		j++;
-	}
-
-	return (false);
+	if ( std::strcmp(nb1 + i, nb2 + j) == 0)
+		return (true);
+	else
+		return (false);
 }
 
 static bool	isUnique( char **av, int index )
@@ -86,7 +78,7 @@ bool		checkArgs( char **av )
 	return (true);
 }
 
-int	jacobsthal( int i )
+static int	jacobsthal( int i )
 {
 	if (i == 0)
 		return (0);
@@ -106,11 +98,19 @@ static std::vector< int >	buildJacobsthalVector( int nbArg )
 	return (sequence);
 }
 
+// static void	fillVector( char **av, std::vector< int > & list )
+// {
+// 	for (int i = 1; av[i]; ++i)
+// 		list.push_back( std::atoi(av[i]) );
+// }
+
 void				pMergeVector( char **av, int nbArg )
 {
 	std::vector< int >	jacobsthalSequence = buildJacobsthalVector(nbArg);
+	std::vector< int >	list;
 
-printVector( jacobsthalSequence );
+	// fillVector(av, list);
 
-(void) av;
+// printVector( jacobsthalSequence );
+printVector( list );
 }

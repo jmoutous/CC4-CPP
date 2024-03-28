@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:40 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/27 18:27:35 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/03/28 15:36:39 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <vector>
 # include <deque>
 # include <cstring>
+# include <cstdlib>
 
 bool		checkArgs( char **av );
 void		pMergeVector( char **av, int nbArg );
