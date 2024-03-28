@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:47 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/27 18:36:33 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/03/28 15:25:58 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,36 @@ static bool	checkArg( char *arg )
 	return (true);
 }
 
+static bool	isSameNb( char *nb1, char *nb2 )
+{
+	int	i = 0;
+	int	j = 0;
+
+	if (nb1[i] == '+')
+		i++;
+
+	if (nb2[j] == '+')
+		j++;
+
+	while (nb1[i] && nb2[j])
+	{
+		std::cout << "Comparaison de " << nb1[i] << " et " << nb2[j] << std::endl;
+
+		if (nb1[i] == nb2[j])
+			return (true);
+
+		i++;
+		j++;
+	}
+
+	return (false);
+}
+
 static bool	isUnique( char **av, int index )
 {
 	for (int i = index + 1; av[i]; ++i)
 	{
-		if ( strcmp(av[index], av[i]) == 0 )
+		if ( isSameNb(av[index], av[i]) )
 		{
 			std::cout << "Error: " << av[index] << " is not unique" << std::endl;
 			return (false);
