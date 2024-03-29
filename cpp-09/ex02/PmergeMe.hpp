@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:40 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/28 15:36:39 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/03/29 15:35:02 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ void printVector( std::vector< T > const & listVector)
 {
 	typename std::vector< T >::const_iterator	it;
 
+	std::cout << "Before:\t";
+
 	for (it = listVector.begin(); it != listVector.end(); ++it)
-		std::cout << *it << std::endl;
+		std::cout << *it << " ";
+
+	std::cout << std::endl;
 }
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:47 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/28 15:41:11 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/03/29 15:34:49 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,19 +98,19 @@ static std::vector< int >	buildJacobsthalVector( int nbArg )
 	return (sequence);
 }
 
-// static void	fillVector( char **av, std::vector< int > & list )
-// {
-// 	for (int i = 1; av[i]; ++i)
-// 		list.push_back( std::atoi(av[i]) );
-// }
+static void	fillVector( char **av, std::vector< int > & list )
+{
+	for (int i = 1; av[i]; ++i)
+		list.push_back( std::atoi(av[i]) );
+}
 
 void				pMergeVector( char **av, int nbArg )
 {
 	std::vector< int >	jacobsthalSequence = buildJacobsthalVector(nbArg);
 	std::vector< int >	list;
 
-	// fillVector(av, list);
+	fillVector(av, list);
 
-// printVector( jacobsthalSequence );
+printVector( jacobsthalSequence );
 printVector( list );
 }
