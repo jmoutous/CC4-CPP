@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:47 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/29 15:34:49 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/03/29 16:12:52 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,20 @@ static void	fillVector( char **av, std::vector< int > & list )
 
 void				pMergeVector( char **av, int nbArg )
 {
+	clock_t	begin, end;
+
+	begin = clock();
+	
 	std::vector< int >	jacobsthalSequence = buildJacobsthalVector(nbArg);
 	std::vector< int >	list;
 
 	fillVector(av, list);
 
-printVector( jacobsthalSequence );
 printVector( list );
+
+
+	end = clock();
+	
+	std::cout << "Time to process a range of " << " elements with std::vector : ";
+	std::cout << static_cast<double>(end - begin) << " us" << std::endl;
 }
