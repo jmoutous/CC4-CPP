@@ -6,7 +6,7 @@
 /*   By: jmoutous <jmoutous@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:35:40 by jmoutous          #+#    #+#             */
-/*   Updated: 2024/03/29 16:12:56 by jmoutous         ###   ########lyon.fr   */
+/*   Updated: 2024/04/12 15:40:01 by jmoutous         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ template< typename T >
 void printVector( std::vector< T > const & listVector)
 {
 	typename std::vector< T >::const_iterator	it;
-
-	std::cout << "Before:\t";
 
 	for (it = listVector.begin(); it != listVector.end(); ++it)
 		std::cout << *it << " ";
