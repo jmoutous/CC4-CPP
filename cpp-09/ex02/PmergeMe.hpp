@@ -21,8 +21,8 @@
 # include <ctime>
 
 bool		checkArgs( char **av );
-void		pMergeVector( char **av, int nbArg );
-void		pMergeDeque( char **av, int nbArg );
+double		pMergeVector( char **av, int nbArg );
+double		pMergeDeque( char **av, int nbArg );
 
 template< typename T >
 void printVector( std::vector< T > const & listVector)

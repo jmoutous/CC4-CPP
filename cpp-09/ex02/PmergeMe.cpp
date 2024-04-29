@@ -138,7 +138,7 @@ static std::vector< int >	buildJacobsthalIndexVector( std::vector< int > jacobst
 	return (jacobsthalIndex);
 }
 
-void	pMergeVector( char **av, int nbArg )
+double	pMergeVector( char **av, int nbArg )
 {
 	clock_t	begin, end;
 
@@ -150,18 +150,17 @@ void	pMergeVector( char **av, int nbArg )
 
 	fillVector(av, list);
 
-std::cout << "[Vector]\tJacobsthal's sequence:\n";
-printVector( jacobsthalSequence );
+// std::cout << "[Vector]\tJacobsthal's sequence:\n";
+// printVector( jacobsthalSequence );
 
-std::cout << "[Vector]\tIndex calculate from Jaconsthal's sequence:\n";
-printVector( jacobsthalIndex );
+// std::cout << "[Vector]\tIndex calculate from Jaconsthal's sequence:\n";
+// printVector( jacobsthalIndex );
 // printVector( list );
-
 
 	end = clock();
 	
-	std::cout << "[Vector]\tTime to process a range of " << " elements with std::vector : ";
-	std::cout << static_cast<double>(end - begin) << " us" << std::endl;
+	return (static_cast<double>(end - begin));
+
 }
 
 static std::deque< int >	buildJacobsthalDeque( int nbArg )
@@ -214,7 +213,7 @@ static std::deque< int >	buildJacobsthalIndexDeque( std::deque< int > jacobsthal
 	return (jacobsthalIndex);
 }
 
-void	pMergeDeque( char **av, int nbArg )
+double	pMergeDeque( char **av, int nbArg )
 {
 	clock_t	begin, end;
 
@@ -226,16 +225,14 @@ void	pMergeDeque( char **av, int nbArg )
 
 	fillDeque(av, list);
 
-std::cout << "[Deque]\t\tJacobsthal's sequence:\n";
-printDeque( jacobsthalSequence );
+// std::cout << "[Deque]\t\tJacobsthal's sequence:\n";
+// printDeque( jacobsthalSequence );
 
-std::cout << "[Deque]\t\tIndex calculate from Jaconsthal's sequence:\n";
-printDeque( jacobsthalIndex );
+// std::cout << "[Deque]\t\tIndex calculate from Jaconsthal's sequence:\n";
+// printDeque( jacobsthalIndex );
 // printDeque( list );
 
-
 	end = clock();
-	
-	std::cout << "[Deque]\t\tTime to process a range of " << " elements with std::deque : ";
-	std::cout << static_cast<double>(end - begin) << " us" << std::endl;
+
+	return (static_cast<double>(end - begin));
 }

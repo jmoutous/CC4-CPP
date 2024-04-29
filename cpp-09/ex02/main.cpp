@@ -23,8 +23,12 @@ int	main(int ac, char **av)
 	if(checkArgs(av) == false)
 		return (2);
 
-	pMergeVector( av, ac - 1 );
-	pMergeDeque( av, ac - 1 );
+	double	timeVector = pMergeVector( av, ac - 1 );
+	double	timeDeque = pMergeDeque( av, ac - 1 );
+
+	std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector:\t" << timeVector << " us" << std::endl;
+	std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque:\t" << timeDeque << " us" << std::endl;
+
 
 	return (0);
 }
