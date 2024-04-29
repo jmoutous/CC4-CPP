@@ -22,6 +22,7 @@
 
 bool		checkArgs( char **av );
 void		pMergeVector( char **av, int nbArg );
+void		pMergeDeque( char **av, int nbArg );
 
 template< typename T >
 void printVector( std::vector< T > const & listVector)
@@ -29,6 +30,17 @@ void printVector( std::vector< T > const & listVector)
 	typename std::vector< T >::const_iterator	it;
 
 	for (it = listVector.begin(); it != listVector.end(); ++it)
+		std::cout << *it << " ";
+
+	std::cout << std::endl;
+}
+
+template< typename T >
+void printDeque( std::deque< T > const & listDeque)
+{
+	typename std::deque< T >::const_iterator	it;
+
+	for (it = listDeque.begin(); it != listDeque.end(); ++it)
 		std::cout << *it << " ";
 
 	std::cout << std::endl;

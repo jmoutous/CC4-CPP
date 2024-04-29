@@ -24,6 +24,7 @@ int	main(int ac, char **av)
 		return (2);
 
 	pMergeVector( av, ac - 1 );
+	pMergeDeque( av, ac - 1 );
 
 	return (0);
 }

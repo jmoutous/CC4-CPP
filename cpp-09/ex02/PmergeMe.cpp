@@ -150,16 +150,92 @@ void	pMergeVector( char **av, int nbArg )
 
 	fillVector(av, list);
 
-std::cout << "Jacobsthal's sequence:\n";
+std::cout << "[Vector]\tJacobsthal's sequence:\n";
 printVector( jacobsthalSequence );
 
-std::cout << "Index calculate from Jaconsthal's sequence:\n";
+std::cout << "[Vector]\tIndex calculate from Jaconsthal's sequence:\n";
 printVector( jacobsthalIndex );
 // printVector( list );
 
 
 	end = clock();
 	
-	// std::cout << "Time to process a range of " << " elements with std::vector : ";
-	// std::cout << static_cast<double>(end - begin) << " us" << std::endl;
+	std::cout << "[Vector]\tTime to process a range of " << " elements with std::vector : ";
+	std::cout << static_cast<double>(end - begin) << " us" << std::endl;
+}
+
+static std::deque< int >	buildJacobsthalDeque( int nbArg )
+{
+	std::deque< int >	sequence;
+	int					i = 2;
+	int					jacobsthalNb = 0;
+
+	while (jacobsthalNb < nbArg)
+	{
+		jacobsthalNb = jacobsthal(i);
+		sequence.push_back(jacobsthal(i));
+		i++;
+	}
+
+	return (sequence);
+}
+
+static void	fillDeque( char **av, std::deque< int > & list )
+{
+	for (int i = 1; av[i]; ++i)
+		list.push_back( std::atoi(av[i]) );
+}
+
+static std::deque< int >	buildJacobsthalIndexDeque( std::deque< int > jacobsthalSequence, int nbArg )
+{
+	int					lastIndex = -1;
+	int					index = 0;
+	int					i;
+	std::deque< int >	jacobsthalIndex;
+
+	std::deque< int >::const_iterator	it = jacobsthalSequence.begin();
+
+	while (index < nbArg)
+	{
+		index = *it;
+		i = 0;
+		
+		while (index - i > lastIndex)
+		{
+			if ( index - i < nbArg )
+				jacobsthalIndex.push_back(index - i);
+			i++;
+		}
+		
+		lastIndex = index;
+		it++;
+	}
+
+	return (jacobsthalIndex);
+}
+
+void	pMergeDeque( char **av, int nbArg )
+{
+	clock_t	begin, end;
+
+	begin = clock();
+	
+	std::deque< int >	jacobsthalSequence = buildJacobsthalDeque(nbArg);
+	std::deque< int >	jacobsthalIndex = buildJacobsthalIndexDeque(jacobsthalSequence, nbArg);
+	std::deque< int >	list;
+
+	fillDeque(av, list);
+
+std::cout << "[Deque]\t\tJacobsthal's sequence:\n";
+printDeque( jacobsthalSequence );
+
+std::cout << "[Deque]\t\tIndex calculate from Jaconsthal's sequence:\n";
+printDeque( jacobsthalIndex );
+// printDeque( list );
+
+
+	end = clock();
+	
+	std::cout << "[Deque]\t\tTime to process a range of " << " elements with std::deque : ";
+	std::cout << static_cast<double>(end - begin) << " us" << std::endl;
 }
