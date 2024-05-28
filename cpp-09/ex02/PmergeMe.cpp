@@ -213,6 +213,43 @@ static std::deque< int >	buildJacobsthalIndexDeque( std::deque< int > jacobsthal
 	return (jacobsthalIndex);
 }
 
+void	dequeAlgo( std::deque< int >	list )
+{
+	int	size = list.size();
+	int	nbPair = size / 2;
+
+	std::deque< int >	pairs[nbPair];
+	// std::deque< std::pair< int, int> >	pairs;
+	int					oddAlone;
+
+	std::cout << "Deque: ";
+	printDeque(list);
+
+	for (int i = 0; i < nbPair; ++i)
+	{
+		pairs[i].push_back(list.at(0));
+		list.pop_front();
+
+		if (list.at(0) > pairs[i].at(0))
+			pairs[i].push_front(list.at(0));
+		else
+			pairs[i].push_back(list.at(0));
+		list.pop_front();
+
+		std::cout << "pairs[" << i << "]: ";
+		printDeque(pairs[i]);
+	}
+
+	if (list.size() == 1)
+	{
+		oddAlone = list.at(0);
+		list.pop_back();
+
+		std::cout << "Alone int: " << oddAlone << std::endl;
+	}
+
+}
+
 double	pMergeDeque( char **av, int nbArg )
 {
 	clock_t	begin, end;
@@ -225,12 +262,7 @@ double	pMergeDeque( char **av, int nbArg )
 
 	fillDeque(av, list);
 
-// std::cout << "[Deque]\t\tJacobsthal's sequence:\n";
-// printDeque( jacobsthalSequence );
-
-// std::cout << "[Deque]\t\tIndex calculate from Jaconsthal's sequence:\n";
-// printDeque( jacobsthalIndex );
-// printDeque( list );
+	dequeAlgo(list);
 
 	end = clock();
 
