@@ -26,8 +26,8 @@ int	main(int ac, char **av)
 	double	timeVector = pMergeVector( av, ac - 1 );
 	double	timeDeque = pMergeDeque( av, ac - 1 );
 
-	std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector:\t" << timeVector << " us" << std::endl;
-	std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque:\t\t" << timeDeque << " us" << std::endl;
+	std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector: " << timeVector << " us" << std::endl;
+	std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque:  " << timeDeque << " us" << std::endl;
 
 
 	return (0);

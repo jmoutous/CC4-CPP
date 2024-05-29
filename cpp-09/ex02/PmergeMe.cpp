@@ -12,6 +12,11 @@
 
 #include "PmergeMe.hpp"
 
+// static void	stdDebug(int i)
+// {
+// 	std::cout << "[STDDEBUG]: " << i << std::endl;
+// }
+
 static bool	checkArg( char *arg )
 {
 	int	i = 0;
@@ -144,8 +149,8 @@ double	pMergeVector( char **av, int nbArg )
 
 	begin = clock();
 	
-	std::vector< int >	jacobsthalSequence = buildJacobsthalVector(nbArg);
-	std::vector< int >	jacobsthalIndex = buildJacobsthalIndexVector(jacobsthalSequence, nbArg);
+	std::vector< int >	jacobsthalSequence = buildJacobsthalVector(nbArg / 2);
+	std::vector< int >	jacobsthalIndex = buildJacobsthalIndexVector(jacobsthalSequence, nbArg / 2);
 	std::vector< int >	list;
 
 	fillVector(av, list);
@@ -213,31 +218,73 @@ static std::deque< int >	buildJacobsthalIndexDeque( std::deque< int > jacobsthal
 	return (jacobsthalIndex);
 }
 
-void	dequeAlgo( std::deque< int >	list )
+static int	findMiddle( std::deque< int >::iterator  low, std::deque< int >::iterator high)
+{
+	int	i = 0;
+	for ( std::deque< int >::iterator it = low; it != high; ++it)
+		i++;
+
+	return (i / 2);
+}
+
+static void	binarySearch( std::deque< int > & list, std::deque< int >::iterator  low, std::deque< int >::iterator high, int & item)
+{
+	std::deque< int >::iterator mid = low + findMiddle(low, high);
+
+	// std::cout << "item  = " << item << std::endl;
+	// std::cout << "*low  = " << *low << std::endl;
+	// std::cout << "*mid  = " << *mid << std::endl;
+	// std::cout << "*high = " << *high << std::endl;
+	// std::cout << std::endl;
+
+	if ( *low == *high || *low == *mid)
+	{
+		if (item > *low)
+			return ((void) list.insert(low + 1, item));
+		else
+			return ((void) list.insert(low, item));
+	}
+
+	if ( item > *mid )
+		low = mid;
+	else
+		high = mid;
+
+	binarySearch(list, low, high, item);
+}
+
+void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 {
 	int	size = list.size();
 	int	nbPair = size / 2;
 
-	std::deque< int >	pairs[nbPair];
-	// std::deque< std::pair< int, int> >	pairs;
-	int					oddAlone;
+	std::deque< std::pair< int, int> >	pairs;
+	int									oddAlone = -42;
 
 	std::cout << "Deque: ";
 	printDeque(list);
 
 	for (int i = 0; i < nbPair; ++i)
 	{
-		pairs[i].push_back(list.at(0));
-		list.pop_front();
+		std::pair< int, int >	aPair;
+		int	a = list.at(0);
+		int	b = list.at(1);
 
-		if (list.at(0) > pairs[i].at(0))
-			pairs[i].push_front(list.at(0));
+		if (a >  b)
+		{
+			aPair.first = a;
+			aPair.second = b;
+		}
 		else
-			pairs[i].push_back(list.at(0));
+		{
+			aPair.first = b;
+			aPair.second = a;
+		}
+		list.pop_front();
 		list.pop_front();
 
-		std::cout << "pairs[" << i << "]: ";
-		printDeque(pairs[i]);
+		pairs.push_back(aPair);
+		// std::cout << "pairs[" << i << "]: " << aPair.first << " \t" << aPair.second << std::endl;
 	}
 
 	if (list.size() == 1)
@@ -245,8 +292,43 @@ void	dequeAlgo( std::deque< int >	list )
 		oddAlone = list.at(0);
 		list.pop_back();
 
-		std::cout << "Alone int: " << oddAlone << std::endl;
+		// std::cout << "Alone int: " << oddAlone << std::endl;
 	}
+
+	// std::cout << "Before sorting:" << std::endl;
+	// printDequePairs(pairs);
+
+	std::sort(pairs.begin(), pairs.end());
+
+	// std::cout << "After sorting:" << std::endl;
+	// printDequePairs(pairs);
+
+	int	i = 0;
+	for ( std::deque< std::pair< int, int > >::iterator it = pairs.begin(); it != pairs.end(); ++it )
+	{
+		int	item = pairs.at(i).first;
+		list.push_back(item);
+		i++;
+	}
+
+	// std::cout << "list before binarySearch:" << std::endl;
+	// printDeque(list);
+
+	i = 0;
+	for (std::deque< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it)
+	{
+		int item = pairs.at(jacobsthalIndex.at(i)).second;
+		binarySearch(list, list.begin(), list.end() - 1, item);
+		i++;
+
+		// std::cout << "list during binarySearch:";
+		// printDeque(list);
+	}
+
+	if ( oddAlone != -42)
+		binarySearch(list, list.begin(), list.end() - 1, oddAlone);
+	std::cout << "list after binarySearch:" << std::endl;
+	printDeque(list);
 
 }
 
@@ -256,13 +338,16 @@ double	pMergeDeque( char **av, int nbArg )
 
 	begin = clock();
 	
-	std::deque< int >	jacobsthalSequence = buildJacobsthalDeque(nbArg);
-	std::deque< int >	jacobsthalIndex = buildJacobsthalIndexDeque(jacobsthalSequence, nbArg);
+	std::deque< int >	jacobsthalSequence = buildJacobsthalDeque(nbArg / 2);
+	std::deque< int >	jacobsthalIndex = buildJacobsthalIndexDeque(jacobsthalSequence, nbArg / 2);
 	std::deque< int >	list;
 
 	fillDeque(av, list);
 
-	dequeAlgo(list);
+	// std::cout << "[Deque]\tIndex calculate from Jaconsthal's sequence:\n";
+	// printDeque( jacobsthalIndex );
+
+	dequeAlgo(list, jacobsthalIndex);
 
 	end = clock();
 

@@ -20,6 +20,8 @@
 # include <cstring>
 # include <cstdlib>
 # include <ctime>
+# include <algorithm>
+# include <cmath>
 
 bool		checkArgs( char **av );
 double		pMergeVector( char **av, int nbArg );
@@ -43,6 +45,24 @@ void printDeque( std::deque< T > const & listDeque)
 
 	for (it = listDeque.begin(); it != listDeque.end(); ++it)
 		std::cout << *it << " ";
+
+	std::cout << std::endl;
+}
+
+template< typename T >
+void printDequePairs( std::deque< T > const & listDeque)
+{
+	typename std::deque< T >::const_iterator	it;
+
+	std::cout << "first:\t";
+	for (it = listDeque.begin(); it != listDeque.end(); ++it)
+		std::cout << it->first << "\t";
+
+	std::cout << std::endl;
+	
+	std::cout << "second:\t";
+	for (it = listDeque.begin(); it != listDeque.end(); ++it)
+		std::cout << it->second << "\t";
 
 	std::cout << std::endl;
 }
