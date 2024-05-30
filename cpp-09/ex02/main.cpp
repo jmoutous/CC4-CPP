@@ -23,6 +23,11 @@ int	main(int ac, char **av)
 	if(checkArgs(av) == false)
 		return (2);
 
+	std::cout << "[ARGS] Before: ";
+	for (int i = 1; av[i]; ++i)
+		std::cout << av[i] << " ";
+	std::cout << std::endl;
+
 	double	timeVector = pMergeVector( av, ac - 1 );
 	double	timeDeque = pMergeDeque( av, ac - 1 );
 

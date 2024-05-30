@@ -342,9 +342,6 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 
 	if ( oddAlone != -42)
 		binarySearch(list, list.begin(), list.end() - 1, oddAlone);
-std::cout << "[DEQUE]: list after sorting:" << std::endl;
-	printDeque(list);
-
 }
 
 double	pMergeDeque( char **av, int nbArg )
@@ -358,13 +355,11 @@ double	pMergeDeque( char **av, int nbArg )
 	std::deque< int >	list;
 
 	fillDeque(av, list);
-
-	// std::cout << "[Deque]\tIndex calculate from Jaconsthal's sequence:\n";
-	// printDeque( jacobsthalIndex );
-
 	dequeAlgo(list, jacobsthalIndex);
 
 	end = clock();
 
+	std::cout << "[DEQUE] After: ";
+	printDeque(list);
 	return (static_cast<double>(end - begin));
 }
