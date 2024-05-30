@@ -12,6 +12,20 @@
 
 #include "PmergeMe.hpp"
 
+static bool	checkDeque( std::deque< int > list )
+{
+	if( list .size() < 2 )
+		return ( true );
+
+	for ( std::deque< int >::iterator it = list.begin() + 1; it != list.end(); ++it)
+	{
+		if ( *(it -1) > *it )
+			return (false);
+	}
+	return ( true );
+}
+
+
 static bool	checkArg( char *arg )
 {
 	int	i = 0;
@@ -342,18 +356,30 @@ static void	binarySearchDeque( std::deque< int > & list, std::deque< int >::iter
 
 	if ( *low == *high || *low == *mid )
 	{
-		if (item > *low)
+		if ( item > *high )
+			return ( (void) list.insert(high + 1, item) );
+		else if ( item > *low )
 			return ( (void) list.insert(low + 1, item) );
 		else
 			return ( (void) list.insert(low, item) );
 	}
-
+	
 	if ( item > *mid )
 		low = mid;
 	else
 		high = mid;
 
 	binarySearchDeque( list, low, high, item );
+}
+
+std::deque< int >	fromPairsToDeque( std::deque< std::pair< int, int> > & pairs )
+{
+	std::deque< int >	dequeList;
+
+	for ( std::deque< std::pair< int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it )
+		dequeList.push_back(it->first);
+
+	return ( dequeList );
 }
 
 void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
@@ -393,13 +419,22 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 		list.pop_back();
 	}
 
-	// std::cout << "Before sorting:" << std::endl;
-	// printDequePairs(pairs);
+	std::cout << "Before sorting:" << std::endl;
+	printDequePairs(pairs);
+	
+	if ( pairs.size() > 2)
+	{
+		std::deque< int >	toBeSorted = fromPairsToDeque(pairs);
+		dequeAlgo(toBeSorted, jacobsthalIndex);
+	}
+	else
+	{
+		if ( pairs.at(0).first > pairs.at(1).first )
+			std::swap(pairs.at(0), pairs.at(1));
+	}
 
-	std::sort( pairs.begin(), pairs.end() );
-
-	// std::cout << "After sorting:" << std::endl;
-	// printDequePairs(pairs);
+	std::cout << "After sorting:" << std::endl;
+	printDequePairs(pairs);
 
 	int	i = 0;
 	for ( std::deque< std::pair< int, int > >::iterator it = pairs.begin(); it != pairs.end(); ++it )
@@ -439,7 +474,7 @@ double	pMergeDeque( char **av, int nbArg )
 
 	end = clock();
 
-	std::cout << "[DEQUE]  After: ";
+	std::cout << (checkDeque( list ) ? "\033[1;32m" : "\033[1;31m") << "[DEQUE]  After: ";
 	printDeque( list );
 	return ( static_cast<double>(end - begin) );
 }

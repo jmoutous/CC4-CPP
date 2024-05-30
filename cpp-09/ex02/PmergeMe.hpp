@@ -35,7 +35,7 @@ void printVector( std::vector< T > const & listVector)
 	for (it = listVector.begin(); it != listVector.end(); ++it)
 		std::cout << *it << " ";
 
-	std::cout << std::endl;
+	std::cout << "\033[0m" << std::endl;
 }
 
 template< typename T >
@@ -46,7 +46,7 @@ void printDeque( std::deque< T > const & listDeque)
 	for (it = listDeque.begin(); it != listDeque.end(); ++it)
 		std::cout << *it << " ";
 
-	std::cout << std::endl;
+	std::cout << "\033[0m" << std::endl;
 }
 
 template< typename T >
