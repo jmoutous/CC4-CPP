@@ -218,7 +218,18 @@ static std::deque< int >	buildJacobsthalIndexDeque( std::deque< int > jacobsthal
 	return (jacobsthalIndex);
 }
 
-static int	findMiddle( std::deque< int >::iterator  low, std::deque< int >::iterator high)
+static void findHigh( std::deque< int > & list, int pairsFirst, std::deque< int >::iterator & high)
+{
+	std::deque< int >::iterator it;
+	for ( it = list.begin(); it != high; ++it )
+		if ( *it == pairsFirst )
+		{
+			high = it;
+			break;
+		}
+}
+
+static int	findMiddle( std::deque< int >::iterator low, std::deque< int >::iterator high)
 {
 	int	i = 0;
 	for ( std::deque< int >::iterator it = low; it != high; ++it)
@@ -237,7 +248,8 @@ static void	binarySearch( std::deque< int > & list, std::deque< int >::iterator 
 	// std::cout << "*high = " << *high << std::endl;
 	// std::cout << std::endl;
 
-	if ( *low == *high || *low == *mid)
+	if ( *low == *high
+		|| *low == *mid)
 	{
 		if (item > *low)
 			return ((void) list.insert(low + 1, item));
@@ -318,7 +330,10 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 	for (std::deque< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it)
 	{
 		int item = pairs.at(jacobsthalIndex.at(i)).second;
-		binarySearch(list, list.begin(), list.end() - 1, item);
+
+		std::deque< int >::iterator high = list.end() - 1;
+		findHigh(list, pairs.at(jacobsthalIndex.at(i)).first, high);
+		binarySearch(list, list.begin(), high, item);
 		i++;
 
 		// std::cout << "list during binarySearch:";
@@ -327,7 +342,7 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 
 	if ( oddAlone != -42)
 		binarySearch(list, list.begin(), list.end() - 1, oddAlone);
-	std::cout << "list after binarySearch:" << std::endl;
+std::cout << "[DEQUE]: list after sorting:" << std::endl;
 	printDeque(list);
 
 }
