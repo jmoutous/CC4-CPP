@@ -16,19 +16,19 @@ static bool	checkArg( char *arg )
 {
 	int	i = 0;
 
-	if (arg[i] == '+' || arg[i] == '-')
+	if ( arg[i] == '+' || arg[i] == '-' )
 		i++;
 	
-	for (; arg[i]; ++i)
+	for ( ; arg[i]; ++i )
 	{
-		if (std::isdigit(arg[i]) == false)
+		if ( std::isdigit(arg[i]) == false )
 		{
 			std::cout << "Error: " << arg << " is not a valid digit" << std::endl;
-			return (false);
+			return ( false );
 		}
 	}
 	
-	return (true);
+	return ( true );
 }
 
 static bool	isSameNb( char *nb1, char *nb2 )
@@ -36,56 +36,56 @@ static bool	isSameNb( char *nb1, char *nb2 )
 	int	i = 0;
 	int	j = 0;
 
-	if (nb1[i] == '+')
+	if ( nb1[i] == '+' )
 		i++;
 
-	if (nb2[j] == '+')
+	if ( nb2[j] == '+' )
 		j++;
 
-	if ( std::strcmp(nb1 + i, nb2 + j) == 0)
-		return (true);
+	if ( std::strcmp(nb1 + i, nb2 + j) == 0 )
+		return ( true );
 	else
-		return (false);
+		return ( false );
 }
 
 static bool	isUnique( char **av, int index )
 {
-	for (int i = index + 1; av[i]; ++i)
+	for ( int i = index + 1; av[i]; ++i )
 	{
 		if ( isSameNb(av[index], av[i]) )
 		{
 			std::cout << "Error: " << av[index] << " is not unique" << std::endl;
-			return (false);
+			return ( false );
 		}
 	}
 
-	return (true);
+	return ( true );
 }
 
 bool	checkArgs( char **av )
 {
 	int	i = 1;
 
-	for (; av[i + 1]; ++i)
+	for ( ; av[i + 1]; ++i )
 	{
-		if (checkArg(av[i]) == false || isUnique(av, i) == false)
+		if ( checkArg(av[i]) == false || isUnique(av, i) == false )
 			return (false);
 	}
 
-	if (av[i] && !av[i + 1] && checkArg(av[i]) == false)
-		return (false);
+	if ( av[i] && !av[i + 1] && checkArg(av[i]) == false )
+		return ( false );
 	
-	return (true);
+	return ( true );
 }
 
 static int	jacobsthal( int i )
 {
-	if (i == 0)
+	if ( i == 0 )
 		return (0);
-	else if (i == 1)
+	else if ( i == 1 )
 		return (1);
 	else
-		return (jacobsthal(i - 1) + 2 * jacobsthal(i - 2));
+		return ( jacobsthal(i - 1) + 2 * jacobsthal(i - 2) );
 }
 
 static std::vector< int >	buildJacobsthalVector( int nbArg )
@@ -94,7 +94,7 @@ static std::vector< int >	buildJacobsthalVector( int nbArg )
 	int					i = 2;
 	int					jacobsthalNb = 0;
 
-	while (jacobsthalNb < nbArg)
+	while ( jacobsthalNb < nbArg )
 	{
 		jacobsthalNb = jacobsthal(i);
 		sequence.push_back(jacobsthal(i));
@@ -119,7 +119,7 @@ static std::vector< int >	buildJacobsthalIndexVector( std::vector< int > jacobst
 
 	std::vector< int >::const_iterator	it = jacobsthalSequence.begin();
 
-	while (index < nbArg)
+	while ( index < nbArg )
 	{
 		index = *it;
 		i = 0;
@@ -127,7 +127,7 @@ static std::vector< int >	buildJacobsthalIndexVector( std::vector< int > jacobst
 		while (index - i > lastIndex)
 		{
 			if ( index - i < nbArg )
-				jacobsthalIndex.push_back(index - i);
+				jacobsthalIndex.push_back( index - i );
 			i++;
 		}
 		
@@ -135,10 +135,10 @@ static std::vector< int >	buildJacobsthalIndexVector( std::vector< int > jacobst
 		it++;
 	}
 
-	return (jacobsthalIndex);
+	return ( jacobsthalIndex );
 }
 
-static void findHighVector( std::vector< int > & list, int pairsFirst, std::vector< int >::iterator & high)
+static void findHighVector( std::vector< int > & list, int pairsFirst, std::vector< int >::iterator & high )
 {
 	std::vector< int >::iterator it;
 	for ( it = list.begin(); it != high; ++it )
@@ -149,26 +149,25 @@ static void findHighVector( std::vector< int > & list, int pairsFirst, std::vect
 		}
 }
 
-static int	findMiddleVector( std::vector< int >::iterator low, std::vector< int >::iterator high)
+static int	findMiddleVector( std::vector< int >::iterator low, std::vector< int >::iterator high )
 {
 	int	i = 0;
-	for ( std::vector< int >::iterator it = low; it != high; ++it)
+	for ( std::vector< int >::iterator it = low; it != high; ++it )
 		i++;
 
-	return (i / 2);
+	return ( i / 2 );
 }
 
-static void	binarySearchVector( std::vector< int > & list, std::vector< int >::iterator  low, std::vector< int >::iterator high, int & item)
+static void	binarySearchVector( std::vector< int > & list, std::vector< int >::iterator  low, std::vector< int >::iterator high, int & item )
 {
-	std::vector< int >::iterator mid = low + findMiddleVector(low, high);
+	std::vector< int >::iterator mid = low + findMiddleVector( low, high );
 
-	if ( *low == *high
-		|| *low == *mid)
+	if ( *low == *high || *low == *mid)
 	{
-		if (item > *low)
-			return ((void) list.insert(low + 1, item));
+		if ( item > *low )
+			return ( (void) list.insert(low + 1, item) );
 		else
-			return ((void) list.insert(low, item));
+			return ( (void) list.insert(low, item) );
 	}
 
 	if ( item > *mid )
@@ -176,18 +175,19 @@ static void	binarySearchVector( std::vector< int > & list, std::vector< int >::i
 	else
 		high = mid;
 
-	binarySearchVector(list, low, high, item);
+	binarySearchVector( list, low, high, item );
 }
 
 void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex )
 {
 	int	size = list.size();
 	int	nbPair = size / 2;
+	bool	oddArg = ( size % 2 == 0 ? false : true );
 
 	std::vector< std::pair< int, int> >	pairs;
-	int									oddAlone = -42;
+	int									oddAlone = 0;
 
-	for (int i = 0; i < nbPair; ++i)
+	for ( int i = 0; i < nbPair; ++i )
 	{
 		std::pair< int, int >	aPair;
 		int	a = list.at(0);
@@ -209,7 +209,7 @@ void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex
 		pairs.push_back(aPair);
 	}
 
-	if (list.size() == 1)
+	if ( list.size() == 1 )
 	{
 		oddAlone = list.at(0);
 		list.pop_back();
@@ -218,7 +218,7 @@ void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex
 	// std::cout << "Before sorting:" << std::endl;
 	// printDequePairs(pairs);
 
-	std::sort(pairs.begin(), pairs.end());
+	std::sort( pairs.begin(), pairs.end() );
 
 	// std::cout << "After sorting:" << std::endl;
 	// printDequePairs(pairs);
@@ -232,18 +232,18 @@ void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex
 	}
 
 	i = 0;
-	for (std::vector< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it)
+	for ( std::vector< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it )
 	{
 		int item = pairs.at(jacobsthalIndex.at(i)).second;
 
 		std::vector< int >::iterator high = list.end() - 1;
-		findHighVector(list, pairs.at(jacobsthalIndex.at(i)).first, high);
-		binarySearchVector(list, list.begin(), high, item);
+		findHighVector( list, pairs.at( jacobsthalIndex.at(i) ).first, high );
+		binarySearchVector( list, list.begin(), high, item );
 		i++;
 	}
 
-	if ( oddAlone != -42)
-		binarySearchVector(list, list.begin(), list.end() - 1, oddAlone);
+	if ( oddArg )
+		binarySearchVector( list, list.begin(), list.end() - 1, oddAlone );
 }
 
 double	pMergeVector( char **av, int nbArg )
@@ -252,18 +252,18 @@ double	pMergeVector( char **av, int nbArg )
 
 	begin = clock();
 	
-	std::vector< int >	jacobsthalSequence = buildJacobsthalVector(nbArg / 2);
-	std::vector< int >	jacobsthalIndex = buildJacobsthalIndexVector(jacobsthalSequence, nbArg / 2);
+	std::vector< int >	jacobsthalSequence = buildJacobsthalVector( nbArg / 2 );
+	std::vector< int >	jacobsthalIndex = buildJacobsthalIndexVector( jacobsthalSequence, nbArg / 2 );
 	std::vector< int >	list;
 
-	fillVector(av, list);
-	vectorAlgo(list, jacobsthalIndex);
+	fillVector( av, list );
+	vectorAlgo( list, jacobsthalIndex );
 
 	end = clock();
 	
 	std::cout << "[VECTOR] After: ";
-	printVector(list);
-	return (static_cast<double>(end - begin));
+	printVector( list );
+	return ( static_cast<double>(end - begin) );
 }
 
 static std::deque< int >	buildJacobsthalDeque( int nbArg )
@@ -272,19 +272,19 @@ static std::deque< int >	buildJacobsthalDeque( int nbArg )
 	int					i = 2;
 	int					jacobsthalNb = 0;
 
-	while (jacobsthalNb < nbArg)
+	while ( jacobsthalNb < nbArg )
 	{
 		jacobsthalNb = jacobsthal(i);
-		sequence.push_back(jacobsthal(i));
+		sequence.push_back( jacobsthal(i) );
 		i++;
 	}
 
-	return (sequence);
+	return ( sequence );
 }
 
 static void	fillDeque( char **av, std::deque< int > & list )
 {
-	for (int i = 1; av[i]; ++i)
+	for ( int i = 1; av[i]; ++i )
 		list.push_back( std::atoi(av[i]) );
 }
 
@@ -297,12 +297,12 @@ static std::deque< int >	buildJacobsthalIndexDeque( std::deque< int > jacobsthal
 
 	std::deque< int >::const_iterator	it = jacobsthalSequence.begin();
 
-	while (index < nbArg)
+	while ( index < nbArg )
 	{
 		index = *it;
 		i = 0;
 		
-		while (index - i > lastIndex)
+		while ( index - i > lastIndex )
 		{
 			if ( index - i < nbArg )
 				jacobsthalIndex.push_back(index - i);
@@ -313,10 +313,10 @@ static std::deque< int >	buildJacobsthalIndexDeque( std::deque< int > jacobsthal
 		it++;
 	}
 
-	return (jacobsthalIndex);
+	return ( jacobsthalIndex );
 }
 
-static void findHighDeque( std::deque< int > & list, int pairsFirst, std::deque< int >::iterator & high)
+static void findHighDeque( std::deque< int > & list, int pairsFirst, std::deque< int >::iterator & high )
 {
 	std::deque< int >::iterator it;
 	for ( it = list.begin(); it != high; ++it )
@@ -330,23 +330,22 @@ static void findHighDeque( std::deque< int > & list, int pairsFirst, std::deque<
 static int	findMiddleDeque( std::deque< int >::iterator low, std::deque< int >::iterator high)
 {
 	int	i = 0;
-	for ( std::deque< int >::iterator it = low; it != high; ++it)
+	for ( std::deque< int >::iterator it = low; it != high; ++it )
 		i++;
 
-	return (i / 2);
+	return ( i / 2 );
 }
 
 static void	binarySearchDeque( std::deque< int > & list, std::deque< int >::iterator  low, std::deque< int >::iterator high, int & item)
 {
-	std::deque< int >::iterator mid = low + findMiddleDeque(low, high);
+	std::deque< int >::iterator mid = low + findMiddleDeque( low, high );
 
-	if ( *low == *high
-		|| *low == *mid)
+	if ( *low == *high || *low == *mid )
 	{
 		if (item > *low)
-			return ((void) list.insert(low + 1, item));
+			return ( (void) list.insert(low + 1, item) );
 		else
-			return ((void) list.insert(low, item));
+			return ( (void) list.insert(low, item) );
 	}
 
 	if ( item > *mid )
@@ -354,24 +353,25 @@ static void	binarySearchDeque( std::deque< int > & list, std::deque< int >::iter
 	else
 		high = mid;
 
-	binarySearchDeque(list, low, high, item);
+	binarySearchDeque( list, low, high, item );
 }
 
 void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 {
 	int	size = list.size();
 	int	nbPair = size / 2;
+	bool	oddArg = ( size % 2 == 0 ? false : true );
 
 	std::deque< std::pair< int, int> >	pairs;
-	int									oddAlone = -42;
+	int									oddAlone = 0;
 
-	for (int i = 0; i < nbPair; ++i)
+	for ( int i = 0; i < nbPair; ++i )
 	{
 		std::pair< int, int >	aPair;
 		int	a = list.at(0);
 		int	b = list.at(1);
 
-		if (a >  b)
+		if ( a >  b )
 		{
 			aPair.first = a;
 			aPair.second = b;
@@ -387,7 +387,7 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 		pairs.push_back(aPair);
 	}
 
-	if (list.size() == 1)
+	if ( list.size() == 1 )
 	{
 		oddAlone = list.at(0);
 		list.pop_back();
@@ -396,7 +396,7 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 	// std::cout << "Before sorting:" << std::endl;
 	// printDequePairs(pairs);
 
-	std::sort(pairs.begin(), pairs.end());
+	std::sort( pairs.begin(), pairs.end() );
 
 	// std::cout << "After sorting:" << std::endl;
 	// printDequePairs(pairs);
@@ -410,7 +410,7 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 	}
 
 	i = 0;
-	for (std::deque< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it)
+	for ( std::deque< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it )
 	{
 		int item = pairs.at(jacobsthalIndex.at(i)).second;
 
@@ -420,8 +420,8 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 		i++;
 	}
 
-	if ( oddAlone != -42)
-		binarySearchDeque(list, list.begin(), list.end() - 1, oddAlone);
+	if ( oddArg )
+		binarySearchDeque( list, list.begin(), list.end() - 1, oddAlone );
 }
 
 double	pMergeDeque( char **av, int nbArg )
@@ -430,16 +430,16 @@ double	pMergeDeque( char **av, int nbArg )
 
 	begin = clock();
 	
-	std::deque< int >	jacobsthalSequence = buildJacobsthalDeque(nbArg / 2);
-	std::deque< int >	jacobsthalIndex = buildJacobsthalIndexDeque(jacobsthalSequence, nbArg / 2);
+	std::deque< int >	jacobsthalSequence = buildJacobsthalDeque( nbArg / 2 );
+	std::deque< int >	jacobsthalIndex = buildJacobsthalIndexDeque( jacobsthalSequence, nbArg / 2 );
 	std::deque< int >	list;
 
-	fillDeque(av, list);
-	dequeAlgo(list, jacobsthalIndex);
+	fillDeque( av, list );
+	dequeAlgo( list, jacobsthalIndex );
 
 	end = clock();
 
 	std::cout << "[DEQUE]  After: ";
-	printDeque(list);
-	return (static_cast<double>(end - begin));
+	printDeque( list );
+	return ( static_cast<double>(end - begin) );
 }
