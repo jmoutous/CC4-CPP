@@ -90,6 +90,21 @@ static int	jacobsthal( int i )
 
 // VECTOR ALGORITHM
 
+void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex );
+
+static bool	checkVector( std::vector< int > list )
+{
+	if( list .size() < 2 )
+		return ( true );
+
+	for ( std::vector< int >::iterator it = list.begin() + 1; it != list.end(); ++it)
+	{
+		if ( *(it -1) > *it )
+			return (false);
+	}
+	return ( true );
+}
+
 static std::vector< int >	buildJacobsthalVector( int nbArg )
 {
 	std::vector< int >	sequence;
@@ -180,14 +195,10 @@ static void	binarySearchVector( std::vector< int > & list, std::vector< int >::i
 	binarySearchVector( list, low, high, item );
 }
 
-void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex )
+static void	makePairsVector( std::vector< int > & list, std::vector< std::pair< int, int> >	& pairs, int & oddAlone )
 {
-	int	size = list.size();
-	int	nbPair = size / 2;
-	bool	oddArg = ( size % 2 == 0 ? false : true );
-
-	std::vector< std::pair< int, int> >	pairs;
-	int									oddAlone = 0;
+	int		size = list.size();
+	int		nbPair = size / 2;
 
 	for ( int i = 0; i < nbPair; ++i )
 	{
@@ -195,7 +206,7 @@ void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex
 		int	a = list.at(0);
 		int	b = list.at(1);
 
-		if (a >  b)
+		if ( a >  b )
 		{
 			aPair.first = a;
 			aPair.second = b;
@@ -216,37 +227,91 @@ void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex
 		oddAlone = list.at(0);
 		list.pop_back();
 	}
+}
 
-	// std::cout << "Before sorting:" << std::endl;
-	// printDequePairs(pairs);
+static std::vector< int >	fromPairsToVector( std::vector< std::pair< int, int> > & pairs )
+{
+	std::vector< int >	vectorList;
 
-	std::sort( pairs.begin(), pairs.end() );
+	for ( std::vector< std::pair< int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it )
+		vectorList.push_back(it->first);
 
-	// std::cout << "After sorting:" << std::endl;
-	// printDequePairs(pairs);
+	return ( vectorList );
+}
 
+static void	fromVectortoPairs( std::vector< std::pair< int, int> > & pairs, std::vector< int > & sortedvector )
+{
 	int	i = 0;
-	for ( std::vector< std::pair< int, int > >::iterator it = pairs.begin(); it != pairs.end(); ++it )
+	for ( std::vector< int >::iterator it = sortedvector.begin(); it != sortedvector.end(); ++it)
 	{
-		int	item = pairs.at(i).first;
-		list.push_back(item);
+		int	j = 0;
+		for ( std::vector< std::pair< int, int> >::iterator dIt = pairs.begin(); dIt != pairs.end(); ++dIt)
+		{
+			if (*it == dIt->first)
+			{
+				std::swap(pairs.at(i), pairs.at(j));
+				break;
+			}
+			j++;
+		}
 		i++;
 	}
+}
 
-	i = 0;
-	for ( std::vector< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it )
+static void	sortPairsVector( std::vector< std::pair< int, int> > & pairs, std::vector< int > & jacobsthalIndex )
+{
+	if ( pairs.size() > 2)
 	{
-		int item = pairs.at(jacobsthalIndex.at(i)).second;
-
-		std::vector< int >::iterator high = list.end() - 1;
-		findHighVector( list, pairs.at( jacobsthalIndex.at(i) ).first, high );
-		binarySearchVector( list, list.begin(), high, item );
-		i++;
+		std::vector< int >	toBeSorted = fromPairsToVector(pairs);
+		vectorAlgo(toBeSorted, jacobsthalIndex);
+		fromVectortoPairs(pairs, toBeSorted);
 	}
+	else if ( pairs.size() == 2)
+	{
+		if ( pairs.at(0).first > pairs.at(1).first )
+			std::swap(pairs.at(0), pairs.at(1));
+	}
+}
+
+static void mergeJacobsthalVector( std::vector< int > & list, std::vector< std::pair< int, int> > & pairs, std::vector< int > & jacobsthalIndex)
+{
+	if ( pairs.size() == 1 )
+		list.insert(list.begin(), pairs.at(0).second);
+	else
+	{
+		for ( unsigned long i = 0; i < jacobsthalIndex.size(); ++i )
+		{
+			unsigned long	index = jacobsthalIndex.at(i);
+			if ( index >= pairs.size() )
+				continue;
+			int 			item = pairs.at(index).second;
+
+			std::vector< int >::iterator high = list.end() - 1;
+			findHighVector(list, pairs.at(jacobsthalIndex.at(i)).first, high);
+			binarySearchVector(list, list.begin(), high, item);
+		}
+	}
+}
+
+void	vectorAlgo( std::vector< int > & list, std::vector< int > & jacobsthalIndex )
+{
+	bool	oddArg = ( list.size() % 2 == 0 ? false : true );
+	int		oddAlone = 0;
+
+	std::vector< std::pair< int, int> >	pairs;
+
+	makePairsVector(list, pairs, oddAlone);
+
+	sortPairsVector(pairs, jacobsthalIndex);
+
+	list = fromPairsToVector(pairs);
+
+	mergeJacobsthalVector(list, pairs, jacobsthalIndex);
 
 	if ( oddArg )
 		binarySearchVector( list, list.begin(), list.end() - 1, oddAlone );
 }
+
 
 double	pMergeVector( char **av, int nbArg )
 {
@@ -263,7 +328,7 @@ double	pMergeVector( char **av, int nbArg )
 
 	end = clock();
 	
-	std::cout << "[VECTOR] After: ";
+	std::cout << (checkVector( list ) ? "\033[1;32m" : "\033[1;31m") << "[VECTOR] After: ";
 	printVector( list );
 	return ( static_cast<double>(end - begin) );
 }

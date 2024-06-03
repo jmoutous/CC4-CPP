@@ -28,15 +28,13 @@ int	main(int ac, char **av)
 		std::cout << av[i] << " ";
 	std::cout << std::endl;
 
-	// double	timeVector = pMergeVector( av, ac - 1 );
+	double	timeVector = pMergeVector( av, ac - 1 );
 	double	timeDeque = pMergeDeque( av, ac - 1 );
 
-	// std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector: " << timeVector << " us" << std::endl;
+	std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector: " << timeVector << " us" << std::endl;
 	std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque:  " << timeDeque << " us" << std::endl;
-	// std::cout << "[FASTEST]: " << (timeVector > timeDeque ? "std::deque" : "std::vector") << std::endl;
-	// std::cout << "(Time difference between std::vector and std::deque: " << std::abs( timeVector - timeDeque ) << " us)" << std::endl;
+	std::cout << "[FASTEST]: " << (timeVector > timeDeque ? "std::deque" : "std::vector") << std::endl;
+	std::cout << "(Time difference between std::vector and std::deque: " << std::abs( timeVector - timeDeque ) << " us)" << std::endl;
 
 	return (0);
 }
-
-// fonctionne avec 5 args mais pas plus
