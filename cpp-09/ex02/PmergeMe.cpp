@@ -12,22 +12,6 @@
 
 #include "PmergeMe.hpp"
 
-void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex );
-
-static bool	checkDeque( std::deque< int > list )
-{
-	if( list .size() < 2 )
-		return ( true );
-
-	for ( std::deque< int >::iterator it = list.begin() + 1; it != list.end(); ++it)
-	{
-		if ( *(it -1) > *it )
-			return (false);
-	}
-	return ( true );
-}
-
-
 static bool	checkArg( char *arg )
 {
 	int	i = 0;
@@ -103,6 +87,8 @@ static int	jacobsthal( int i )
 	else
 		return ( jacobsthal(i - 1) + 2 * jacobsthal(i - 2) );
 }
+
+// VECTOR ALGORITHM
 
 static std::vector< int >	buildJacobsthalVector( int nbArg )
 {
@@ -282,6 +268,23 @@ double	pMergeVector( char **av, int nbArg )
 	return ( static_cast<double>(end - begin) );
 }
 
+// DEQUE ALGORITHM
+
+void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex );
+
+static bool	checkDeque( std::deque< int > list )
+{
+	if( list .size() < 2 )
+		return ( true );
+
+	for ( std::deque< int >::iterator it = list.begin() + 1; it != list.end(); ++it)
+	{
+		if ( *(it -1) > *it )
+			return (false);
+	}
+	return ( true );
+}
+
 static std::deque< int >	buildJacobsthalDeque( int nbArg )
 {
 	std::deque< int >	sequence;
@@ -374,7 +377,7 @@ static void	binarySearchDeque( std::deque< int > & list, std::deque< int >::iter
 	binarySearchDeque( list, low, high, item );
 }
 
-static void	makePairs( std::deque< int > & list, std::deque< std::pair< int, int> >	& pairs, int & oddAlone )
+static void	makePairsDeque( std::deque< int > & list, std::deque< std::pair< int, int> >	& pairs, int & oddAlone )
 {
 	int		size = list.size();
 	int		nbPair = size / 2;
@@ -437,7 +440,7 @@ static void	fromDequetoPairs( std::deque< std::pair< int, int> > & pairs, std::d
 	}
 }
 
-static void	sortPairs( std::deque< std::pair< int, int> > & pairs, std::deque< int > & jacobsthalIndex )
+static void	sortPairsDeque( std::deque< std::pair< int, int> > & pairs, std::deque< int > & jacobsthalIndex )
 {
 	if ( pairs.size() > 2)
 	{
@@ -452,7 +455,7 @@ static void	sortPairs( std::deque< std::pair< int, int> > & pairs, std::deque< i
 	}
 }
 
-static void mergeJacobsthal( std::deque< int > & list, std::deque< std::pair< int, int> > & pairs, std::deque< int > & jacobsthalIndex)
+static void mergeJacobsthalDeque( std::deque< int > & list, std::deque< std::pair< int, int> > & pairs, std::deque< int > & jacobsthalIndex)
 {
 	if ( pairs.size() == 1 )
 		list.push_front(pairs.at(0).second);
@@ -479,13 +482,13 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 
 	std::deque< std::pair< int, int> >	pairs;
 
-	makePairs(list, pairs, oddAlone);
+	makePairsDeque(list, pairs, oddAlone);
 
-	sortPairs(pairs, jacobsthalIndex);
+	sortPairsDeque(pairs, jacobsthalIndex);
 
 	list = fromPairsToDeque(pairs);
 
-	mergeJacobsthal(list, pairs, jacobsthalIndex);
+	mergeJacobsthalDeque(list, pairs, jacobsthalIndex);
 
 	if ( oddArg )
 		binarySearchDeque( list, list.begin(), list.end() - 1, oddAlone );
