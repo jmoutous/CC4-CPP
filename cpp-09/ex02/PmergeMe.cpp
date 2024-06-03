@@ -372,24 +372,10 @@ static void	binarySearchDeque( std::deque< int > & list, std::deque< int >::iter
 	binarySearchDeque( list, low, high, item );
 }
 
-std::deque< int >	fromPairsToDeque( std::deque< std::pair< int, int> > & pairs )
+static void	makePairs( std::deque< int > & list, std::deque< std::pair< int, int> >	& pairs, int & oddAlone )
 {
-	std::deque< int >	dequeList;
-
-	for ( std::deque< std::pair< int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it )
-		dequeList.push_back(it->first);
-
-	return ( dequeList );
-}
-
-void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
-{
-	int	size = list.size();
-	int	nbPair = size / 2;
-	bool	oddArg = ( size % 2 == 0 ? false : true );
-
-	std::deque< std::pair< int, int> >	pairs;
-	int									oddAlone = 0;
+	int		size = list.size();
+	int		nbPair = size / 2;
 
 	for ( int i = 0; i < nbPair; ++i )
 	{
@@ -418,25 +404,65 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 		oddAlone = list.at(0);
 		list.pop_back();
 	}
+}
 
-	std::cout << "Before sorting:" << std::endl;
-	printDequePairs(pairs);
+static std::deque< int >	fromPairsToDeque( std::deque< std::pair< int, int> > & pairs )
+{
+	std::deque< int >	dequeList;
+
+	for ( std::deque< std::pair< int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it )
+		dequeList.push_back(it->first);
+
+	return ( dequeList );
+}
+
+static void	fromDequetoPairs( std::deque< std::pair< int, int> > & pairs, std::deque< int > & sortedDeque )
+{
+	int	i = 0;
+	for ( std::deque< int >::iterator it = sortedDeque.begin(); it != sortedDeque.end(); ++it)
+	{
+		int	j = 0;
+		for ( std::deque< std::pair< int, int> >::iterator dIt = pairs.begin(); dIt != pairs.end(); ++dIt)
+		{
+			if (*it == dIt->first)
+			{
+				std::swap(pairs.at(i), pairs.at(j));
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
+{
+	bool	oddArg = ( list.size() % 2 == 0 ? false : true );
+	int		oddAlone = 0;
+
+	std::deque< std::pair< int, int> >	pairs;
+
+	makePairs(list, pairs, oddAlone);
+
+	// std::cout << "Before sorting:" << std::endl;
+	// printDequePairs(pairs);
 	
 	if ( pairs.size() > 2)
 	{
 		std::deque< int >	toBeSorted = fromPairsToDeque(pairs);
 		dequeAlgo(toBeSorted, jacobsthalIndex);
+		fromDequetoPairs(pairs, toBeSorted);
 	}
-	else
+	else if ( pairs.size() == 2)
 	{
 		if ( pairs.at(0).first > pairs.at(1).first )
 			std::swap(pairs.at(0), pairs.at(1));
 	}
 
-	std::cout << "After sorting:" << std::endl;
-	printDequePairs(pairs);
+	// std::cout << "After sorting:" << std::endl;
+	// printDequePairs(pairs);
 
-	int	i = 0;
+	unsigned long	i = 0;
 	for ( std::deque< std::pair< int, int > >::iterator it = pairs.begin(); it != pairs.end(); ++it )
 	{
 		int	item = pairs.at(i).first;
@@ -444,16 +470,27 @@ void	dequeAlgo( std::deque< int > & list, std::deque< int > & jacobsthalIndex )
 		i++;
 	}
 
-	i = 0;
-	for ( std::deque< int >::iterator it = jacobsthalIndex.begin(); it != jacobsthalIndex.end(); ++it )
-	{
-		int item = pairs.at(jacobsthalIndex.at(i)).second;
+	// std::cout << "\tBefore binary search\n\tlist = ";
+	// printDeque(list);
 
-		std::deque< int >::iterator high = list.end() - 1;
-		findHighDeque(list, pairs.at(jacobsthalIndex.at(i)).first, high);
-		binarySearchDeque(list, list.begin(), high, item);
-		i++;
+	if ( pairs.size() == 1 )
+		list.push_front(pairs.at(0).second);
+	else
+	{
+		for ( i = 0; i < jacobsthalIndex.size(); ++i )
+		{
+			unsigned long	index = jacobsthalIndex.at(i);
+			if ( index >= pairs.size() )
+				continue;
+			int 			item = pairs.at(index).second;
+
+			std::deque< int >::iterator high = list.end() - 1;
+			findHighDeque(list, pairs.at(jacobsthalIndex.at(i)).first, high);
+			binarySearchDeque(list, list.begin(), high, item);
+		}
 	}
+	// std::cout << "\tAfter binary search\n\tlist = ";
+	// printDeque(list);
 
 	if ( oddArg )
 		binarySearchDeque( list, list.begin(), list.end() - 1, oddAlone );
