@@ -181,7 +181,9 @@ static void	binarySearchVector( std::vector< int > & list, std::vector< int >::i
 
 	if ( *low == *high || *low == *mid)
 	{
-		if ( item > *low )
+		if ( item > *high )
+			return ( (void) list.insert(high + 1, item) );
+		else if ( item > *low )
 			return ( (void) list.insert(low + 1, item) );
 		else
 			return ( (void) list.insert(low, item) );
