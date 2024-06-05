@@ -16,7 +16,11 @@ void	checkElement( std::string element)
 {
 	if (isdigit(element[0]) == false && element != "+" && element != "-" && element != "/" && element != "*")
 	{
-		std::string	error = "Error: invalid element: " + element;
+		std::string	error;
+		if (element[0] == ' ')
+			error = "Error: invalid element";
+		else
+			error = "Error: invalid element: " + element;
 		throw std::runtime_error(error);
 	}
 }
