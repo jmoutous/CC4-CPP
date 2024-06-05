@@ -39,6 +39,24 @@ void printVector( std::vector< T > const & listVector)
 }
 
 template< typename T >
+void printVectorPairs( std::vector< T > const & listVector)
+{
+	typename std::vector< T >::const_iterator	it;
+
+	std::cout << "first:\t";
+	for (it = listVector.begin(); it != listVector.end(); ++it)
+		std::cout << it->first << "\t";
+
+	std::cout << std::endl;
+	
+	std::cout << "second:\t";
+	for (it = listVector.begin(); it != listVector.end(); ++it)
+		std::cout << it->second << "\t";
+
+	std::cout << std::endl;
+}
+
+template< typename T >
 void printDeque( std::deque< T > const & listDeque)
 {
 	typename std::deque< T >::const_iterator	it;
