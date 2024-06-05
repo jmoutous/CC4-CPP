@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RNP.hpp"
+#include "RPN.hpp"
 
 int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Error. Usage: ./RNP \"n1 n2 + ...\"\nYou must provide at least 2 numbers followed by an operation (+ - / *)" << std::endl;
+		std::cerr << "Error. Usage: ./RPN \"n1 n2 + ...\"\nYou must provide at least 2 numbers followed by an operation (+ - / *)" << std::endl;
 		return (1);
 	}
 

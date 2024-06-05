@@ -5,11 +5,11 @@ CC = c++ -std=c++98
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCES	=	main.cpp			\
-			RNP.cpp
+			RPN.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-HEADERS =	RNP.hpp
+HEADERS =	RPN.hpp
 
 #  ==============================  RULES  ===============================  #
 
